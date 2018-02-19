@@ -7,9 +7,51 @@
 import React, { Component } from 'react';
 import {
   ActivityIndicator, ListView, Text, View, TextInput, Button, Alert, AppRegistry, DrawerLayoutAndroid,
-  ActionBar, StyleSheet,
+  ActionBar, StyleSheet, TouchableHighlight, Image,
 } from 'react-native';
 import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
+
+import { Navigation } from 'react-native-navigation';
+
+import { registerScreens } from './screens';
+
+registerScreens(); // this is where you register all of your app's screens
+
+// start the app
+// https://wix.github.io/react-native-navigation/#/styling-the-navigator
+Navigation.startTabBasedApp({
+  tabs: [
+    {
+      label: 'One T',
+      screen: 'example.FirstTabScreen', // this is a registered name for a screen
+      icon: require('./first.png'),
+      // selectedIcon: require('../img/one_selected.png'), // iOS only
+      title: 'Screen One',
+      navigatorStyle: { navBarHidden: true },
+    },
+    {
+      label: 'Two',
+      screen: 'example.SecondTabScreen',
+      icon: require('./second.png'),
+      // selectedIcon: require('../img/two_selected.png'), // iOS only
+      title: 'Screen Two'
+    },
+    {
+      label: '3',
+      screen: 'example.ThirdTabScreen',
+      icon: require('./second.png'),
+      // selectedIcon: require('../img/two_selected.png'), // iOS only
+      title: 'Screen 3'
+    },
+    // {
+    //   label: 'Qr',
+    //   screen: 'example.QrCode',
+    //   icon: require('./second.png'),
+    //   // selectedIcon: require('../img/two_selected.png'), // iOS only
+    //   title: 'QR CODE'
+    // }
+  ],
+});
 
 const TopNavigation = () => (
   <View style={{ padding: 10, flexDirection: 'row', backgroundColor: 'pink' }}>
@@ -79,7 +121,7 @@ export default class App extends Component {
     return (
       <DrawerLayoutAndroid
         drawerWidth={300}
-        ref={(_drawer) =>  this.drawer = _drawer  }
+        ref={(_drawer) => this.drawer = _drawer}
         drawerPosition={DrawerLayoutAndroid.positions.Left}
         renderNavigationView={() => navigationView}>
 
@@ -90,10 +132,15 @@ export default class App extends Component {
             color="#841584"
             accessibilityLabel="Learn more about this purple button"
           />
+          <TouchableHighlight onPress={this.openDrawer}>
+            <Image
+              source={require('./teste.png')}
+            />
+          </TouchableHighlight>
           <Text style={{ margin: 10, fontSize: 15, textAlign: 'right' }}>Hello</Text>
           <Text style={{ margin: 10, fontSize: 15, textAlign: 'right' }}>World!</Text>
         </View>
-      </DrawerLayoutAndroid>
+      </DrawerLayoutAndroid >
       // You need to place a MenuContext somewhere in your application, usually at the root.//   
       // Menus will open within the context, and only one menu can open at a time per context.
       // <MenuContext style={{ flex: 1 }}>
