@@ -24,7 +24,7 @@ Navigation.startTabBasedApp({
     {
       label: 'One T',
       screen: 'example.FirstTabScreen', // this is a registered name for a screen
-      icon: require('./first.png'),
+      icon: require('./assets/first.png'),
       // selectedIcon: require('../img/one_selected.png'), // iOS only
       title: 'Screen One',
       navigatorStyle: { navBarHidden: true },
@@ -32,14 +32,14 @@ Navigation.startTabBasedApp({
     {
       label: 'Two',
       screen: 'example.SecondTabScreen',
-      icon: require('./second.png'),
+      icon: require('./assets/second.png'),
       // selectedIcon: require('../img/two_selected.png'), // iOS only
       title: 'Screen Two'
     },
     {
       label: '3',
       screen: 'example.ThirdTabScreen',
-      icon: require('./second.png'),
+      icon: require('./assets/second.png'),
       // selectedIcon: require('../img/two_selected.png'), // iOS only
       title: 'Screen 3'
     },
