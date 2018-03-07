@@ -31,16 +31,14 @@ export default class Login extends Component {
 
   _loadInitialState = async () => {
     try {
-      var value = await AsyncStorage.getItem('@MySuperStore:key');
+      var value = await AsyncStorage.getItem('Login');
       if (value !== null) {
         this.setState({ text: value });
-        Alert.alert('if');
         this.props.navigator.resetTo({
           screen: 'example.FirstTabScreen',
           title: 'first'
         });
       } else {
-        Alert.alert('else');
       }
     } catch (error) {
       Alert.alert('AsyncStorage error: ' + error.message);
@@ -52,7 +50,7 @@ export default class Login extends Component {
 
   onPressBtn= async () => {   
     try {
-      await AsyncStorage.setItem('@MySuperStore:key', 'logado');
+      await AsyncStorage.setItem('Login', 'logado');
       this._loadInitialState().done();
     } catch (error) {
       // Error saving data
