@@ -5,7 +5,10 @@ import {
   StyleSheet,
   Text,
   View,
-  Alert
+  Alert,
+  TextInput,
+  Button,
+  AsyncStorage,
 } from 'react-native';
 
 export default class FirstTabScreen extends Component {
@@ -20,11 +23,42 @@ export default class FirstTabScreen extends Component {
   };
 
   render() {
+    var listItems = this.state.cart.map(function(item) {
+      return (
+        <Text>
+         {item}
+          </Text>
+      );
+    });
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          first
+          Lista:
         </Text>
+        {listItems}
+        <Text style={styles.welcome}>
+         Fim  Lista:
+        </Text>
+
+        <TextInput
+          style={{ height: 40, width: 120 }}
+          placeholder="Type here to translate!"
+          value={this.state.texto}
+          onChangeText={(texto) => this.setState({ texto })}
+        />
+        <Button
+          onPress={this.adicionar.bind(this)}
+          title="adicionar"
+          color="#841584"
+          accessibilityLabel="adicion"
+        />
+        <Button
+          onPress={this.salvar.bind(this)}
+          title="salvar"
+          color="#841584"
+          accessibilityLabel="save"
+        />
       </View>
     );
   }
@@ -36,6 +70,54 @@ export default class FirstTabScreen extends Component {
     });
     // if you want to listen on navigator events, set this up
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    this.state = {
+      cart: [],
+      texto: '',
+    }
+  }
+
+  componentDidMount() {
+    this._loadInitialState().done();
+  }
+
+  _loadInitialState = async () => {
+    try {
+      var value = await AsyncStorage.getItem('Cart');
+      if (value !== null) {
+        Alert.alert(value);
+        let getCart = JSON.parse(value);
+        this.setState({ cart: getCart });
+      } else {
+      }
+    } catch (error) {
+      Alert.alert('AsyncStorage error: ' + error.message);
+    }
+    this.setState({
+      isLoading: false,
+    });
+  };
+
+  adicionar() {
+    let newCart;
+    try{
+      newCart = this.state.cart;
+    }catch(error){
+      newCart = [];
+    }
+    Alert.alert(JSON.stringify(newCart));
+    newCart.push(this.state.texto);
+    this.setState({ cart: newCart });
+  }
+
+  salvar = async () => {
+    try {
+      let setCart = JSON.stringify(this.state.cart);
+      Alert.alert(setCart);
+      await AsyncStorage.setItem('Cart', setCart);
+      this._loadInitialState().done();
+    } catch (error) {
+      // Error saving data
+    }
   }
 
   onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
