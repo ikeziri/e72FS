@@ -15,16 +15,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class FirstTabScreen extends Component {
 
-  static navigatorButtons = {
-    leftButtons: [
-      {
-        title: 'menu',
-        id: 'menu',
-        icon: require('../assets/teste.png'),
-      }
-    ],
-  };
-
   render() {
     var listItems = this.state.cart.map(function (item) {
       return (
@@ -52,6 +42,12 @@ export default class FirstTabScreen extends Component {
           onChangeText={(texto) => this.setState({ texto })}
         />
         <Button
+          onPress={this._loadIcon.bind(this)}
+          title="LoadIcon"
+          color="#841584"
+          accessibilityLabel="adicion"
+        />
+        <Button
           onPress={this.adicionar.bind(this)}
           title="adicionar"
           color="#841584"
@@ -77,19 +73,31 @@ export default class FirstTabScreen extends Component {
     this.state = {
       cart: [],
       texto: '',
+      backIcon: {},
     }
   }
 
   componentDidMount() {
     this._loadInitialState().done();
+    this._loadIcon().done();
   }
 
   _loadIcon = async () => {
-    try{
-    Icon.getImageSource('md-arrow-back', 30).then((source) => this.setState({ backIcon: source }));
-  }catch(error){
-    Alert.alert('deu merda ' + error.message);
-  }
+    try {
+      Icon.getImageSource('md-menu', 30).then((source) => {
+        this.props.navigator.setButtons({
+          leftButtons: [
+            {
+              title: 'menu',
+              id: 'menu',
+              icon: source
+            }
+          ],
+        });
+      });
+    } catch (error) {
+      Alert.alert('deu merda ' + error.message);
+    } 
   }
 
   _loadInitialState = async () => {
