@@ -11,7 +11,10 @@ import {
   AsyncStorage,
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/Ionicons';
+
 export default class FirstTabScreen extends Component {
+
   static navigatorButtons = {
     leftButtons: [
       {
@@ -23,22 +26,23 @@ export default class FirstTabScreen extends Component {
   };
 
   render() {
-    var listItems = this.state.cart.map(function(item) {
+    var listItems = this.state.cart.map(function (item) {
       return (
         <Text>
-         {item}
-          </Text>
+          {item}
+        </Text>
       );
     });
 
     return (
       <View style={styles.container}>
+        <Icon name="md-menu" size={30} color="#4F8EF7" />
         <Text style={styles.welcome}>
           Lista:
         </Text>
         {listItems}
         <Text style={styles.welcome}>
-         Fim  Lista:
+          Fim  Lista:
         </Text>
 
         <TextInput
@@ -80,6 +84,14 @@ export default class FirstTabScreen extends Component {
     this._loadInitialState().done();
   }
 
+  _loadIcon = async () => {
+    try{
+    Icon.getImageSource('md-arrow-back', 30).then((source) => this.setState({ backIcon: source }));
+  }catch(error){
+    Alert.alert('deu merda ' + error.message);
+  }
+  }
+
   _loadInitialState = async () => {
     try {
       var value = await AsyncStorage.getItem('Cart');
@@ -99,9 +111,9 @@ export default class FirstTabScreen extends Component {
 
   adicionar() {
     let newCart;
-    try{
+    try {
       newCart = this.state.cart;
-    }catch(error){
+    } catch (error) {
       newCart = [];
     }
     Alert.alert(JSON.stringify(newCart));
