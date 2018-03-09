@@ -135,7 +135,6 @@ export default class FirstTabScreen extends Component {
   onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
     if (event.type == 'NavBarButtonPress') { // this is the event type for button presses
       if (event.id == 'menu') { // this is the same id field from the static navigatorButtons definition
-        Alert.alert('NavBar', 'menu button pressed');
         this.props.navigator.toggleDrawer({
           side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
           animated: true, // does the toggle have transition animation or does it happen immediately (optional)
