@@ -43,9 +43,6 @@ export default class Login extends Component {
     } catch (error) {
       Alert.alert('AsyncStorage error: ' + error.message);
     }
-    this.setState({
-      isLoading: false,
-    });
   };
 
   onPressBtn= async () => {   
