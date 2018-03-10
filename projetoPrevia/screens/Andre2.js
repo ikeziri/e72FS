@@ -8,18 +8,18 @@ import {
 } from 'react-native';
 
 
-import { setDrawerOn } from '../functions/app-functions';
+import { setDrawerOff } from '../functions/app-functions';
 
 export default class Andre extends Component {
   constructor(props) {
     super(props);
-    setDrawerOn(this);
+    setDrawerOff(this);
   }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-            com Drawer
+            sem drawer
         </Text>
       </View>
     );
