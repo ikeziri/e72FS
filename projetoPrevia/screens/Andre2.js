@@ -9,6 +9,7 @@ import {
 
 
 import { setDrawerOff } from '../functions/app-functions';
+import { cadastro, cartao } from '../objects/app-objects';
 
 export default class Andre extends Component {
   constructor(props) {
@@ -16,11 +17,19 @@ export default class Andre extends Component {
     setDrawerOff(this);
   }
   render() {
+    let dadosCartao = (
+      <Text>
+        Nome do cartão: {cartao.nome}
+      </Text>
+    );
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-            sem drawer
+          sem drawer
         </Text>
+        {cartao.nome &&
+          dadosCartao
+        }
       </View>
     );
   }
