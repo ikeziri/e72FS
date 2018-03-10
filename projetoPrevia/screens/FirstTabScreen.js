@@ -13,8 +13,9 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default class FirstTabScreen extends Component {
+import { setDrawerOn } from '../functions/app-functions';
 
+export default class FirstTabScreen extends Component {
   render() {
     var listItems = this.state.cart.map(function (item) {
       return (
@@ -26,7 +27,6 @@ export default class FirstTabScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Icon name="md-menu" size={30} color="#4F8EF7" />
         <Text style={styles.welcome}>
           Lista:
         </Text>
@@ -40,12 +40,6 @@ export default class FirstTabScreen extends Component {
           placeholder="Type here to translate!"
           value={this.state.texto}
           onChangeText={(texto) => this.setState({ texto })}
-        />
-        <Button
-          onPress={this._loadIcon.bind(this)}
-          title="LoadIcon"
-          color="#841584"
-          accessibilityLabel="adicion"
         />
         <Button
           onPress={this.adicionar.bind(this)}
@@ -64,22 +58,15 @@ export default class FirstTabScreen extends Component {
   }
   constructor(props) {
     super(props);
-    this.props.navigator.setDrawerEnabled({
-      side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
-      enabled: true // should the drawer be enabled or disabled (locked closed)
-    });
-    // if you want to listen on navigator events, set this up
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    setDrawerOn(this);
     this.state = {
       cart: [],
       texto: '',
-      backIcon: {},
     }
   }
 
   componentDidMount() {
     this._loadInitialState().done();
-    this._loadIcon().done();
   }
 
   _loadIcon = async () => {
@@ -90,7 +77,8 @@ export default class FirstTabScreen extends Component {
             {
               title: 'menu',
               id: 'menu',
-              icon: source
+              // icon: source
+              icon: iconsMap['ios-person--active']
             }
           ],
         });
@@ -137,18 +125,6 @@ export default class FirstTabScreen extends Component {
       this._loadInitialState().done();
     } catch (error) {
       // Error saving data
-    }
-  }
-
-  onNavigatorEvent(event) { // this is the onPress handler for the two buttons together
-    if (event.type == 'NavBarButtonPress') { // this is the event type for button presses
-      if (event.id == 'menu') { // this is the same id field from the static navigatorButtons definition
-        this.props.navigator.toggleDrawer({
-          side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
-          animated: true, // does the toggle have transition animation or does it happen immediately (optional)
-          to: 'open' // optional, 'open' = open the drawer, 'closed' = close it, missing = the opposite of current state
-        });
-      }
     }
   }
 }

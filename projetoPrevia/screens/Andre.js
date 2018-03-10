@@ -7,7 +7,18 @@ import {
   View
 } from 'react-native';
 
+
+import { setDrawerOn } from '../functions/app-functions';
+
 export default class Andre extends Component {
+  constructor(props) {
+    super(props);
+    setDrawerOn(this);
+    this.state = {
+      cart: [],
+      texto: '',
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
