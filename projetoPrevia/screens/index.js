@@ -11,6 +11,8 @@ import Andre2 from './Andre2';
 import PA from './PA';
 import Lorran1 from './Lorran1';
 import Lorran2 from './Lorran2';
+import Camera from './Camera';
+import LeitorQrCode from './LeitorQrCode';
 
 // register all screens of the app (including internal ones)
 export function registerScreens() {
@@ -25,4 +27,6 @@ export function registerScreens() {
   Navigation.registerComponent('example.PA', () => PA);
   Navigation.registerComponent('example.Lorran1', () => Lorran1);
   Navigation.registerComponent('example.Lorran2', () => Lorran2);
+  Navigation.registerComponent('example.Camera', () => Camera);
+  Navigation.registerComponent('example.LeitorQrCode', () => LeitorQrCode);
 }

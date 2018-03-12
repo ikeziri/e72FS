@@ -40,6 +40,19 @@ function onNavigatorEvent(event) { // this is the onPress handler for the two bu
         to: 'open' // optional, 'open' = open the drawer, 'closed' = close it, missing = the opposite of current state
       });
     }
+  }else{
+    Alert.alert('event.id: ' + event.id);
+    switch(event.id) {
+      case 'willAppear':
+       break;
+      case 'didAppear':
+        break;
+      case 'willDisappear':
+        break;
+      case 'didDisappear':
+        break;
+      case 'willCommitPreview':
+        break;
   }
 }
 

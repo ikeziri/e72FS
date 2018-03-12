@@ -39,6 +39,7 @@ export default class Login extends Component {
           title: 'first'
         });
       } else {
+        this.setState({isLoading: false});
       }
     } catch (error) {
       Alert.alert('AsyncStorage error: ' + error.message);

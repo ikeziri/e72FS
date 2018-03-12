@@ -3,6 +3,7 @@ package com.projetoprevia;
 import com.reactnativenavigation.NavigationApplication;
 
 import com.facebook.react.ReactApplication;
+import org.reactnative.camera.RNCameraPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -24,6 +25,7 @@ public class MainApplication extends NavigationApplication implements ReactAppli
         protected List<ReactPackage> getPackages() {
             return Arrays.<ReactPackage>asList(
                     new MainReactPackage(),
+            new RNCameraPackage(),
                     new VectorIconsPackage()
             );
         }
@@ -41,8 +43,8 @@ public class MainApplication extends NavigationApplication implements ReactAppli
 
     @Override
     public void onCreate() {
-        super.onCreate();
         SoLoader.init(this, /* native exopackage */ false);
+                super.onCreate();
     }
 
     @Override
@@ -55,7 +57,8 @@ public class MainApplication extends NavigationApplication implements ReactAppli
         // Add additional packages you require here
         // No need to add RnnPackage and MainReactPackage
         return Arrays.<ReactPackage>asList(
-                new VectorIconsPackage()
+                new VectorIconsPackage(),
+                new RNCameraPackage()
                 // eg. new VectorIconsPackage()
         );
     }

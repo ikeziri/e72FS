@@ -51,36 +51,48 @@ export default class Drawer extends Component {
           title: 'exemplo com Drawer'
         });
         break;
-        case 6:
+      case 6:
         this.props.navigator.push({
           screen: 'example.PA',
           title: 'PA'
         });
         break;
-        case 7:
+      case 7:
         this.props.navigator.push({
           screen: 'example.Lorran1',
           title: 'Lorran1'
         });
         break;
-        case 8:
+      case 8:
         this.props.navigator.push({
           screen: 'example.Lorran2',
           title: 'Lorran2'
         });
         break;
-        case 9:
-          this.props.navigator.push({
-            screen: 'example.Andre2',
-            title: 'exemplo sem Drawer'
-          });
-          break;
-      }
+      case 9:
+        this.props.navigator.push({
+          screen: 'example.Andre2',
+          title: 'exemplo sem Drawer'
+        });
+        break;
+      case 10:
+        this.props.navigator.push({
+          screen: 'example.Camera',
+          title: 'camera'
+        });
+        break;
+      case 11:
+        this.props.navigator.push({
+          screen: 'example.LeitorQrCode',
+          title: 'QrCode'
+        });
+        break;
+    }
   }
 
   deslogar = async () => {
     try {
-      await AsyncStorage.removeItem('@MySuperStore:key');
+      await AsyncStorage.removeItem('Login');
       this.props.navigator.resetTo({
         screen: 'example.Login',
         title: 'Login'
@@ -99,6 +111,8 @@ export default class Drawer extends Component {
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(3)}>Item 3</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(5)}>Andre</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(9)}>Andre2</Text>
+        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(10)}>Camera</Text>
+        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(11)}>LeitorQrCode</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(6)}>PA</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(7)}>Lorran1</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(8)}>Lorran1</Text>
