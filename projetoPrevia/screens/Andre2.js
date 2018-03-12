@@ -14,6 +14,7 @@ import { cadastro, cartao } from '../objects/app-objects';
 export default class Andre extends Component {
   constructor(props) {
     super(props);
+    this.teste ='teste';
     setDrawerOff(this);
   }
   render() {
@@ -34,6 +35,7 @@ export default class Andre extends Component {
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {

@@ -31,6 +31,14 @@ export default class LeitorQrCode extends Component {
     };
   }
 
+  takePicture = () => {
+    cartao.setNome('teste camera');
+    this.props.navigator.pop({
+      animated: true, // does the pop have transition animation or does it happen immediately (optional)
+      animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
+    });
+  };
+
   onBarCodeRead(e) {
     cartao.setNome(e.data);
     this.props.navigator.pop({
@@ -60,6 +68,11 @@ export default class LeitorQrCode extends Component {
           permissionDialogTitle="Sample title"
           permissionDialogMessage="Sample dialog message"
         />
+        <View style={[styles.overlay, styles.bottomOverlay]}>
+          <TouchableOpacity style={styles.captureButton} onPress={this.takePicture.bind(this)}>
+            <Image source={require('../assets/ic_photo_camera_36pt.png')} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

@@ -1,4 +1,8 @@
 import { iconsMap } from '../icons/app-icons';
+import {
+  Alert,
+} from 'react-native';
+
 
 function setDrawerOff(that) {
   that.props.navigator.setDrawerEnabled({
@@ -41,19 +45,11 @@ function onNavigatorEvent(event) { // this is the onPress handler for the two bu
       });
     }
   } else {
-    Alert.alert('event.id: ' + event.id);
-    switch (event.id) {
-      case 'willAppear':
-        break;
-      case 'didAppear':
-        break;
-      case 'willDisappear':
-        break;
-      case 'didDisappear':
-        break;
-      case 'willCommitPreview':
-        break;
+    try{
+      this.onNavigation(event.id);
+    }catch(error){
     }
+    
   }
 }
 
