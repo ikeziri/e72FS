@@ -45,24 +45,12 @@ export default class Andre extends Component {
   }
 
   adicionar() {
-   cartao.setNome(this.state.nome);
-   console.log(cartao.toString());
+    cartao.setNome(this.state.nome);
+    console.log(cartao.toString());
   }
 
-  onNavigation(eventId){
-    switch (eventId) {
-      case 'willAppear':
-        break;
-      case 'didAppear':
-        this.setState({nome: cartao.nome});
-        break;
-      case 'willDisappear':
-        break;
-      case 'didDisappear':
-        break;
-      case 'willCommitPreview':
-        break;
-    }
+  onAppear() {
+    this.setState({ nome: cartao.nome });
   }
 }
 

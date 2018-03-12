@@ -45,11 +45,24 @@ function onNavigatorEvent(event) { // this is the onPress handler for the two bu
       });
     }
   } else {
-    try{
-      this.onNavigation(event.id);
-    }catch(error){
+    try {
+      switch (event.id) {
+        case 'willAppear':
+          break;
+        case 'didAppear':
+          this.onAppear();
+          break;
+        case 'willDisappear':
+          break;
+        case 'didDisappear':
+          this.onDisappear();
+          break;
+        case 'willCommitPreview':
+          break;
+      }
+    } catch (error) {
     }
-    
+
   }
 }
 
