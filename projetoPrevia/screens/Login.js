@@ -1,14 +1,16 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
   Text,
   View,
   Alert,
-  AsyncStorage,
-  ActivityIndicator,
+  Image,
   Button,
+  StyleSheet,
+  AppRegistry,
+  AsyncStorage,
+  TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 
 export default class Login extends Component {
@@ -64,17 +66,36 @@ export default class Login extends Component {
       );
     }
     return (
-      <View >
-        <Text >
-          Tela Login
-        </Text>
-        <Button
-          onPress={this.onPressBtn}
-          title="Logar"
-          color="#841584"
-          accessibilityLabel="Logar"
-        />
+      <View style={styles.container}>
+        <Image style={styles.fundoTela}
+        source={require('../images/logo-descomplica.png')}
+         />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={this.onPress} >
+          <Text style={styles.textButton}> Entrar </Text>
+        </TouchableOpacity>
       </View>
     );
   };
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#0A263C' //Fundo principal da tela
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#0A263C',
+    padding: 10,
+    borderRadius: 20,
+    marginTop: 10,
+  },
+  textButton: {
+    fontSize: 30,
+    color: '#fff',
+  },
+});
