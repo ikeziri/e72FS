@@ -15,6 +15,8 @@ function setDrawerOff(that) {
       }
     ],
   });
+  // if you want to listen on navigator events, set that up
+  that.props.navigator.setOnNavigatorEvent(onNavigatorEvent.bind(that));
 }
 
 function setDrawerOn(that) {

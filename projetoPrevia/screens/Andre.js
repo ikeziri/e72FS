@@ -12,7 +12,7 @@ import {
 
 
 import { setDrawerOn } from '../functions/app-functions';
-import { cadastro, cartao } from '../objects/app-objects';
+import { cadastro, cartao, qrCode } from '../objects/app-objects';
 
 export default class Andre extends Component {
   constructor(props) {
@@ -50,7 +50,7 @@ export default class Andre extends Component {
   }
 
   onAppear() {
-    this.setState({ nome: cartao.nome });
+    this.setState({ nome: qrCode.data });
   }
 }
 

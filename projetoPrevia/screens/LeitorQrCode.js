@@ -12,7 +12,7 @@ import {
 import Camera from 'react-native-camera';
 
 import { setDrawerOff } from '../functions/app-functions';
-import { cadastro, cartao } from '../objects/app-objects';
+import { qrCode } from '../objects/app-objects';
 
 export default class LeitorQrCode extends Component {
   constructor(props) {
@@ -32,7 +32,8 @@ export default class LeitorQrCode extends Component {
   }
 
   takePicture = () => {
-    cartao.setNome('teste camera');
+    qrCode.setType('qr');
+    qrCode.setData('teste camera');
     this.props.navigator.pop({
       animated: true, // does the pop have transition animation or does it happen immediately (optional)
       animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
@@ -40,7 +41,8 @@ export default class LeitorQrCode extends Component {
   };
 
   onBarCodeRead(e) {
-    cartao.setNome(e.data);
+    qrCode.setType(e.type);
+    qrCode.setData(e.data);
     this.props.navigator.pop({
       animated: true, // does the pop have transition animation or does it happen immediately (optional)
       animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the pop have different transition animation (optional)
