@@ -17,6 +17,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { setDrawerOn } from '../functions/app-functions';
 
 export default class FirstTabScreen extends Component {
+  static navigatorStyle = {
+    navBarBackgroundColor: '#0A263C', //Fundo principal da tela
+    navBarTextColor: '#fff',
+  };
   render() {
     var listItems = this.state.cart.map(function (item) {
       return (
@@ -25,6 +29,7 @@ export default class FirstTabScreen extends Component {
         </Text>
       );
     });
+    
 
     return (
       <View style={styles.container}>
@@ -53,7 +58,7 @@ export default class FirstTabScreen extends Component {
         this.props.navigator.setButtons({
           leftButtons: [
             {
-              title: 'Menusss',
+              title: 'Menu',
               id: 'menu',
               // icon: source
               icon: iconsMap['ios-person--active']
@@ -81,6 +86,7 @@ export default class FirstTabScreen extends Component {
     this.setState({
       isLoading: false,
     });
+    
   };
 
   adicionar() {

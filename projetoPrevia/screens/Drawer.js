@@ -1,12 +1,13 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
   Text,
   View,
   Alert,
-  AsyncStorage
+  Image,
+  StyleSheet,
+  AppRegistry,
+  AsyncStorage,
 } from 'react-native';
 
 export default class Drawer extends Component {
@@ -105,7 +106,18 @@ export default class Drawer extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+      <View style={styles.container}>
+        <View style={styles.containerHeader}>
+              <View style={styles.textosHeader}>
+                <Text style={styles.mensagemInicial}>Você está logado</Text>
+                <Text style={styles.mensagemData}>13 de março de 2018</Text>
+              </View>
+              <Image style={styles.avatarInicio}
+                    source={require('../images/avatar.png')} />
+        </View>
+      </View>
+
+/*      <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(1)}>Item 1</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(2)}>Item 2</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(3)}>Item 3</Text>
@@ -117,7 +129,40 @@ export default class Drawer extends Component {
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(7)}>Lorran1</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(8)}>Lorran1</Text>
         <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(4)}>Deslogar</Text>
-      </View>
+      </View>*/
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0A263C',
+  },
+  containerHeader: {
+    backgroundColor: '#263445',
+    flexDirection: 'row',
+    paddingTop: 30,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    justifyContent: 'space-between',
+  },
+  textosHeader:{
+    flexDirection: 'column',
+  },
+  avatarInicio: {
+    width: 90,
+    height: 90,
+    padding: 10,
+  },
+  mensagemInicial: {
+    color: '#fff',
+    fontSize: 20,
+    paddingBottom: 10,
+  },
+  mensagemData: {
+    color: '#fff',
+    fontSize: 15,
+  },
+});
