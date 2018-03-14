@@ -1,13 +1,14 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
   Text,
   View,
   Alert,
-  TextInput,
+  Image,
   Button,
+  TextInput,
+  StyleSheet,
+  AppRegistry,
   AsyncStorage,
 } from 'react-native';
 
@@ -27,31 +28,8 @@ export default class FirstTabScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Lista:
-        </Text>
-        {listItems}
-        <Text style={styles.welcome}>
-          Fim  Lista:
-        </Text>
-
-        <TextInput
-          style={{ height: 40, width: 120 }}
-          placeholder="Type here to translate!"
-          value={this.state.texto}
-          onChangeText={(texto) => this.setState({ texto })}
-        />
-        <Button
-          onPress={this.adicionar.bind(this)}
-          title="adicionar"
-          color="#841584"
-          accessibilityLabel="adicion"
-        />
-        <Button
-          onPress={this.salvar.bind(this)}
-          title="salvar"
-          color="#841584"
-          accessibilityLabel="save"
+        <Image style={styles.fundoTela}
+               source={require('../images/fundo-tela-inicial.png')}
         />
       </View>
     );
@@ -75,7 +53,7 @@ export default class FirstTabScreen extends Component {
         this.props.navigator.setButtons({
           leftButtons: [
             {
-              title: 'menu',
+              title: 'Menusss',
               id: 'menu',
               // icon: source
               icon: iconsMap['ios-person--active']
@@ -132,9 +110,11 @@ export default class FirstTabScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  },
+  fundoTela: {
+    flex: 1, 
+    justifyContent: 'flex-end',
+    width: 'auto',
   },
   welcome: {
     fontSize: 20,

@@ -38,7 +38,7 @@ export default class Login extends Component {
         this.setState({ text: value });
         this.props.navigator.resetTo({
           screen: 'example.FirstTabScreen',
-          title: 'first'
+          title: 'Menu',
         });
       } else {
         this.setState({isLoading: false});
@@ -67,7 +67,7 @@ export default class Login extends Component {
     }
     return (
       <View style={styles.container}>
-        <Image style={styles.fundoTela}
+        <Image
         source={require('../images/logo-descomplica.png')}
          />
         <TouchableOpacity style={styles.button} >
