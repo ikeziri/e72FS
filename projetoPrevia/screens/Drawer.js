@@ -115,21 +115,21 @@ export default class Drawer extends Component {
               <Image style={styles.avatarInicio}
                     source={require('../images/avatar.png')} />
         </View>
-      </View>
 
-/*      <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(1)}>Item 1</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(2)}>Item 2</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(3)}>Item 3</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(5)}>Andre</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(9)}>Andre2</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(10)}>Camera</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(11)}>LeitorQrCode</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(6)}>PA</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(7)}>Lorran1</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(8)}>Lorran1</Text>
-        <Text style={{ margin: 10, fontSize: 15, textAlign: 'left' }} onPress={() => this.navegar(4)}>Deslogar</Text>
-      </View>*/
+        <View style={styles.contentMenu}>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(1)}>Item 1</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(2)}>Item 2</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(3)}>Item 3</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(5)}>Andre</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(9)}>Andre2</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(10)}>Camera</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(11)}>LeitorQrCode</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(6)}>PA</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(7)}>Lorran1</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(8)}>Lorran1</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(4)}>Deslogar</Text>
+        </View>
+      </View>
     );
   }
 }
@@ -147,9 +147,18 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     justifyContent: 'space-between',
+    height: 150,
   },
   textosHeader:{
     flexDirection: 'column',
+  },
+  contentMenu:{
+    flexDirection: 'column',
+  },
+  itemMenu: {
+    color: '#fff',
+    fontSize: 18,
+    padding: 8,
   },
   avatarInicio: {
     width: 90,
