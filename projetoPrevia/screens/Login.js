@@ -71,7 +71,7 @@ export default class Login extends Component {
         source={require('../images/logo-descomplica.png')}
          />
         <TouchableOpacity style={styles.button} >
-          <Text style={styles.textButton} onPress={this.onPressBtn} > Entrar </Text>
+          <Text style={styles.textButton} onPress={this.onPressBtn} > Fazer login </Text>
         </TouchableOpacity>
       </View>
     );
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   textButton: {
-    fontSize: 30,
+    fontSize: 25,
     color: '#fff',
   },
 });
