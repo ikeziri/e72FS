@@ -14,12 +14,15 @@ import {
 } from 'react-native';
 
 export default class Login extends Component {
+  static navigatorStyle = {
+    navBarHidden: true,
+  };
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
       text: ' ',
-      value: 0
+      value: 0,
     }
     this.props.navigator.setDrawerEnabled({
       side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
@@ -41,7 +44,9 @@ export default class Login extends Component {
           title: 'Menu',
         });
       } else {
-        this.setState({isLoading: false});
+        this.setState({
+          isLoading: false,
+        });
       }
     } catch (error) {
       Alert.alert('AsyncStorage error: ' + error.message);
