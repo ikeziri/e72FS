@@ -70,9 +70,7 @@ export default class Login extends Component {
         <Image style={styles.fundoTela}
         source={require('../images/logo-descomplica.png')}
          />
-        <TouchableOpacity
-          style={styles.button}
-          >
+        <TouchableOpacity style={styles.button} >
           <Text style={styles.textButton} onPress={this.onPressBtn} > Entrar </Text>
         </TouchableOpacity>
       </View>
