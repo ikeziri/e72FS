@@ -8,6 +8,7 @@ import {
   StyleSheet,
   AppRegistry,
   AsyncStorage,
+  TouchableOpacity,
 } from 'react-native';
 
 export default class Drawer extends Component {
@@ -108,9 +109,13 @@ export default class Drawer extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.containerHeader}>
+
               <View style={styles.textosHeader}>
                 <Text style={styles.mensagemInicial}>Você está logado</Text>
                 <Text style={styles.mensagemData}>13 de março de 2018</Text>
+                <TouchableOpacity style={styles.buttonLogout} >
+                <Text style={styles.textButton} onPress={() => this.navegar(4)} > Sair </Text>
+              </TouchableOpacity>   
               </View>
               <Image style={styles.avatarInicio}
                     source={require('../images/avatar.png')} />
@@ -127,7 +132,6 @@ export default class Drawer extends Component {
           <Text style={styles.itemMenu} onPress={() => this.navegar(6)}>PA</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(7)}>Lorran1</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(8)}>Lorran1</Text>
-          <Text style={styles.itemMenu} onPress={() => this.navegar(4)}>Deslogar</Text>
         </View>
       </View>
     );
@@ -173,5 +177,16 @@ const styles = StyleSheet.create({
   mensagemData: {
     color: '#fff',
     fontSize: 15,
+  },
+  buttonLogout: {
+    alignItems: 'center',
+    backgroundColor: '#12455e',
+    borderRadius: 5,
+    padding: 5,
+    marginTop: 10,
+  },
+  textButton: {
+    fontSize: 15,
+    color: '#fff',
   },
 });
