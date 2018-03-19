@@ -89,6 +89,12 @@ export default class Drawer extends Component {
           title: 'QrCode'
         });
         break;
+      case 12:
+        this.props.navigator.push({
+          screen: 'example.Andre3',
+          title: 'teste 3'
+        });
+        break;
     }
   }
 
@@ -127,6 +133,7 @@ export default class Drawer extends Component {
           <Text style={styles.itemMenu} onPress={() => this.navegar(3)}>Item 3</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(5)}>Andre</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(9)}>Andre2</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(12)}>Andre3</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(10)}>Camera</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(11)}>LeitorQrCode</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(6)}>PA</Text>

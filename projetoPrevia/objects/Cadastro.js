@@ -1,27 +1,28 @@
 import {Cartao} from  './Cartao'
+/**
+ * Classe de cadastro de usuario
+ */
 export class Cadastro {
-  constructor(nome, endereco, cep, cartao) {
-    this.nome = nome;
+  /**
+   * 
+   * @param {string} name 
+   * @param {string} email 
+   * @param {string} cpf - mascara 999.999.999-99
+   * @param {string} password 
+   * @param {string} telefone 
+   * @param {string} [endereco]
+   * @param {string} [cep]
+   * @param {string} [cartao] 
+   */
+  constructor(name, email, cpf, password, telefone,  endereco, cep, cartao) {
+    this.name = name;
+    this.email = email;
+    this.cpf = cpf;
+    this.password = password;
+    this.telefone = telefone;
     this.endereco = endereco;
     this.cep = cep;
     this.cartao = new Cartao();
   }
-  setNome(nome) {
-    this.nome = nome;
-  }
-  setEndereco(endereco) {
-    this.endereco = endereco;
-  }
-  setCep(cep) {
-    this.cep = cep;
-  }
-  setCartao(cartao) {
-    this.cartao = cartao;
-  }
-  toString() {
-    return 'Cadastro (' +
-      'endereco: ' + this.endereco + ', ' +
-      'cep: ' + this.cep + ', ' +
-      'cartao: ' + this.cartao + ')';
-  }
+
 }
