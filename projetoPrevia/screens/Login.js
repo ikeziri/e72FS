@@ -92,28 +92,31 @@ export default class Login extends Component {
 
          <View style={styles.containerFields}>
           <TextInput style={styles.campoTextoSuperior}
-            value={this.state.placeHolderEmail}
-            onChangeText={(placeHolderEmail) => this.setState({placeHolderEmail})} />
+            placeholder="Email"
+            keyboardType='email-address'
+            maxLength={30} />
           <TextInput style={styles.campoTextoInferior}
             secureTextEntry={true}
-            value="abc"  />
+            placeholder="password"
+            maxLength={20}  />
          </View>
 
 
         <Text style={styles.linkLembrarSenha}>Esqueci a senha</Text>
 
+        <TouchableOpacity style={styles.buttonLogin} >
+          <Text style={styles.textButton} onPress={this._onPressButton} > Entrar </Text>
+        </TouchableOpacity>        
+
         <View style={styles.linha}>
-          <View style={styles.hr} />
+          <View style={styles.hrComTexto} />
+          <Text style={styles.textoHr}>Sou novo aqui</Text>
+          <View style={styles.hrComTexto} />
         </View>
 
-        <View style={styles.containerButtons}>
-          <TouchableOpacity style={styles.buttonLogin} >
-            <Text style={styles.textButton} onPress={this._onPressButton} > Login </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonInscrevaSe} >
-            <Text style={styles.textButton} onPress={this._onPressButton} > Inscreva-se </Text>
-          </TouchableOpacity>      
-        </View>
+        <TouchableOpacity style={styles.buttonInscrevaSe} >
+          <Text style={styles.textButton} onPress={this._onPressButton} > Cadastro </Text>
+        </TouchableOpacity>
       </View>
     );
   };
@@ -138,8 +141,8 @@ const styles = StyleSheet.create({
   buttonLogin: {
     alignItems: 'center',
     backgroundColor: '#12477e',
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 20,
+    marginRight: 20,
     borderRadius: 5,
     padding: 10,
   },
@@ -157,8 +160,8 @@ const styles = StyleSheet.create({
   },
   linha:{
     flexDirection: 'row',
-    paddingTop: 40,
-    paddingBottom: 40,
+    paddingTop: 30,
+    paddingBottom: 30,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -169,8 +172,8 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
   logoEntrada: {
-    width: 130,
-    height: 70,
+    width: 230,
+    height: 120,
     marginTop: (Platform.OS === 'ios' ? 40 : 20 ),
     justifyContent: 'center',
     alignItems: 'center'
@@ -186,7 +189,7 @@ const styles = StyleSheet.create({
     width: width - 290,
   },
   campoTextoSuperior: {
-    height: 60,
+    height: 50,
     borderColor: '#fff',
     backgroundColor: '#fff',
     borderWidth: 1,
@@ -195,11 +198,11 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
     fontSize: 15,
-    marginLeft: 15,
-    marginRight: 15,
+    marginLeft: 20,
+    marginRight: 20,
   },
   campoTextoInferior: {
-    height: 60,
+    height: 50,
     borderColor: '#fff',
     backgroundColor: '#fff',
     borderWidth: 1,
@@ -208,8 +211,8 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     fontSize: 15,
-    marginLeft: 15,
-    marginRight: 15,
+    marginLeft: 20,
+    marginRight: 20,
   },
   inscrevaSe:{
     flexDirection: 'row',
@@ -219,7 +222,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     paddingTop: 10,
     paddingBottom: 30,
-    marginLeft: 15,
+    marginLeft: 20,
   },
   normal:{
     color: '#fff',
