@@ -52914,7 +52914,6 @@ __d(function (global, require, module, exports, _dependencyMap) {
     _reactNativeNavigation.Navigation.startSingleScreenApp({
       screen: {
         screen: 'example.Login',
-        title: 'Fazer Login',
         navigatorStyle: {},
         navigatorButtons: {}
       },
@@ -62401,23 +62400,27 @@ __d(function (global, require, module, exports, _dependencyMap) {
 
   var _Andre4 = babelHelpers.interopRequireDefault(_Andre3);
 
-  var _PA = require(_dependencyMap[9], "./PA");
+  var _Andre5 = require(_dependencyMap[9], "./Andre3");
+
+  var _Andre6 = babelHelpers.interopRequireDefault(_Andre5);
+
+  var _PA = require(_dependencyMap[10], "./PA");
 
   var _PA2 = babelHelpers.interopRequireDefault(_PA);
 
-  var _Lorran = require(_dependencyMap[10], "./Lorran1");
+  var _Lorran = require(_dependencyMap[11], "./Lorran1");
 
   var _Lorran2 = babelHelpers.interopRequireDefault(_Lorran);
 
-  var _Lorran3 = require(_dependencyMap[11], "./Lorran2");
+  var _Lorran3 = require(_dependencyMap[12], "./Lorran2");
 
   var _Lorran4 = babelHelpers.interopRequireDefault(_Lorran3);
 
-  var _Camera = require(_dependencyMap[12], "./Camera");
+  var _Camera = require(_dependencyMap[13], "./Camera");
 
   var _Camera2 = babelHelpers.interopRequireDefault(_Camera);
 
-  var _LeitorQrCode = require(_dependencyMap[13], "./LeitorQrCode");
+  var _LeitorQrCode = require(_dependencyMap[14], "./LeitorQrCode");
 
   var _LeitorQrCode2 = babelHelpers.interopRequireDefault(_LeitorQrCode);
 
@@ -62454,6 +62457,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
       return _Andre4.default;
     });
 
+    _reactNativeNavigation.Navigation.registerComponent('example.Andre3', function () {
+      return _Andre6.default;
+    });
+
     _reactNativeNavigation.Navigation.registerComponent('example.PA', function () {
       return _PA2.default;
     });
@@ -62474,7 +62481,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       return _LeitorQrCode2.default;
     });
   }
-},345,[334,346,515,516,517,518,519,520,524,525,526,527,528,542],"projetoPrevia/screens/index.js");
+},345,[334,346,516,517,518,519,521,523,528,529,532,533,534,535,549],"projetoPrevia/screens/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -62498,15 +62505,13 @@ __d(function (global, require, module, exports, _dependencyMap) {
     babelHelpers.createClass(FirstTabScreen, [{
       key: "render",
       value: function render() {
-        var _this2 = this;
-
         var listItems = this.state.cart.map(function (item) {
           return _react2.default.createElement(
             _reactNative.Text,
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 22
+                lineNumber: 27
               }
             },
             item
@@ -62518,67 +62523,15 @@ __d(function (global, require, module, exports, _dependencyMap) {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 29
+              lineNumber: 35
             }
           },
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: styles.welcome,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 30
-              }
-            },
-            "Lista:"
-          ),
-          listItems,
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: styles.welcome,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 34
-              }
-            },
-            "Fim  Lista:"
-          ),
-          _react2.default.createElement(_reactNative.TextInput, {
-            style: {
-              height: 40,
-              width: 120
-            },
-            placeholder: "Type here to translate!",
-            value: this.state.texto,
-            onChangeText: function onChangeText(texto) {
-              return _this2.setState({
-                texto: texto
-              });
-            },
+          _react2.default.createElement(_reactNative.Image, {
+            style: styles.fundoTela,
+            source: require(_dependencyMap[4], '../images/fundo-tela-inicial.png'),
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 38
-            }
-          }),
-          _react2.default.createElement(_reactNative.Button, {
-            onPress: this.adicionar.bind(this),
-            title: "adicionar",
-            color: "#841584",
-            accessibilityLabel: "adicion",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 44
-            }
-          }),
-          _react2.default.createElement(_reactNative.Button, {
-            onPress: this.salvar.bind(this),
-            title: "salvar",
-            color: "#841584",
-            accessibilityLabel: "save",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 50
+              lineNumber: 36
             }
           })
         );
@@ -62586,7 +62539,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     }]);
 
     function FirstTabScreen(props) {
-      var _this3 = this;
+      var _this2 = this;
 
       babelHelpers.classCallCheck(this, FirstTabScreen);
 
@@ -62601,7 +62554,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   _Ionicons2.default.getImageSource('md-menu', 30).then(function (source) {
                     _this.props.navigator.setButtons({
                       leftButtons: [{
-                        title: 'menu',
+                        title: 'Menu',
                         id: 'menu',
                         icon: iconsMap['ios-person--active']
                       }]
@@ -62616,7 +62569,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 return _context.stop();
             }
           }
-        }, null, _this3);
+        }, null, _this2);
       };
 
       _this._loadInitialState = function _callee2() {
@@ -62661,7 +62614,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 return _context2.stop();
             }
           }
-        }, null, _this3, [[0, 7]]);
+        }, null, _this2, [[0, 7]]);
       };
 
       _this.salvar = function _callee3() {
@@ -62693,7 +62646,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 return _context3.stop();
             }
           }
-        }, null, _this3, [[0, 8]]);
+        }, null, _this2, [[0, 8]]);
       };
 
       (0, _appFunctions.setDrawerOn)(_this);
@@ -62731,14 +62684,20 @@ __d(function (global, require, module, exports, _dependencyMap) {
     return FirstTabScreen;
   }(_react.Component);
 
+  FirstTabScreen.navigatorStyle = {
+    navBarBackgroundColor: '#0A263C',
+    navBarTextColor: '#fff'
+  };
   exports.default = FirstTabScreen;
 
   var styles = _reactNative.StyleSheet.create({
     container: {
+      flex: 1
+    },
+    fundoTela: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF'
+      justifyContent: 'flex-end',
+      width: 'auto'
     },
     welcome: {
       fontSize: 20,
@@ -62746,7 +62705,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},346,[108,12,347,511],"projetoPrevia/screens/FirstTabScreen.js");
+},346,[108,12,347,511,515],"projetoPrevia/screens/FirstTabScreen.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -67062,6 +67021,8 @@ __d(function (global, require, module, exports, _dependencyMap) {
 
   var _appIcons = require(_dependencyMap[0], "../icons/app-icons");
 
+  var _reactNative = require(_dependencyMap[1], "react-native");
+
   function setDrawerOff(that) {
     that.props.navigator.setDrawerEnabled({
       side: 'left',
@@ -67070,6 +67031,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     that.props.navigator.setButtons({
       leftButtons: [{}]
     });
+    that.props.navigator.setOnNavigatorEvent(onNavigatorEvent.bind(that));
   }
 
   function setDrawerOn(that) {
@@ -67097,30 +67059,32 @@ __d(function (global, require, module, exports, _dependencyMap) {
         });
       }
     } else {
-      Alert.alert('event.id: ' + event.id);
+      try {
+        switch (event.id) {
+          case 'willAppear':
+            break;
 
-      switch (event.id) {
-        case 'willAppear':
-          break;
+          case 'didAppear':
+            this.onAppear();
+            break;
 
-        case 'didAppear':
-          break;
+          case 'willDisappear':
+            break;
 
-        case 'willDisappear':
-          break;
+          case 'didDisappear':
+            this.onDisappear();
+            break;
 
-        case 'didDisappear':
-          break;
-
-        case 'willCommitPreview':
-          break;
-      }
+          case 'willCommitPreview':
+            break;
+        }
+      } catch (error) {}
     }
   }
 
   exports.setDrawerOn = setDrawerOn;
   exports.setDrawerOff = setDrawerOff;
-},511,[512],"projetoPrevia/functions/app-functions.js");
+},511,[512,12],"projetoPrevia/functions/app-functions.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -67981,6 +67945,18 @@ __d(function (global, require, module, exports, _dependencyMap) {
   };
 },514,[],"react-native-vector-icons/glyphmaps/FontAwesome.json");
 __d(function (global, require, module, exports, _dependencyMap) {
+	module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+		"__packager_asset": true,
+		"httpServerLocation": "/assets/images",
+		"width": 336,
+		"height": 483,
+		"scales": [1],
+		"hash": "cd7d103347a637eed3e649c082198f83",
+		"name": "fundo-tela-inicial",
+		"type": "png"
+	});
+},515,[161],"images\\fundo-tela-inicial.png");
+__d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
@@ -68044,7 +68020,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},515,[108,12],"projetoPrevia/screens/SecondTabScreen.js");
+},516,[108,12],"projetoPrevia/screens/SecondTabScreen.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -68109,7 +68085,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},516,[108,12],"projetoPrevia/screens/ThirdTabScreen.js");
+},517,[108,12],"projetoPrevia/screens/ThirdTabScreen.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -68174,7 +68150,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},517,[108,12],"projetoPrevia/screens/PushedScreen.js");
+},518,[108,12],"projetoPrevia/screens/PushedScreen.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -68317,6 +68293,13 @@ __d(function (global, require, module, exports, _dependencyMap) {
               title: 'QrCode'
             });
             break;
+
+          case 12:
+            this.props.navigator.push({
+              screen: 'example.Andre3',
+              title: 'teste 3'
+            });
+            break;
         }
       }
     }, {
@@ -68327,212 +68310,249 @@ __d(function (global, require, module, exports, _dependencyMap) {
         return _react2.default.createElement(
           _reactNative.View,
           {
-            style: {
-              flex: 1,
-              backgroundColor: '#fff'
-            },
+            style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 108
+              lineNumber: 116
             }
           },
           _react2.default.createElement(
-            _reactNative.Text,
+            _reactNative.View,
             {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(1);
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 109
-              }
-            },
-            "Item 1"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(2);
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 110
-              }
-            },
-            "Item 2"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(3);
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 111
-              }
-            },
-            "Item 3"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(5);
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 112
-              }
-            },
-            "Andre"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(9);
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 113
-              }
-            },
-            "Andre2"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(10);
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 114
-              }
-            },
-            "Camera"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(11);
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 115
-              }
-            },
-            "LeitorQrCode"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(6);
-              },
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 116
-              }
-            },
-            "PA"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(7);
-              },
+              style: styles.containerHeader,
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 117
               }
             },
-            "Lorran1"
-          ),
-          _react2.default.createElement(
-            _reactNative.Text,
-            {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
+            _react2.default.createElement(
+              _reactNative.View,
+              {
+                style: styles.textosHeader,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 119
+                }
               },
-              onPress: function onPress() {
-                return _this3.navegar(8);
-              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  style: styles.mensagemInicial,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 120
+                  }
+                },
+                "Voc\xEA est\xE1 logado"
+              ),
+              _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  style: styles.mensagemData,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 121
+                  }
+                },
+                "13 de mar\xE7o de 2018"
+              ),
+              _react2.default.createElement(
+                _reactNative.TouchableOpacity,
+                {
+                  style: styles.buttonLogout,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 122
+                  }
+                },
+                _react2.default.createElement(
+                  _reactNative.Text,
+                  {
+                    style: styles.textButton,
+                    onPress: function onPress() {
+                      return _this3.navegar(4);
+                    },
+                    __source: {
+                      fileName: _jsxFileName,
+                      lineNumber: 123
+                    }
+                  },
+                  " Sair "
+                )
+              )
+            ),
+            _react2.default.createElement(_reactNative.Image, {
+              style: styles.avatarInicio,
+              source: require(_dependencyMap[2], '../images/avatar.png'),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 118
+                lineNumber: 126
               }
-            },
-            "Lorran1"
+            })
           ),
           _react2.default.createElement(
-            _reactNative.Text,
+            _reactNative.View,
             {
-              style: {
-                margin: 10,
-                fontSize: 15,
-                textAlign: 'left'
-              },
-              onPress: function onPress() {
-                return _this3.navegar(4);
-              },
+              style: styles.contentMenu,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 119
+                lineNumber: 130
               }
             },
-            "Deslogar"
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(1);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 131
+                }
+              },
+              "Item 1"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(2);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 132
+                }
+              },
+              "Item 2"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(3);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 133
+                }
+              },
+              "Item 3"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(5);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 134
+                }
+              },
+              "Andre"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(9);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 135
+                }
+              },
+              "Andre2"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(12);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 136
+                }
+              },
+              "Andre3"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(10);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 137
+                }
+              },
+              "Camera"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(11);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 138
+                }
+              },
+              "LeitorQrCode"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(6);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 139
+                }
+              },
+              "PA"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(7);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 140
+                }
+              },
+              "Lorran1"
+            ),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.itemMenu,
+                onPress: function onPress() {
+                  return _this3.navegar(8);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 141
+                }
+              },
+              "Lorran1"
+            )
           )
         );
       }
@@ -68541,7 +68561,72 @@ __d(function (global, require, module, exports, _dependencyMap) {
   }(_react.Component);
 
   exports.default = Drawer;
-},518,[108,12],"projetoPrevia/screens/Drawer.js");
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#0A263C'
+    },
+    containerHeader: {
+      backgroundColor: '#263445',
+      flexDirection: 'row',
+      paddingTop: 30,
+      paddingRight: 10,
+      paddingBottom: 10,
+      paddingLeft: 10,
+      justifyContent: 'space-between',
+      height: 150
+    },
+    textosHeader: {
+      flexDirection: 'column'
+    },
+    contentMenu: {
+      flexDirection: 'column'
+    },
+    itemMenu: {
+      color: '#fff',
+      fontSize: 18,
+      padding: 8
+    },
+    avatarInicio: {
+      width: 90,
+      height: 90,
+      padding: 10
+    },
+    mensagemInicial: {
+      color: '#fff',
+      fontSize: 20,
+      paddingBottom: 10
+    },
+    mensagemData: {
+      color: '#fff',
+      fontSize: 15
+    },
+    buttonLogout: {
+      alignItems: 'center',
+      backgroundColor: '#12455e',
+      borderRadius: 5,
+      padding: 5,
+      marginTop: 10
+    },
+    textButton: {
+      fontSize: 15,
+      color: '#fff'
+    }
+  });
+},519,[108,12,520],"projetoPrevia/screens/Drawer.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+	module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+		"__packager_asset": true,
+		"httpServerLocation": "/assets/images",
+		"width": 512,
+		"height": 512,
+		"scales": [1],
+		"hash": "7c6628a29a3fa0dff54199c29805f3df",
+		"name": "avatar",
+		"type": "png"
+	});
+},520,[161],"images\\avatar.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -68553,6 +68638,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var _react2 = babelHelpers.interopRequireDefault(_react);
 
   var _reactNative = require(_dependencyMap[1], "react-native");
+
+  var _Dimensions$get = _reactNative.Dimensions.get('window'),
+      height = _Dimensions$get.height,
+      width = _Dimensions$get.width;
 
   var Login = function (_Component) {
     babelHelpers.inherits(Login, _Component);
@@ -68584,7 +68673,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
 
                   _this.props.navigator.resetTo({
                     screen: 'example.FirstTabScreen',
-                    title: 'first'
+                    title: 'Menu'
                   });
                 } else {
                   _this.setState({
@@ -68609,7 +68698,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
         }, null, _this2, [[0, 7]]);
       };
 
-      _this.onPressBtn = function _callee2() {
+      _this._onPressButton = function _callee2() {
         return regeneratorRuntime.async(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -68639,7 +68728,8 @@ __d(function (global, require, module, exports, _dependencyMap) {
       _this.state = {
         isLoading: true,
         text: ' ',
-        value: 0
+        value: 0,
+        placeHolderEmail: 'Endereço de email'
       };
 
       _this.props.navigator.setDrawerEnabled({
@@ -68658,19 +68748,21 @@ __d(function (global, require, module, exports, _dependencyMap) {
     }, {
       key: "render",
       value: function render() {
+        var _this3 = this;
+
         if (this.state.isLoading) {
           return _react2.default.createElement(
             _reactNative.View,
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 61
+                lineNumber: 74
               }
             },
             _react2.default.createElement(_reactNative.ActivityIndicator, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 62
+                lineNumber: 75
               }
             })
           );
@@ -68679,40 +68771,310 @@ __d(function (global, require, module, exports, _dependencyMap) {
         return _react2.default.createElement(
           _reactNative.View,
           {
+            style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 67
+              lineNumber: 80
             }
           },
           _react2.default.createElement(
-            _reactNative.Text,
+            _reactNative.View,
             {
+              style: styles.containerLogo,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 68
+                lineNumber: 82
               }
             },
-            "Tela Login"
+            _react2.default.createElement(_reactNative.Image, {
+              style: styles.logoEntrada,
+              source: require(_dependencyMap[2], '../images/logo-descomplica.png'),
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 83
+              }
+            })
           ),
-          _react2.default.createElement(_reactNative.Button, {
-            onPress: this.onPressBtn,
-            title: "Logar",
-            color: "#841584",
-            accessibilityLabel: "Logar",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 71
-            }
-          })
+          _react2.default.createElement(
+            _reactNative.View,
+            {
+              style: styles.linha,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 87
+              }
+            },
+            _react2.default.createElement(_reactNative.View, {
+              style: styles.hrComTexto,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 88
+              }
+            }),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.textoHr,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 89
+                }
+              },
+              "Entrar com email"
+            ),
+            _react2.default.createElement(_reactNative.View, {
+              style: styles.hrComTexto,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 90
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.View,
+            {
+              style: styles.containerFields,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 93
+              }
+            },
+            _react2.default.createElement(_reactNative.TextInput, {
+              style: styles.campoTextoSuperior,
+              value: this.state.placeHolderEmail,
+              onChangeText: function onChangeText(placeHolderEmail) {
+                return _this3.setState({
+                  placeHolderEmail: placeHolderEmail
+                });
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 94
+              }
+            }),
+            _react2.default.createElement(_reactNative.TextInput, {
+              style: styles.campoTextoInferior,
+              secureTextEntry: true,
+              value: "abc",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 97
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.Text,
+            {
+              style: styles.linkLembrarSenha,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 103
+              }
+            },
+            "Esqueci a senha"
+          ),
+          _react2.default.createElement(
+            _reactNative.View,
+            {
+              style: styles.linha,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 105
+              }
+            },
+            _react2.default.createElement(_reactNative.View, {
+              style: styles.hr,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 106
+              }
+            })
+          ),
+          _react2.default.createElement(
+            _reactNative.View,
+            {
+              style: styles.containerButtons,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 109
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                style: styles.buttonLogin,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 110
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  style: styles.textButton,
+                  onPress: this._onPressButton,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 111
+                  }
+                },
+                " Login "
+              )
+            ),
+            _react2.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                style: styles.buttonInscrevaSe,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 113
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  style: styles.textButton,
+                  onPress: this._onPressButton,
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 114
+                  }
+                },
+                " Inscreva-se "
+              )
+            )
+          )
         );
       }
     }]);
     return Login;
   }(_react.Component);
 
+  Login.navigatorStyle = {
+    navBarHidden: true
+  };
   exports.default = Login;
   ;
-},519,[108,12],"projetoPrevia/screens/Login.js");
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#0A263C'
+    },
+    containerButtons: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    containerFields: {
+      justifyContent: 'center'
+    },
+    containerLogo: {
+      alignItems: 'center'
+    },
+    buttonLogin: {
+      alignItems: 'center',
+      backgroundColor: '#12477e',
+      marginLeft: 10,
+      marginRight: 10,
+      borderRadius: 5,
+      padding: 10
+    },
+    buttonInscrevaSe: {
+      alignItems: 'center',
+      backgroundColor: '#12455e',
+      borderRadius: 5,
+      marginLeft: 20,
+      marginRight: 20,
+      padding: 10
+    },
+    textButton: {
+      fontSize: 20,
+      color: '#fff'
+    },
+    linha: {
+      flexDirection: 'row',
+      paddingTop: 40,
+      paddingBottom: 40,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    textoHr: {
+      fontSize: 13,
+      color: '#fff',
+      paddingLeft: 20,
+      paddingRight: 20
+    },
+    logoEntrada: {
+      width: 130,
+      height: 70,
+      marginTop: _reactNative.Platform.OS === 'ios' ? 40 : 20,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    hr: {
+      borderBottomColor: '#12466e',
+      borderBottomWidth: 1,
+      width: width - 40
+    },
+    hrComTexto: {
+      borderBottomColor: '#12466e',
+      borderBottomWidth: 1,
+      width: width - 290
+    },
+    campoTextoSuperior: {
+      height: 60,
+      borderColor: '#fff',
+      backgroundColor: '#fff',
+      borderWidth: 1,
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+      borderTopLeftRadius: 5,
+      borderTopRightRadius: 5,
+      fontSize: 15,
+      marginLeft: 15,
+      marginRight: 15
+    },
+    campoTextoInferior: {
+      height: 60,
+      borderColor: '#fff',
+      backgroundColor: '#fff',
+      borderWidth: 1,
+      borderBottomLeftRadius: 5,
+      borderBottomRightRadius: 5,
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0,
+      fontSize: 15,
+      marginLeft: 15,
+      marginRight: 15
+    },
+    inscrevaSe: {
+      flexDirection: 'row',
+      justifyContent: 'flex-start'
+    },
+    linkLembrarSenha: {
+      color: '#fff',
+      paddingTop: 10,
+      paddingBottom: 30,
+      marginLeft: 15
+    },
+    normal: {
+      color: '#fff'
+    }
+  });
+},521,[108,12,522],"projetoPrevia/screens/Login.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+  module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
+    "__packager_asset": true,
+    "httpServerLocation": "/assets/images",
+    "width": 249,
+    "height": 134,
+    "scales": [1],
+    "hash": "0db19f38d906de1e0ae845a5a456c458",
+    "name": "logo-descomplica",
+    "type": "png"
+  });
+},522,[161],"images\\logo-descomplica.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -68805,6 +69167,13 @@ __d(function (global, require, module, exports, _dependencyMap) {
 
         console.log(_appObjects.cartao.toString());
       }
+    }, {
+      key: "onAppear",
+      value: function onAppear() {
+        this.setState({
+          nome: _appObjects.qrCode.data
+        });
+      }
     }]);
     return Andre;
   }(_react.Component);
@@ -68824,24 +69193,29 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},520,[108,12,511,521],"projetoPrevia/screens/Andre.js");
+},523,[108,12,511,524],"projetoPrevia/screens/Andre.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.Cartao = exports.Cadastro = exports.cartao = exports.cadastro = undefined;
+  exports.QrCode = exports.Cartao = exports.Cadastro = exports.qrCode = exports.cartao = exports.cadastro = undefined;
 
   var _Cartao = require(_dependencyMap[0], "./Cartao");
 
   var _Cadastro = require(_dependencyMap[1], "./Cadastro");
 
+  var _QrCode = require(_dependencyMap[2], "./QrCode");
+
   var cartao = new _Cartao.Cartao();
   var cadastro = new _Cadastro.Cadastro();
+  var qrCode = new _QrCode.QrCode();
   exports.cadastro = cadastro;
   exports.cartao = cartao;
+  exports.qrCode = qrCode;
   exports.Cadastro = _Cadastro.Cadastro;
   exports.Cartao = _Cartao.Cartao;
-},521,[522,523],"projetoPrevia/objects/app-objects.js");
+  exports.QrCode = _QrCode.QrCode;
+},524,[525,526,527],"projetoPrevia/objects/app-objects.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -68884,7 +69258,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
         }]);
         return Cartao;
     }();
-},522,[],"projetoPrevia/objects/Cartao.js");
+},525,[],"projetoPrevia/objects/Cartao.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -68893,44 +69267,49 @@ __d(function (global, require, module, exports, _dependencyMap) {
 
   var _Cartao = require(_dependencyMap[0], "./Cartao");
 
-  var Cadastro = exports.Cadastro = function () {
-    function Cadastro(nome, endereco, cep, cartao) {
-      babelHelpers.classCallCheck(this, Cadastro);
-      this.nome = nome;
-      this.endereco = endereco;
-      this.cep = cep;
-      this.cartao = new _Cartao.Cartao();
-    }
+  var Cadastro = exports.Cadastro = function Cadastro(name, email, cpf, password, telefone, endereco, cep, cartao) {
+    babelHelpers.classCallCheck(this, Cadastro);
+    this.name = name;
+    this.email = email;
+    this.cpf = cpf;
+    this.password = password;
+    this.telefone = telefone;
+    this.endereco = endereco;
+    this.cep = cep;
+    this.cartao = new _Cartao.Cartao();
+  };
+},526,[525],"projetoPrevia/objects/Cadastro.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
 
-    babelHelpers.createClass(Cadastro, [{
-      key: "setNome",
-      value: function setNome(nome) {
-        this.nome = nome;
-      }
-    }, {
-      key: "setEndereco",
-      value: function setEndereco(endereco) {
-        this.endereco = endereco;
-      }
-    }, {
-      key: "setCep",
-      value: function setCep(cep) {
-        this.cep = cep;
-      }
-    }, {
-      key: "setCartao",
-      value: function setCartao(cartao) {
-        this.cartao = cartao;
-      }
-    }, {
-      key: "toString",
-      value: function toString() {
-        return 'Cadastro (' + 'endereco: ' + this.endereco + ', ' + 'cep: ' + this.cep + ', ' + 'cartao: ' + this.cartao + ')';
-      }
-    }]);
-    return Cadastro;
-  }();
-},523,[522],"projetoPrevia/objects/Cadastro.js");
+    var QrCode = exports.QrCode = function () {
+        function QrCode(type, data) {
+            babelHelpers.classCallCheck(this, QrCode);
+            this.type = type;
+            this.data = data;
+        }
+
+        babelHelpers.createClass(QrCode, [{
+            key: "setType",
+            value: function setType(type) {
+                this.type = type;
+            }
+        }, {
+            key: "setData",
+            value: function setData(data) {
+                this.data = data;
+            }
+        }, {
+            key: "toString",
+            value: function toString() {
+                return 'QrCode (' + 'type: ' + this.type + ', ' + 'data: ' + this.data + ')';
+            }
+        }]);
+        return QrCode;
+    }();
+},527,[],"projetoPrevia/objects/QrCode.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -68956,6 +69335,9 @@ __d(function (global, require, module, exports, _dependencyMap) {
       var _this = babelHelpers.possibleConstructorReturn(this, (Andre.__proto__ || Object.getPrototypeOf(Andre)).call(this, props));
 
       (0, _appFunctions.setDrawerOff)(_this);
+      _this.state = {
+        nome: _appObjects.cartao.nome
+      };
       return _this;
     }
 
@@ -68967,11 +69349,11 @@ __d(function (global, require, module, exports, _dependencyMap) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 21
+              lineNumber: 25
             }
           },
           "Nome do cart\xE3o: ",
-          _appObjects.cartao.nome
+          this.state.nome
         );
 
         return _react2.default.createElement(
@@ -68980,7 +69362,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 26
+              lineNumber: 30
             }
           },
           _react2.default.createElement(
@@ -68989,13 +69371,38 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.welcome,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 27
+                lineNumber: 31
               }
             },
             "sem drawer"
           ),
-          _appObjects.cartao.nome && dadosCartao
+          this.state.nome && dadosCartao,
+          _react2.default.createElement(_reactNative.Button, {
+            onPress: this.lerQrCode.bind(this),
+            title: "Ler QrCode",
+            color: "#841584",
+            accessibilityLabel: "adicion",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 37
+            }
+          })
         );
+      }
+    }, {
+      key: "onAppear",
+      value: function onAppear() {
+        this.setState({
+          nome: _appObjects.qrCode.data
+        });
+      }
+    }, {
+      key: "lerQrCode",
+      value: function lerQrCode() {
+        this.props.navigator.push({
+          screen: 'example.LeitorQrCode',
+          title: 'QrCode'
+        });
       }
     }]);
     return Andre;
@@ -69016,7 +69423,342 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},524,[108,12,511,521],"projetoPrevia/screens/Andre2.js");
+},528,[108,12,511,524],"projetoPrevia/screens/Andre2.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  var _jsxFileName = "C:\\Users\\ikezi\\Desktop\\reactiveNative\\projetoPrevia\\screens\\Andre3.js";
+
+  var _react = require(_dependencyMap[0], "react");
+
+  var _react2 = babelHelpers.interopRequireDefault(_react);
+
+  var _reactNative = require(_dependencyMap[1], "react-native");
+
+  var _appFunctions = require(_dependencyMap[2], "../functions/app-functions");
+
+  var _appObjects = require(_dependencyMap[3], "../objects/app-objects");
+
+  var _appServices = require(_dependencyMap[4], "../services/app-services");
+
+  var Andre = function (_Component) {
+    babelHelpers.inherits(Andre, _Component);
+
+    function Andre(props) {
+      var _this2 = this;
+
+      babelHelpers.classCallCheck(this, Andre);
+
+      var _this = babelHelpers.possibleConstructorReturn(this, (Andre.__proto__ || Object.getPrototypeOf(Andre)).call(this, props));
+
+      _this.chamarApi = function _callee() {
+        var id;
+        return regeneratorRuntime.async(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _appObjects.cadastro.name = _this.state.name;
+                _appObjects.cadastro.email = _this.state.email;
+                _appObjects.cadastro.cpf = _this.state.cpf;
+                _appObjects.cadastro.password = _this.state.password;
+                _appObjects.cadastro.telefone = _this.state.telefone;
+                _context.prev = 5;
+                _context.next = 8;
+                return regeneratorRuntime.awrap(_appServices.Api.cadastrarUsuario(_appObjects.cadastro));
+
+              case 8:
+                id = _context.sent;
+
+                _this.setState({
+                  id: id
+                });
+
+                _context.next = 15;
+                break;
+
+              case 12:
+                _context.prev = 12;
+                _context.t0 = _context["catch"](5);
+
+                _this.setState({
+                  msg: _context.t0
+                });
+
+              case 15:
+                ;
+
+              case 16:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, null, _this2, [[5, 12]]);
+      };
+
+      (0, _appFunctions.setDrawerOff)(_this);
+      _this.state = {
+        name: '',
+        email: '',
+        cpf: '',
+        password: '',
+        telefone: '',
+        msg: []
+      };
+      return _this;
+    }
+
+    babelHelpers.createClass(Andre, [{
+      key: "render",
+      value: function render() {
+        return _react2.default.createElement(
+          _reactNative.View,
+          {
+            style: styles.container,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 33
+            }
+          },
+          this.state.msg.length > 0 && _react2.default.createElement(_reactNative.FlatList, {
+            data: this.state.msg,
+            renderItem: function renderItem(_ref) {
+              var item = _ref.item;
+              return _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 37
+                  }
+                },
+                item.mensagem
+              );
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 35
+            }
+          }),
+          this.state.id && _react2.default.createElement(
+            _reactNative.Text,
+            {
+              style: styles.welcome,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 41
+              }
+            },
+            "id: ",
+            this.state.id
+          ),
+          _react2.default.createElement(
+            _reactNative.Text,
+            {
+              style: styles.welcome,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 45
+              }
+            },
+            "cpf: ",
+            this.state.cpf
+          ),
+          _react2.default.createElement(
+            _reactNative.Text,
+            {
+              style: styles.welcome,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 48
+              }
+            },
+            "Aciona um backEnd de cadastro"
+          ),
+          _react2.default.createElement(_reactNative.Button, {
+            onPress: this.chamarApi.bind(this),
+            title: "Cadastrar",
+            color: "#841584",
+            accessibilityLabel: "adicion",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 51
+            }
+          }),
+          _react2.default.createElement(_reactNative.Button, {
+            onPress: this.gerarNovoCpf.bind(this),
+            title: "Gerar novo cpf",
+            color: "#841584",
+            accessibilityLabel: "adicion",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 57
+            }
+          })
+        );
+      }
+    }, {
+      key: "onAppear",
+      value: function onAppear() {
+        this.gerarNovoCpf();
+      }
+    }, {
+      key: "gerarNovoCpf",
+      value: function gerarNovoCpf() {
+        this.setState({
+          name: 'Andre',
+          email: this.gerarCPF() + 'andre@andre.com',
+          cpf: this.gerarCPF(),
+          password: '123',
+          telefone: '(61) 99999-9999'
+        });
+      }
+    }, {
+      key: "randomiza",
+      value: function randomiza(n) {
+        var ranNum = Math.round(Math.random() * n);
+        return ranNum;
+      }
+    }, {
+      key: "mod",
+      value: function mod(dividendo, divisor) {
+        return Math.round(dividendo - Math.floor(dividendo / divisor) * divisor);
+      }
+    }, {
+      key: "gerarCPF",
+      value: function gerarCPF() {
+        comPontos = true;
+        var n = 9;
+        var n1 = this.randomiza(n);
+        var n2 = this.randomiza(n);
+        var n3 = this.randomiza(n);
+        var n4 = this.randomiza(n);
+        var n5 = this.randomiza(n);
+        var n6 = this.randomiza(n);
+        var n7 = this.randomiza(n);
+        var n8 = this.randomiza(n);
+        var n9 = this.randomiza(n);
+        var d1 = n9 * 2 + n8 * 3 + n7 * 4 + n6 * 5 + n5 * 6 + n4 * 7 + n3 * 8 + n2 * 9 + n1 * 10;
+        d1 = 11 - this.mod(d1, 11);
+        if (d1 >= 10) d1 = 0;
+        var d2 = d1 * 2 + n9 * 3 + n8 * 4 + n7 * 5 + n6 * 6 + n5 * 7 + n4 * 8 + n3 * 9 + n2 * 10 + n1 * 11;
+        d2 = 11 - this.mod(d2, 11);
+        if (d2 >= 10) d2 = 0;
+        retorno = '';
+        if (comPontos) cpf = '' + n1 + n2 + n3 + '.' + n4 + n5 + n6 + '.' + n7 + n8 + n9 + '-' + d1 + d2;else cpf = '' + n1 + n2 + n3 + n4 + n5 + n6 + n7 + n8 + n9 + d1 + d2;
+        return cpf;
+      }
+    }]);
+    return Andre;
+  }(_react.Component);
+
+  exports.default = Andre;
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#F5FCFF'
+    },
+    welcome: {
+      fontSize: 20,
+      textAlign: 'center',
+      margin: 10
+    }
+  });
+},529,[108,12,511,524,530],"projetoPrevia/screens/Andre3.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Api = undefined;
+
+  var _Api = require(_dependencyMap[0], "./Api");
+
+  exports.Api = _Api.Api;
+},530,[531],"projetoPrevia/services/app-services.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _this = this;
+
+    var Api = exports.Api = function Api() {
+        babelHelpers.classCallCheck(this, Api);
+    };
+
+    Api.cadastrarUsuario = function _callee(cadastro) {
+        var response, responseJson, mensagens, objeto;
+        return regeneratorRuntime.async(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        _context.prev = 0;
+                        _context.next = 3;
+                        return regeneratorRuntime.awrap(fetch('https://descomplica-restaurante.gladiumti.net.br/api/user', {
+                            method: 'POST',
+                            headers: {
+                                Accept: 'application/json',
+                                'Content-Type': 'application/json',
+                                'token-api': 'h8SYAKVXqI0jOgJ7iJTnQhByyQJijmuE'
+                            },
+                            body: JSON.stringify(cadastro)
+                        }));
+
+                    case 3:
+                        response = _context.sent;
+                        _context.next = 9;
+                        break;
+
+                    case 6:
+                        _context.prev = 6;
+                        _context.t0 = _context["catch"](0);
+                        console.error('Erro ao cadastrar usuario: ' + _context.t0);
+
+                    case 9:
+                        if (!response.ok) {
+                            _context.next = 20;
+                            break;
+                        }
+
+                        _context.next = 12;
+                        return regeneratorRuntime.awrap(response.json());
+
+                    case 12:
+                        responseJson = _context.sent;
+
+                        if (!(responseJson.message === "Validation Failed")) {
+                            _context.next = 19;
+                            break;
+                        }
+
+                        mensagens = [];
+                        objeto = responseJson.errors;
+
+                        for (propriedade in objeto) {
+                            mensagem = {
+                                mensagem: objeto[propriedade][0],
+                                key: propriedade
+                            };
+                            mensagens.push(mensagem);
+                        }
+
+                        ;
+                        throw mensagens;
+
+                    case 19:
+                        return _context.abrupt("return", responseJson.id);
+
+                    case 20:
+                    case "end":
+                        return _context.stop();
+                }
+            }
+        }, null, _this, [[0, 6]]);
+    };
+},531,[],"projetoPrevia/services/Api.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -69081,7 +69823,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},525,[108,12],"projetoPrevia/screens/PA.js");
+},532,[108,12],"projetoPrevia/screens/PA.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -69097,34 +69839,152 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var Lorran1 = function (_Component) {
     babelHelpers.inherits(Lorran1, _Component);
 
-    function Lorran1() {
+    function Lorran1(props) {
       babelHelpers.classCallCheck(this, Lorran1);
-      return babelHelpers.possibleConstructorReturn(this, (Lorran1.__proto__ || Object.getPrototypeOf(Lorran1)).apply(this, arguments));
+
+      var _this = babelHelpers.possibleConstructorReturn(this, (Lorran1.__proto__ || Object.getPrototypeOf(Lorran1)).call(this, props));
+
+      _this.state = {
+        bandeira: ''
+      };
+      return _this;
     }
 
     babelHelpers.createClass(Lorran1, [{
       key: "render",
       value: function render() {
+        var _this2 = this;
+
         return _react2.default.createElement(
           _reactNative.View,
           {
-            style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 13
+              lineNumber: 21
             }
           },
           _react2.default.createElement(
             _reactNative.Text,
             {
-              style: styles.welcome,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 14
+                lineNumber: 22
               }
             },
-            "second"
-          )
+            "Nome Completo:"
+          ),
+          _react2.default.createElement(_reactNative.TextInput, {
+            placeholder: "Ex: Andr\xE9 Ikeziri",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 26
+              }
+            },
+            "Endere\xE7o:"
+          ),
+          _react2.default.createElement(_reactNative.TextInput, {
+            placeholder: "Ex: Varj\xE3o...",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 29
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 30
+              }
+            },
+            "Telefone:"
+          ),
+          _react2.default.createElement(_reactNative.TextInput, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 33
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 34
+              }
+            },
+            "Cart\xE3o de Cr\xE9dito:"
+          ),
+          _react2.default.createElement(_reactNative.TextInput, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 37
+            }
+          }),
+          _react2.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 38
+              }
+            },
+            "Bandeira:"
+          ),
+          _react2.default.createElement(
+            _reactNative.Picker,
+            {
+              selectedValue: this.state.bandeira,
+              onValueChange: function onValueChange(bandeiraSelecionada) {
+                return _this2.setState({
+                  bandeira: bandeiraSelecionada
+                });
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 41
+              }
+            },
+            _react2.default.createElement(_reactNative.Picker.Item, {
+              label: "MasterCard",
+              value: "master",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 45
+              }
+            }),
+            _react2.default.createElement(_reactNative.Picker.Item, {
+              label: "Visa",
+              value: "visa",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 46
+              }
+            }),
+            _react2.default.createElement(_reactNative.Picker.Item, {
+              label: "Elo",
+              value: "elo",
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 47
+              }
+            })
+          ),
+          _react2.default.createElement(_reactNative.Button, {
+            title: "Cadastrar",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 50
+            }
+          })
         );
       }
     }]);
@@ -69146,7 +70006,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},526,[108,12],"projetoPrevia/screens/Lorran1.js");
+},533,[108,12],"projetoPrevia/screens/Lorran1.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -69211,7 +70071,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},527,[108,12],"projetoPrevia/screens/Lorran2.js");
+},534,[108,12],"projetoPrevia/screens/Lorran2.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -69584,7 +70444,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       width: 10
     }
   });
-},528,[108,12,529,511,521,534,535,536,537,538,539,540,541],"projetoPrevia/screens/Camera.js");
+},535,[108,12,536,511,524,541,542,543,544,545,546,547,548],"projetoPrevia/screens/Camera.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -69606,7 +70466,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   exports.RNCamera = _RNCamera2.default;
   exports.FaceDetector = _FaceDetector2.default;
   exports.default = _Camera2.default;
-},529,[530,532,533],"react-native-camera/src/index.js");
+},536,[537,539,540],"react-native-camera/src/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -70092,7 +70952,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var styles = _reactNative.StyleSheet.create({
     base: {}
   });
-},530,[108,127,12,531],"react-native-camera/src/Camera.js");
+},537,[108,127,12,538],"react-native-camera/src/Camera.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -70160,7 +71020,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             }
         }, null, _this);
     };
-},531,[12],"react-native-camera/src/handlePermissions.js");
+},538,[12],"react-native-camera/src/handlePermissions.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -70558,7 +71418,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       testID: true
     }
   });
-},532,[108,127,338,12,531],"react-native-camera/src/RNCamera.js");
+},539,[108,127,338,12,538],"react-native-camera/src/RNCamera.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -70603,7 +71463,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   };
   exports.default = FaceDetector;
   var Constants = exports.Constants = FaceDetector.Constants;
-},533,[12],"react-native-camera/src/FaceDetector.js");
+},540,[12],"react-native-camera/src/FaceDetector.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -70615,7 +71475,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_photo_camera_36pt",
     "type": "png"
   });
-},534,[161],"assets\\ic_photo_camera_36pt.png");
+},541,[161],"assets\\ic_photo_camera_36pt.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -70627,7 +71487,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_videocam_36pt",
     "type": "png"
   });
-},535,[161],"assets\\ic_videocam_36pt.png");
+},542,[161],"assets\\ic_videocam_36pt.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -70639,7 +71499,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_stop_36pt",
     "type": "png"
   });
-},536,[161],"assets\\ic_stop_36pt.png");
+},543,[161],"assets\\ic_stop_36pt.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -70651,7 +71511,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_camera_rear_white",
     "type": "png"
   });
-},537,[161],"assets\\ic_camera_rear_white.png");
+},544,[161],"assets\\ic_camera_rear_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -70663,7 +71523,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_camera_front_white",
     "type": "png"
   });
-},538,[161],"assets\\ic_camera_front_white.png");
+},545,[161],"assets\\ic_camera_front_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -70675,7 +71535,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_flash_auto_white",
     "type": "png"
   });
-},539,[161],"assets\\ic_flash_auto_white.png");
+},546,[161],"assets\\ic_flash_auto_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -70687,7 +71547,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_flash_on_white",
     "type": "png"
   });
-},540,[161],"assets\\ic_flash_on_white.png");
+},547,[161],"assets\\ic_flash_on_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -70699,7 +71559,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_flash_off_white",
     "type": "png"
   });
-},541,[161],"assets\\ic_flash_off_white.png");
+},548,[161],"assets\\ic_flash_off_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -70728,6 +71588,17 @@ __d(function (global, require, module, exports, _dependencyMap) {
 
       var _this = babelHelpers.possibleConstructorReturn(this, (LeitorQrCode.__proto__ || Object.getPrototypeOf(LeitorQrCode)).call(this, props));
 
+      _this.takePicture = function () {
+        _appObjects.qrCode.setType('qr');
+
+        _appObjects.qrCode.setData('teste camera');
+
+        _this.props.navigator.pop({
+          animated: true,
+          animationType: 'fade'
+        });
+      };
+
       _this.camera = null;
       _this.state = {
         camera: {
@@ -70744,7 +71615,9 @@ __d(function (global, require, module, exports, _dependencyMap) {
     babelHelpers.createClass(LeitorQrCode, [{
       key: "onBarCodeRead",
       value: function onBarCodeRead(e) {
-        _appObjects.cartao.setNome(e.data);
+        _appObjects.qrCode.setType(e.type);
+
+        _appObjects.qrCode.setData(e.data);
 
         this.props.navigator.pop({
           animated: true,
@@ -70762,7 +71635,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 44
+              lineNumber: 54
             }
           },
           _react2.default.createElement(_reactNative.StatusBar, {
@@ -70770,7 +71643,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             hidden: true,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 45
+              lineNumber: 55
             }
           }),
           _react2.default.createElement(_reactNativeCamera2.default, {
@@ -70791,9 +71664,37 @@ __d(function (global, require, module, exports, _dependencyMap) {
             permissionDialogMessage: "Sample dialog message",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 46
+              lineNumber: 56
             }
-          })
+          }),
+          _react2.default.createElement(
+            _reactNative.View,
+            {
+              style: [styles.overlay, styles.bottomOverlay],
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 73
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                style: styles.captureButton,
+                onPress: this.takePicture.bind(this),
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 74
+                }
+              },
+              _react2.default.createElement(_reactNative.Image, {
+                source: require(_dependencyMap[5], '../assets/ic_photo_camera_36pt.png'),
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 75
+                }
+              })
+            )
+          )
         );
       }
     }]);
@@ -70847,6 +71748,6 @@ __d(function (global, require, module, exports, _dependencyMap) {
       width: 10
     }
   });
-},542,[108,12,529,511,521],"projetoPrevia/screens/LeitorQrCode.js");
+},549,[108,12,536,511,524,541],"projetoPrevia/screens/LeitorQrCode.js");
 require(23);
 require(11);
