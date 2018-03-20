@@ -18,7 +18,7 @@ export default class Lorran1 extends Component {
   }
   render() {
     return (
-      <View>
+      <View style={styles.container}>
        <Text> 
             Nome Completo:
        </Text>
@@ -56,13 +56,6 @@ export default class Lorran1 extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    backgroundColor: '#FFF' //Fundo principal da tela
   },
 });

@@ -30,7 +30,6 @@ export default class Login extends Component {
       isLoading: true,
       text: ' ',
       value: 0,
-      placeHolderEmail: 'Endereço de email',
     }
     this.props.navigator.setDrawerEnabled({
       side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
@@ -65,6 +64,17 @@ export default class Login extends Component {
     try {
       await AsyncStorage.setItem('Login', 'logado');
       this._loadInitialState().done();
+    } catch (error) {
+      // Error saving data
+    }
+  }
+
+  _onPressTeste = async () => {   
+    try {
+      this.props.navigator.push({
+        screen: 'example.Lorran1',
+        title: 'Lorran1'
+      });
     } catch (error) {
       // Error saving data
     }
@@ -111,8 +121,9 @@ export default class Login extends Component {
           </View>
          </View>
 
-
-        <Text style={styles.linkLembrarSenha}>Esqueci a senha</Text>
+        <TouchableOpacity>
+          <Text style={styles.linkLembrarSenha} onPress={this._onPressTeste} > Esqueci a senha </Text>
+        </TouchableOpacity>
 
         <TouchableOpacity style={styles.buttonLogin} >
           <Text style={styles.textButton} onPress={this._onPressButton} > Entrar </Text>
@@ -125,7 +136,7 @@ export default class Login extends Component {
         </View>
 
         <TouchableOpacity style={styles.buttonInscrevaSe} >
-          <Text style={styles.textButton} onPress={this._onPressButton} > Cadastro </Text>
+          <Text style={styles.textButton} onPress={this._onPressTeste} > Cadastro </Text>
         </TouchableOpacity>
       </View>
     );
@@ -163,7 +174,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     padding: 10,
-    marginTop: 35,
+    marginTop: 30,
   },
   textButton: {
     fontSize: 20,
@@ -171,7 +182,7 @@ const styles = StyleSheet.create({
   },
   linha:{
     flexDirection: 'row',
-    paddingTop: 30,
+    paddingTop: 50,
     paddingBottom: 30,
     justifyContent: 'center',
     alignItems: 'center',
