@@ -1,3 +1,4 @@
+import { MensagemTela, TipoMensagem } from '../objects/app-objects';
 export class ApiDescomplica {
     /**
      * @author Ikeziri
@@ -27,11 +28,7 @@ export class ApiDescomplica {
                 let mensagens = [];
                 let objeto = responseJson.errors;
                 for (propriedade in objeto) {
-                    mensagem = {
-                        mensagem: objeto[propriedade][0],
-                        key: propriedade,
-                    };
-                    mensagens.push(mensagem);
+                    mensagens.push(new MensagemTela(propriedade, objeto[propriedade][0], TipoMensagem.ERRO));
                 };
                 throw (mensagens);
             }
@@ -75,8 +72,10 @@ export class ApiDescomplica {
                 };
                 throw (mensagens);
             }
-            console.log(JSON.stringify(responseJson));
-            return responseJson;
+            // console.log(JSON.stringify(responseJson));
+            let mensagens = [];
+            mensagens.push(new MensagemTela( '1', responseJson.message, TipoMensagem.INFO));
+            return mensagens;
         }
 
     }

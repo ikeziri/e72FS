@@ -1,6 +1,7 @@
 import {Cartao} from  './Cartao'
 import {Cadastro} from  './Cadastro'
 import {QrCode} from  './QrCode'
+import {MensagemTela, TipoMensagem} from  './MensagemTela'
 
 
 
@@ -19,4 +20,5 @@ export {
   Cadastro,
   Cartao,
   QrCode,
+  MensagemTela, TipoMensagem,
 };

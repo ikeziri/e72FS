@@ -56,7 +56,7 @@ export default class Andre extends Component {
         {this.state.msg.length > 0 &&
           <FlatList
             data={this.state.msg}
-            renderItem={({ item }) => <Text>{item.mensagem}</Text>}
+            renderItem={({ item }) => <Text>{item.texto} - {item.tipoMensagem.icon} </Text>}
           />
         }
         {this.state.id &&
@@ -121,8 +121,8 @@ export default class Andre extends Component {
     cadastro.telefone = this.state.telefone;
     try {
       this.setState({isLoading: true,});
-      let id = await ApiDescomplica.atualizarSenha(cadastro);
-      console.log('atualizado');
+      let msg = await ApiDescomplica.atualizarSenha(cadastro);
+      this.setState({ msg: msg });
     } catch (msg) {
       this.setState({ msg: msg });
     };
