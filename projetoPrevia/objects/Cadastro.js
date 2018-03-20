@@ -5,6 +5,7 @@ import {Cartao} from  './Cartao'
 export class Cadastro {
   /**
    * 
+   * @param {string} id
    * @param {string} name 
    * @param {string} email 
    * @param {string} cpf - mascara 999.999.999-99
@@ -14,7 +15,8 @@ export class Cadastro {
    * @param {string} [cep]
    * @param {string} [cartao] 
    */
-  constructor(name, email, cpf, password, telefone,  endereco, cep, cartao) {
+  constructor(id, name, email, cpf, password, telefone,  endereco, cep, cartao) {
+    this.id = id;
     this.name = name;
     this.email = email;
     this.cpf = cpf;

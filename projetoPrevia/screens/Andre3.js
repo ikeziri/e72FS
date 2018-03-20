@@ -42,6 +42,12 @@ export default class Andre extends Component {
           color="#841584"
           accessibilityLabel="adicion"
         />
+        <Button
+          onPress={this.atualizarUsuario.bind(this)}
+          title="atualizar usuario"
+          color="#841584"
+          accessibilityLabel="adicion"
+        />
       </View>
     );
     if (this.state.isLoading) {
@@ -88,16 +94,19 @@ export default class Andre extends Component {
   }
 
   gerarNovoCpf() {
+    var cpf = this.gerarCPF() ;
     this.setState({
       name: 'Andre',
-      email: this.gerarCPF() + 'andre@andre.com',
-      cpf: this.gerarCPF(),
+      email: cpf + 'andre@andre.com',
+      cpf: cpf,
       password: '123',
       telefone: '(61) 99999-9999',
     });
   }
 
   cadastrarUsuario = async () => {
+    this.setState({ msg: [] });
+    cadastro.id = undefined;
     cadastro.name = this.state.name;
     cadastro.email = this.state.email;
     cadastro.cpf = this.state.cpf;
@@ -114,6 +123,7 @@ export default class Andre extends Component {
   }
   
   atualizarSenha = async () => {
+    this.setState({ msg: [] });
     cadastro.name = this.state.name;
     cadastro.email = this.state.email;
     cadastro.cpf = this.state.cpf;
@@ -128,16 +138,35 @@ export default class Andre extends Component {
     };
     this.setState({isLoading: false,});
   }
-
+  
+  atualizarUsuario = async () => {
+    this.setState({ msg: [] });
+    cadastro.id = this.state.id;
+    cadastro.name = this.state.name;
+    cadastro.email = this.state.email;
+    cadastro.cpf = this.state.cpf;
+    cadastro.cpf = this.gerarCPF();
+    cadastro.password = 123456;
+    cadastro.telefone = this.state.telefone;
+    try {
+      this.setState({isLoading: true,});
+      let msg = await ApiDescomplica.atualizarUsuario(cadastro);
+      this.setState({ msg: msg });
+    } catch (msg) {
+      this.setState({ msg: msg });
+    };
+    this.setState({isLoading: false,});
+  }
+  
   randomiza(n) {
     var ranNum = Math.round(Math.random() * n);
     return ranNum;
   }
-
+  
   mod(dividendo, divisor) {
     return Math.round(dividendo - (Math.floor(dividendo / divisor) * divisor));
   }
-
+  
   gerarCPF() {
     comPontos = true; // TRUE para ativar e FALSE para desativar a pontuação.
     var n = 9;
