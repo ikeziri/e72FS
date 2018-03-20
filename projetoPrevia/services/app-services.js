@@ -1,5 +1,5 @@
-import {Api} from  './Api'
+import {ApiDescomplica} from  './ApiDescomplica'
 
 export {
-Api,
+    ApiDescomplica,
 };

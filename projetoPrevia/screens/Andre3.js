@@ -12,7 +12,7 @@ import {
 
 import { setDrawerOff } from '../functions/app-functions';
 import { cadastro, cartao, qrCode } from '../objects/app-objects';
-import { Api } from '../services/app-services';
+import { ApiDescomplica } from '../services/app-services';
 
 
 export default class Andre extends Component {
@@ -84,7 +84,7 @@ export default class Andre extends Component {
     cadastro.password = this.state.password;
     cadastro.telefone = this.state.telefone;
     try {
-      let id = await Api.cadastrarUsuario(cadastro);
+      let id = await ApiDescomplica.cadastrarUsuario(cadastro);
       this.setState({ id: id });
     } catch (msg) {
       this.setState({ msg: msg });

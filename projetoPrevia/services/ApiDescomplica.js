@@ -1,4 +1,4 @@
-export class Api {
+export class ApiDescomplica {
     /**
      * @author Ikeziri
      * @param {Cadastro}
