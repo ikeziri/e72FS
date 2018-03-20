@@ -7,6 +7,7 @@ import {
   View,
   Button,
   FlatList,
+  ActivityIndicator,
 } from 'react-native';
 
 
@@ -26,9 +27,30 @@ export default class Andre extends Component {
       password: '',
       telefone: '',
       msg: [],
+      isLoading: false,
     }
   }
   render() {
+    let cadastrado = (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          id: {this.state.id}
+        </Text>
+        <Button
+          onPress={this.atualizarSenha.bind(this)}
+          title="atualizar senha"
+          color="#841584"
+          accessibilityLabel="adicion"
+        />
+      </View>
+    );
+    if (this.state.isLoading) {
+      return (
+        <View >
+          <ActivityIndicator />
+        </View>
+      );
+    }
     return (
       <View style={styles.container}>
         {this.state.msg.length > 0 &&
@@ -38,9 +60,7 @@ export default class Andre extends Component {
           />
         }
         {this.state.id &&
-          <Text style={styles.welcome}>
-            id: {this.state.id}
-          </Text>
+          cadastrado
         }
         <Text style={styles.welcome}>
           cpf: {this.state.cpf}
@@ -49,7 +69,7 @@ export default class Andre extends Component {
           Aciona um backEnd de cadastro
         </Text>
         <Button
-          onPress={this.chamarApi.bind(this)}
+          onPress={this.cadastrarUsuario.bind(this)}
           title="Cadastrar"
           color="#841584"
           accessibilityLabel="adicion"
@@ -67,28 +87,46 @@ export default class Andre extends Component {
     this.gerarNovoCpf();
   }
 
-  gerarNovoCpf(){
+  gerarNovoCpf() {
     this.setState({
       name: 'Andre',
-      email:  this.gerarCPF()+'andre@andre.com',
+      email: this.gerarCPF() + 'andre@andre.com',
       cpf: this.gerarCPF(),
       password: '123',
       telefone: '(61) 99999-9999',
     });
   }
 
-  chamarApi = async () => {
+  cadastrarUsuario = async () => {
     cadastro.name = this.state.name;
     cadastro.email = this.state.email;
     cadastro.cpf = this.state.cpf;
     cadastro.password = this.state.password;
     cadastro.telefone = this.state.telefone;
     try {
+      this.setState({isLoading: true,});
       let id = await ApiDescomplica.cadastrarUsuario(cadastro);
       this.setState({ id: id });
     } catch (msg) {
       this.setState({ msg: msg });
     };
+    this.setState({isLoading: false,});
+  }
+  
+  atualizarSenha = async () => {
+    cadastro.name = this.state.name;
+    cadastro.email = this.state.email;
+    cadastro.cpf = this.state.cpf;
+    cadastro.password = 123456;
+    cadastro.telefone = this.state.telefone;
+    try {
+      this.setState({isLoading: true,});
+      let id = await ApiDescomplica.atualizarSenha(cadastro);
+      console.log('atualizado');
+    } catch (msg) {
+      this.setState({ msg: msg });
+    };
+    this.setState({isLoading: false,});
   }
 
   randomiza(n) {
