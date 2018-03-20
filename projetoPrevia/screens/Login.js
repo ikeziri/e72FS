@@ -16,6 +16,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
+import PasswordInputText from 'react-native-hide-show-password-input';
+
 var {height, width} = Dimensions.get('window');
 
 export default class Login extends Component {
@@ -92,13 +94,21 @@ export default class Login extends Component {
 
          <View style={styles.containerFields}>
           <TextInput style={styles.campoTextoSuperior}
-            placeholder="Email"
+            placeholder='Email'
             keyboardType='email-address'
-            maxLength={30} />
-          <TextInput style={styles.campoTextoInferior}
-            secureTextEntry={true}
-            placeholder="password"
-            maxLength={20}  />
+            maxLength={30}
+            underlineColorAndroid='transparent'
+            clearButtonMode='always' />
+            <View style={styles.campoTextoInferior} >
+              <PasswordInputText
+                      value={this.state.password}
+                      placeholder='Senha'
+                      style={styles.campoSenha}
+                      underlineColorAndroid='transparent'
+                      maxLength={20}
+                      onChangeText={ (password) => this.setState({ password }) }
+                  />
+          </View>
          </View>
 
 
@@ -153,6 +163,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     padding: 10,
+    marginTop: 35,
   },
   textButton: {
     fontSize: 20,
@@ -173,7 +184,7 @@ const styles = StyleSheet.create({
   },
   logoEntrada: {
     width: 230,
-    height: 120,
+    height: 125,
     marginTop: (Platform.OS === 'ios' ? 40 : 20 ),
     justifyContent: 'center',
     alignItems: 'center'
@@ -201,8 +212,13 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
   },
+  campoSenha: {
+    fontSize: 15,
+    height: 15,
+    marginTop: -15,
+    marginLeft: 5,
+  },
   campoTextoInferior: {
-    height: 50,
     borderColor: '#fff',
     backgroundColor: '#fff',
     borderWidth: 1,
@@ -210,9 +226,9 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 5,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-    fontSize: 15,
     marginLeft: 20,
     marginRight: 20,
+    height: 50,
   },
   inscrevaSe:{
     flexDirection: 'row',
