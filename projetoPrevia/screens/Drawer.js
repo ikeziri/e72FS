@@ -9,6 +9,7 @@ import {
   AppRegistry,
   AsyncStorage,
   TouchableOpacity,
+  ScrollView ,
 } from 'react-native';
 
 export default class Drawer extends Component {
@@ -116,18 +117,18 @@ export default class Drawer extends Component {
       <View style={styles.container}>
         <View style={styles.containerHeader}>
 
-              <View style={styles.textosHeader}>
-                <Text style={styles.mensagemInicial}>Você está logado</Text>
-                <Text style={styles.mensagemData}>13 de março de 2018</Text>
-                <TouchableOpacity style={styles.buttonLogout} >
-                <Text style={styles.textButton} onPress={() => this.navegar(4)} > Sair </Text>
-              </TouchableOpacity>   
-              </View>
-              <Image style={styles.avatarInicio}
-                    source={require('../images/avatar.png')} />
+          <View style={styles.textosHeader}>
+            <Text style={styles.mensagemInicial}>Você está logado</Text>
+            <Text style={styles.mensagemData}>13 de março de 2018</Text>
+            <TouchableOpacity style={styles.buttonLogout} >
+              <Text style={styles.textButton} onPress={() => this.navegar(4)} > Sair </Text>
+            </TouchableOpacity>
+          </View>
+          <Image style={styles.avatarInicio}
+            source={require('../images/avatar.png')} />
         </View>
 
-        <View style={styles.contentMenu}>
+        <ScrollView  style={styles.contentMenu}>
           <Text style={styles.itemMenu} onPress={() => this.navegar(1)}>Item 1</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(2)}>Item 2</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(3)}>Item 3</Text>
@@ -139,7 +140,7 @@ export default class Drawer extends Component {
           <Text style={styles.itemMenu} onPress={() => this.navegar(6)}>PA</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(7)}>Lorran1</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(8)}>Lorran1</Text>
-        </View>
+        </ScrollView >
       </View>
     );
   }
@@ -160,10 +161,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     height: 150,
   },
-  textosHeader:{
+  textosHeader: {
     flexDirection: 'column',
   },
-  contentMenu:{
+  contentMenu: {
     flexDirection: 'column',
   },
   itemMenu: {
