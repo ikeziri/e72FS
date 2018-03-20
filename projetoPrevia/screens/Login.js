@@ -18,6 +18,8 @@ import {
 
 import PasswordInputText from 'react-native-hide-show-password-input';
 
+import SplashScreen from 'react-native-smart-splash-screen'
+
 var {height, width} = Dimensions.get('window');
 
 export default class Login extends Component {
@@ -39,6 +41,11 @@ export default class Login extends Component {
 
   componentDidMount() {
     this._loadInitialState().done();
+    SplashScreen.close({
+      animationType: SplashScreen.animationType.scale,
+      duration: 850,
+      delay: 500,
+   })
   }
 
   _loadInitialState = async () => {
