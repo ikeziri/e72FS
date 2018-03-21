@@ -122,7 +122,7 @@ export default class Login extends Component {
           <Text onPress={this._onPressTeste} > Esqueci a senha </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.linkLembrarSenha}>
-          <Text onPress={this._onPressTeste} > Esqueci a senha </Text>
+          <Text onPress={this._onPressTeste} > Novo Cadastro </Text>
         </TouchableOpacity>        
         </View>
       </View>
@@ -132,7 +132,7 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, 
+    flex: 1,
     backgroundColor: colors.white,
   },
   containerLogo:{
