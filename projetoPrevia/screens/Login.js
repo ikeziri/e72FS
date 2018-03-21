@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   Text,
@@ -17,8 +16,9 @@ import {
 } from 'react-native';
 
 import PasswordInputText from 'react-native-hide-show-password-input';
-
-var {height, width} = Dimensions.get('window');
+import metrics from '../styles/metrics';
+import fonts   from '../styles/fonts';
+import colors  from '../styles/colors';
 
 export default class Login extends Component {
   static navigatorStyle = {
@@ -28,12 +28,12 @@ export default class Login extends Component {
     super(props);
     this.state = {
       isLoading: true,
-      text: ' ',
       value: 0,
+      password: '',
     }
     this.props.navigator.setDrawerEnabled({
-      side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
-      enabled: false // should the drawer be enabled or disabled (locked closed)
+      side: 'left',
+      enabled: false,
     });
   }
 
@@ -92,52 +92,39 @@ export default class Login extends Component {
       <View style={styles.container}>
 
         <View style={styles.containerLogo}>
-        <Image style={styles.logoEntrada}
-                 source={require('../images/logo-descomplica.png')} />
-        </View>
-
-        <View style={styles.linha}>
-          <View style={styles.hrComTexto} />
-          <Text style={styles.textoHr}>Entrar com email</Text>
-          <View style={styles.hrComTexto} />
+          <Image source={require('../images/logo-descomplica.png')} />
         </View>
 
          <View style={styles.containerFields}>
-          <TextInput style={styles.campoTextoSuperior}
-            placeholder='Email'
-            keyboardType='email-address'
-            maxLength={30}
-            underlineColorAndroid='transparent'
-            clearButtonMode='always' />
-            <View style={styles.campoTextoInferior} >
-              <PasswordInputText
-                      value={this.state.password}
-                      placeholder='Senha'
-                      style={styles.campoSenha}
-                      underlineColorAndroid='transparent'
-                      maxLength={20}
-                      onChangeText={ (password) => this.setState({ password }) }
-                  />
-          </View>
-         </View>
+          <Text>Email: </Text>
+            <TextInput
+              style={styles.inputText}
+              keyboardType='email-address'
+              maxLength={30}
+              underlineColorAndroid={colors.dark}
+              clearButtonMode='always' />
 
-        <TouchableOpacity>
-          <Text style={styles.linkLembrarSenha} onPress={this._onPressTeste} > Esqueci a senha </Text>
-        </TouchableOpacity>
+            <Text style={styles.labelSenha}>Senha: </Text>
+              <PasswordInputText
+                style={styles.campoSenha}
+                value={this.state.password}
+                maxLength={20}
+                underlineColorAndroid={colors.dark}
+                onChangeText={ (password) => this.setState({ password }) } />
+         </View>
 
         <TouchableOpacity style={styles.buttonLogin} >
           <Text style={styles.textButton} onPress={this._onPressButton} > Entrar </Text>
-        </TouchableOpacity>        
-
-        <View style={styles.linha}>
-          <View style={styles.hrComTexto} />
-          <Text style={styles.textoHr}>Sou novo aqui</Text>
-          <View style={styles.hrComTexto} />
-        </View>
-
-        <TouchableOpacity style={styles.buttonInscrevaSe} >
-          <Text style={styles.textButton} onPress={this._onPressTeste} > Cadastro </Text>
         </TouchableOpacity>
+
+        <View style={styles.containerLinks}>
+        <TouchableOpacity style={styles.linkLembrarSenha}>
+          <Text onPress={this._onPressTeste} > Esqueci a senha </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.linkLembrarSenha}>
+          <Text onPress={this._onPressTeste} > Esqueci a senha </Text>
+        </TouchableOpacity>        
+        </View>
       </View>
     );
   };
@@ -146,112 +133,42 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0A263C' //Fundo principal da tela
-  },
-  containerButtons:{
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  containerFields:{
-    justifyContent: 'center',
+    backgroundColor: colors.white,
   },
   containerLogo:{
     alignItems: 'center',
+    padding: metrics.marginTop,
+  },
+  containerFields: {
+    marginLeft: metrics.marginLeft,
+    marginRight: metrics.marginRight,
+  },
+  containerLinks: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   buttonLogin: {
     alignItems: 'center',
-    backgroundColor: '#12477e',
-    marginLeft: 20,
-    marginRight: 20,
+    backgroundColor: colors.dark,
+    marginLeft: metrics.marginLeft,
+    marginRight: metrics.marginRight,
     borderRadius: 5,
-    padding: 10,
-  },
-  buttonInscrevaSe: {
-    alignItems: 'center',
-    backgroundColor: '#12455e',
-    borderRadius: 5,
-    marginLeft: 20,
-    marginRight: 20,
-    padding: 10,
-    marginTop: 30,
+    padding: 15,
+    marginTop: 35,
   },
   textButton: {
-    fontSize: 20,
-    color: '#fff',
+    fontSize: fonts.big,
+    color: colors.white,
   },
-  linha:{
-    flexDirection: 'row',
-    paddingTop: 50,
-    paddingBottom: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textoHr:{
-    fontSize: 13,
-    color: '#fff',
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-  logoEntrada: {
-    width: 230,
-    height: 125,
-    marginTop: (Platform.OS === 'ios' ? 40 : 20 ),
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  hr:{
-    borderBottomColor: '#12466e',
-    borderBottomWidth: 1,
-    width: width - 40,
-  },
-  hrComTexto:{
-    borderBottomColor: '#12466e',
-    borderBottomWidth: 1,
-    width: width - 290,
-  },
-  campoTextoSuperior: {
-    height: 50,
-    borderColor: '#fff',
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
-    fontSize: 15,
-    marginLeft: 20,
-    marginRight: 20,
-  },
-  campoSenha: {
-    fontSize: 15,
-    height: 15,
-    marginTop: -15,
-    marginLeft: 5,
-  },
-  campoTextoInferior: {
-    borderColor: '#fff',
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-    marginLeft: 20,
-    marginRight: 20,
-    height: 50,
-  },
-  inscrevaSe:{
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+  inputText:{
+    fontSize: fonts.input,
   },
   linkLembrarSenha: {
-    color: '#fff',
-    paddingTop: 10,
-    paddingBottom: 30,
-    marginLeft: 20,
+    paddingTop: 15,
+    marginLeft: metrics.marginLeft,
+    marginRight: metrics.marginRight,
   },
-  normal:{
-    color: '#fff',
+  labelSenha: {
+    marginTop: 15,
   }
 });
