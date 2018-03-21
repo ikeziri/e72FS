@@ -69,15 +69,18 @@ export default class Login extends Component {
     }
   }
 
-  _onPressTeste = async () => {   
-    try {
-      this.props.navigator.push({
-        screen: 'example.Lorran1',
-        title: 'Lorran1'
-      });
-    } catch (error) {
-      // Error saving data
-    }
+  onPressNovoCadastro(){
+    this.props.navigator.push({
+      screen: 'example.NovoCadastro',
+      title: 'Lorran1'
+    });
+  }
+
+  onPressRecuperarSenha(){
+    this.props.navigator.push({
+      screen: 'example.RecuperarSenha',
+      title: 'Lorran1'
+    });
   }
 
   render() {
@@ -118,11 +121,11 @@ export default class Login extends Component {
         </TouchableOpacity>
 
         <View style={styles.containerLinks}>
-        <TouchableOpacity style={styles.linkLembrarSenha}>
-          <Text onPress={this._onPressTeste} > Esqueci a senha </Text>
+        <TouchableOpacity style={styles.link}>
+          <Text onPress={this.onPressRecuperarSenha.bind(this)} > Esqueci a senha </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.linkLembrarSenha}>
-          <Text onPress={this._onPressTeste} > Novo Cadastro </Text>
+        <TouchableOpacity style={styles.link}>
+          <Text onPress={this.onPressNovoCadastro.bind(this)} > Novo Cadastro </Text>
         </TouchableOpacity>        
         </View>
       </View>
@@ -163,7 +166,7 @@ const styles = StyleSheet.create({
   inputText:{
     fontSize: fonts.input,
   },
-  linkLembrarSenha: {
+  link: {
     paddingTop: 15,
     marginLeft: metrics.marginLeft,
     marginRight: metrics.marginRight,
