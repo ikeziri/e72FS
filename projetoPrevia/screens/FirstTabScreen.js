@@ -13,29 +13,21 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import metrics from '../styles/metrics';
+import fonts   from '../styles/fonts';
+import colors  from '../styles/colors';
 
 import { setDrawerOn } from '../functions/app-functions';
 
 export default class FirstTabScreen extends Component {
   static navigatorStyle = {
-    navBarBackgroundColor: '#0A263C', //Fundo principal da tela
-    navBarTextColor: '#fff',
+    navBarBackgroundColor: colors.white, //Fundo principal da tela
+    navBarTextColor: colors.dark,
+    navBarNoBorder: true,
   };
   render() {
-    var listItems = this.state.cart.map(function (item) {
-      return (
-        <Text>
-          {item}
-        </Text>
-      );
-    });
-    
-
     return (
       <View style={styles.container}>
-        <Image style={styles.fundoTela}
-               source={require('../images/fundo-tela-inicial.png')}
-        />
       </View>
     );
   }
@@ -116,15 +108,7 @@ export default class FirstTabScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  fundoTela: {
-    flex: 1, 
-    justifyContent: 'flex-end',
-    width: 'auto',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    backgroundColor: colors.white,
+    justifyContent: 'center',
   },
 });

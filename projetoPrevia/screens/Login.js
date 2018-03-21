@@ -72,12 +72,14 @@ export default class Login extends Component {
   onPressNovoCadastro(){
     this.props.navigator.push({
       screen: 'example.NovoCadastro',
+      title: 'Novo cadastro',
     });
   }
 
   onPressRecuperarSenha(){
     this.props.navigator.push({
       screen: 'example.RecuperarSenha',
+      title: 'Recuperar senha',
     });
   }
 
