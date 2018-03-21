@@ -72,14 +72,12 @@ export default class Login extends Component {
   onPressNovoCadastro(){
     this.props.navigator.push({
       screen: 'example.NovoCadastro',
-      title: 'Lorran1'
     });
   }
 
   onPressRecuperarSenha(){
     this.props.navigator.push({
       screen: 'example.RecuperarSenha',
-      title: 'Lorran1'
     });
   }
 
@@ -137,6 +135,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
+    justifyContent: 'center',
   },
   containerLogo:{
     alignItems: 'center',

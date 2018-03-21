@@ -3,17 +3,15 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 var {height, width} = Dimensions.get('window');
-
 // create a component
-class LineHr extends Component {
-    render() {
-        return (
-            <View style={styles.linha}>
-                <View style={styles.hr} />
-            </View>
-        );
-    }
-}
+const LineHr = () => {
+    return (
+        <View style={styles.linha}>
+            <View style={styles.hr} />
+        </View>
+    );
+};
+
 
 const styles = StyleSheet.create({
     hr:{
