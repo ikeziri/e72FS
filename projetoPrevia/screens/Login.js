@@ -79,8 +79,8 @@ export default class Login extends Component {
   _onPressTeste = async () => {   
     try {
       this.props.navigator.push({
-        screen: 'example.Lorran1',
-        title: 'Lorran1'
+        screen: 'example.NovoCadastro',
+        title: 'NovoCadastro'
       });
     } catch (error) {
       // Error saving data
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     padding: 10,
-    marginTop: 30,
+    marginTop: 35,
   },
   textButton: {
     fontSize: 20,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   },
   linha:{
     flexDirection: 'row',
-    paddingTop: 50,
+    paddingTop: 30,
     paddingBottom: 30,
     justifyContent: 'center',
     alignItems: 'center',

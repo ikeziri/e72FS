@@ -22,9 +22,7 @@ export default class Lorran1 extends Component {
       password: '' ,
       telefone: '' ,
       msg: [] ,
-      isLoading: false ,
-      operadora: ''
-    
+      isLoading: false 
     };
   }
   render() {
@@ -55,19 +53,6 @@ export default class Lorran1 extends Component {
             Telefone:
           </Text>
           <TextInput />
-          <Text>
-            Operadora:
-          </Text>
-          <Picker
-            selectedValue={this.state.operadora}
-            onValueChange={(operadoraSelecionada) => this.setState({ operadora: operadoraSelecionada })}
-          >
-            <Picker.Item label='Tim' value='tim' />
-            <Picker.Item label='Claro' value='claro' />
-            <Picker.Item label='Oi' value='oi' />
-            <Picker.Item label='Vivo' value='vivo' />
-          </Picker>
-
           <Button title="Cadastrar" />
         </ScrollView>
       </View>
