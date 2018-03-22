@@ -19,6 +19,7 @@ import PasswordInputText from 'react-native-hide-show-password-input';
 import metrics from '../styles/metrics';
 import fonts   from '../styles/fonts';
 import colors  from '../styles/colors';
+import ButtonPrimary from '../components/ButtonPrimary';
 
 export default class Login extends Component {
   static navigatorStyle = {
@@ -116,17 +117,17 @@ export default class Login extends Component {
                 onChangeText={ (password) => this.setState({ password }) } />
          </View>
 
-        <TouchableOpacity style={styles.buttonLogin} >
-          <Text style={styles.textButton} onPress={this._onPressButton} > Entrar </Text>
-        </TouchableOpacity>
+        <View style={styles.containerButton}>
+          <ButtonPrimary onPress={ this._onPressButton }> Entrar </ButtonPrimary>
+        </View>
 
         <View style={styles.containerLinks}>
-        <TouchableOpacity style={styles.link}>
-          <Text onPress={this.onPressRecuperarSenha.bind(this)} > Esqueci a senha </Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.link}>
-          <Text onPress={this.onPressNovoCadastro.bind(this)} > Novo Cadastro </Text>
-        </TouchableOpacity>        
+          <TouchableOpacity style={styles.link}>
+            <Text onPress={this.onPressRecuperarSenha.bind(this)} > Esqueci a senha </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.link}>
+            <Text onPress={this.onPressNovoCadastro.bind(this)} > Novo Cadastro </Text>
+          </TouchableOpacity>        
         </View>
       </View>
     );
@@ -136,6 +137,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     backgroundColor: colors.white,
     justifyContent: 'center',
   },
@@ -143,30 +145,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: metrics.marginTop,
   },
-  logoImg:{
-    width: 150,
-    height: 79,
-  },
   containerFields: {
     marginLeft: metrics.marginLeft,
     marginRight: metrics.marginRight,
   },
+  containerButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  logoImg:{
+    width: 200,
+    height: 110,
+  },
   containerLinks: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  buttonLogin: {
-    alignItems: 'center',
-    backgroundColor: colors.darker,
-    marginLeft: metrics.marginLeft,
-    marginRight: metrics.marginRight,
-    borderRadius: 5,
-    padding: 15,
-    marginTop: 35,
-  },
-  textButton: {
-    fontSize: fonts.big,
-    color: colors.white,
   },
   inputText:{
     fontSize: fonts.input,

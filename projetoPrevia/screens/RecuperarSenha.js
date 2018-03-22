@@ -30,7 +30,7 @@ export default class RecuperarSenha extends Component {
   }
 
   onPressRecuperarSenha(){
-    ToastAndroid.show('Recuperar email', ToastAndroid.SHORT);
+    ToastAndroid.show('Recuperar senha', ToastAndroid.SHORT);
   }
 
   render() {
