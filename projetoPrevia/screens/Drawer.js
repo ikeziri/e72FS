@@ -11,14 +11,15 @@ import {
   TouchableOpacity,
   ScrollView ,
 } from 'react-native';
+import colors from '../styles/colors';
 
 export default class Drawer extends Component {
   constructor(props) {
     super(props);
-    // if you want to listen on navigator events, set this up
+
     this.state = {
-      open: false
-    }
+      open: true
+    } 
 
   }
   navegar(event) {
@@ -149,10 +150,10 @@ export default class Drawer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0A263C',
+    backgroundColor: colors.darker,
   },
   containerHeader: {
-    backgroundColor: '#263445',
+    backgroundColor: colors.darkest,
     flexDirection: 'row',
     paddingTop: 30,
     paddingRight: 10,
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
   avatarInicio: {
     width: 90,
     height: 90,
-    padding: 10,
+    padding: 20,
   },
   mensagemInicial: {
     color: '#fff',

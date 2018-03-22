@@ -2,11 +2,12 @@
 
 const colors = {
     primary: '#47BEC8',
-    darker: '#0B2427', //cor de botoes
+    darkest: '#0B2427',
+    darker: '#154448',
     dark: '#277D85',
-    light: '#57F3FF',
-    lighter: '#CBFDFF',
     white: '#FFF',
+    lighter: '#CBFDFF',
+    light: '#57F3FF',
     
     transparent: 'rgba (0, 0, 0, 0),'
   };

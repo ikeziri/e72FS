@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   Text,
@@ -21,13 +20,26 @@ import { setDrawerOn } from '../functions/app-functions';
 
 export default class FirstTabScreen extends Component {
   static navigatorStyle = {
-    navBarBackgroundColor: colors.white, //Fundo principal da tela
-    navBarTextColor: colors.dark,
-    navBarNoBorder: true,
+    navBarHidden: true,
   };
+
   render() {
     return (
       <View style={styles.container}>
+          <View style={styles.iconMenu}>
+            <Icon.Button name="ios-menu"
+              color={colors.darkest}
+              size={60}
+              backgroundColor={colors.white}
+              onPress={this.openDrawer} />
+          </View>
+
+          <View style={styles.containerBemVindo}>
+            <Text style={styles.textoBemVindo}>Bem vindo ao Restaurante</Text>
+            <Image
+             style={styles.logoRestaurante}
+             source={{uri: 'https://brasilia.deboa.com/wp-content/uploads/2016/10/WhatsApp-Image-2016-10-20-at-15.39.20.jpeg'}} />            
+          </View>
       </View>
     );
   }
@@ -42,25 +54,6 @@ export default class FirstTabScreen extends Component {
 
   componentDidMount() {
     this._loadInitialState().done();
-  }
-
-  _loadIcon = async () => {
-    try {
-      Icon.getImageSource('md-menu', 30).then((source) => {
-        this.props.navigator.setButtons({
-          leftButtons: [
-            {
-              title: 'Menu',
-              id: 'menu',
-              // icon: source
-              icon: iconsMap['ios-person--active']
-            }
-          ],
-        });
-      });
-    } catch (error) {
-      Alert.alert('deu merda ' + error.message);
-    } 
   }
 
   _loadInitialState = async () => {
@@ -109,6 +102,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  iconMenu:{
+
+  },
+  containerBemVindo: {
+
+  },
+  textoBemVindo:{
+    fontSize: fonts.big,
+  },
+  logoRestaurante: {
+    width: 200,
+    height: 200,
+    marginTop: 20,
   },
 });

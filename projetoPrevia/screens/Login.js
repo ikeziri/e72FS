@@ -95,7 +95,7 @@ export default class Login extends Component {
       <View style={styles.container}>
 
         <View style={styles.containerLogo}>
-          <Image source={require('../images/logo-descomplica.png')} />
+          <Image style={styles.logoImg} source={require('../images/logo-descomplica.png')} />
         </View>
 
          <View style={styles.containerFields}>
@@ -143,6 +143,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: metrics.marginTop,
   },
+  logoImg:{
+    width: 150,
+    height: 79,
+  },
   containerFields: {
     marginLeft: metrics.marginLeft,
     marginRight: metrics.marginRight,
@@ -153,7 +157,7 @@ const styles = StyleSheet.create({
   },
   buttonLogin: {
     alignItems: 'center',
-    backgroundColor: colors.dark,
+    backgroundColor: colors.darker,
     marginLeft: metrics.marginLeft,
     marginRight: metrics.marginRight,
     borderRadius: 5,
