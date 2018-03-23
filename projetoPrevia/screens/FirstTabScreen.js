@@ -31,7 +31,7 @@ export default class FirstTabScreen extends Component {
               color={colors.darkest}
               size={60}
               backgroundColor={colors.white}
-              onPress={this.openDrawer} />
+              onPress={this.openDrawer.bind(this)} />
           </View>
 
           <View style={styles.containerBemVindo}>
@@ -50,8 +50,20 @@ export default class FirstTabScreen extends Component {
       cart: [],
       texto: '',
     }
+    this.props.navigator.toggleDrawer({
+      side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
+      animated: true, // does the toggle have transition animation or does it happen immediately (optional)
+      to: 'open' // optional, 'open' = open the drawer, 'closed' = close it, missing = the opposite of current state
+    });
   }
 
+  openDrawer(){
+    this.props.navigator.toggleDrawer({
+      side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
+      animated: true, // does the toggle have transition animation or does it happen immediately (optional)
+      to: 'open' // optional, 'open' = open the drawer, 'closed' = close it, missing = the opposite of current state
+    });
+  }
   componentDidMount() {
     this._loadInitialState().done();
   }
