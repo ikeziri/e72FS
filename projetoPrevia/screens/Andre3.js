@@ -15,6 +15,7 @@ import { setDrawerOff } from '../functions/app-functions';
 import { cadastro, cartao, qrCode } from '../objects/app-objects';
 import { ApiDescomplica } from '../services/app-services';
 
+import Toast, {DURATION} from 'react-native-easy-toast'
 
 export default class Andre extends Component {
   constructor(props) {
@@ -59,6 +60,8 @@ export default class Andre extends Component {
     }
     return (
       <View style={styles.container}>
+      {/* https://github.com/crazycodeboy/react-native-easy-toast */}
+       <Toast ref="toast"/>
         {this.state.msg.length > 0 &&
           <FlatList
             data={this.state.msg}
@@ -118,6 +121,11 @@ export default class Andre extends Component {
       this.setState({ id: id });
     } catch (msg) {
       this.setState({ msg: msg });
+      console.log(msg);
+      this.setState({isLoading: false,});
+      msg.forEach(element => {
+        this.refs.toast.show(element.texto); 
+      });
     };
     this.setState({isLoading: false,});
   }
