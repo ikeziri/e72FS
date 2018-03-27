@@ -28,8 +28,7 @@ export default class Lorran1 extends Component {
       telefone: '' ,
       msg: [] ,
       isLoading: false ,
-      operadora: ''
-    
+      operadora: '',
     };
   }
   render() {
@@ -59,7 +58,7 @@ export default class Lorran1 extends Component {
               <Picker.Item label='Vivo' value='vivo' />
             </Picker>
 
-            <ButtonPrimary onPress={ this.onPressRecuperarSenha }> Gravar </ButtonPrimary>
+            <ButtonPrimary onPress={ this.onPressRecuperarSenha }> Salvar </ButtonPrimary>
           </View>
         </ScrollView>
       </View>

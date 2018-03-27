@@ -9,6 +9,7 @@ import {
   StyleSheet,
   AppRegistry,
   AsyncStorage,
+  TouchableOpacity,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -39,7 +40,15 @@ export default class FirstTabScreen extends Component {
             <Image
              style={styles.logoRestaurante}
              source={{uri: 'https://brasilia.deboa.com/wp-content/uploads/2016/10/WhatsApp-Image-2016-10-20-at-15.39.20.jpeg'}} />            
+            <Text style={styles.textoVinuladoMesa}>Você ainda não está vinculado a uma mesa.</Text>
           </View>
+
+          <View style={styles.containerBtnVincularAgora}>
+            <TouchableOpacity>
+              <Text style={styles.link} onPress={this.openDrawer.bind(this)} > Vincular Agora! </Text>
+            </TouchableOpacity>
+          </View>
+
       </View>
     );
   }
@@ -51,17 +60,17 @@ export default class FirstTabScreen extends Component {
       texto: '',
     }
     this.props.navigator.toggleDrawer({
-      side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
-      animated: true, // does the toggle have transition animation or does it happen immediately (optional)
-      to: 'open' // optional, 'open' = open the drawer, 'closed' = close it, missing = the opposite of current state
+      side: 'left', 
+      animated: true,
+      to: 'closed',
     });
   }
 
   openDrawer(){
     this.props.navigator.toggleDrawer({
-      side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
-      animated: true, // does the toggle have transition animation or does it happen immediately (optional)
-      to: 'open' // optional, 'open' = open the drawer, 'closed' = close it, missing = the opposite of current state
+      side: 'left',
+      animated: true,
+      to: 'open',
     });
   }
   componentDidMount() {
@@ -85,29 +94,6 @@ export default class FirstTabScreen extends Component {
     });
     
   };
-
-  adicionar() {
-    let newCart;
-    try {
-      newCart = this.state.cart;
-    } catch (error) {
-      newCart = [];
-    }
-    Alert.alert(JSON.stringify(newCart));
-    newCart.push(this.state.texto);
-    this.setState({ cart: newCart });
-  }
-
-  salvar = async () => {
-    try {
-      let setCart = JSON.stringify(this.state.cart);
-      Alert.alert(setCart);
-      await AsyncStorage.setItem('Cart', setCart);
-      this._loadInitialState().done();
-    } catch (error) {
-      // Error saving data
-    }
-  }
 }
 
 const styles = StyleSheet.create({
@@ -115,20 +101,31 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
     flexDirection: 'column',
-    alignItems: 'center',
   },
   iconMenu:{
-
+    flexDirection: 'row',
   },
   containerBemVindo: {
-
+    alignItems: 'center',
+  },
+  containerBtnVincularAgora:{
+    alignItems: 'center',
   },
   textoBemVindo:{
-    fontSize: fonts.big,
+    fontSize: fonts.bigger,
+  },
+  textoVinuladoMesa: {
+    fontSize: fonts.normal,
   },
   logoRestaurante: {
     width: 200,
     height: 200,
     marginTop: 20,
+  },
+  link: {
+    marginLeft: metrics.marginLeft,
+    marginRight: metrics.marginRight,
+    fontSize: fonts.big,
+    marginTop: 25,
   },
 });

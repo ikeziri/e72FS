@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   },
   logoImg:{
     width: 200,
-    height: 110,
+    height: 106,
   },
   containerLinks: {
     flexDirection: 'row',

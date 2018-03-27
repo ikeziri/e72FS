@@ -11,17 +11,21 @@ import {
   TouchableOpacity,
   ScrollView ,
 } from 'react-native';
+
 import colors from '../styles/colors';
+import ButtonPrimary from '../components/ButtonPrimary';
+import CurrentDate from '../components/CurrentDate';
 
 export default class Drawer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      open: true
+      open: true,
     } 
 
   }
+
   navegar(event) {
     this.props.navigator.toggleDrawer({
       side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
@@ -119,8 +123,8 @@ export default class Drawer extends Component {
         <View style={styles.containerHeader}>
 
           <View style={styles.textosHeader}>
-            <Text style={styles.mensagemInicial}>Você está logado</Text>
-            <Text style={styles.mensagemData}>13 de março de 2018</Text>
+            <Text style={styles.mensagemInicial}>Nome do usuário</Text>
+            <CurrentDate style={styles.mensagemData} />
             <TouchableOpacity style={styles.buttonLogout} >
               <Text style={styles.textButton} onPress={() => this.navegar(4)} > Sair </Text>
             </TouchableOpacity>
@@ -150,10 +154,10 @@ export default class Drawer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darker,
+    backgroundColor: colors.white,
   },
   containerHeader: {
-    backgroundColor: colors.darkest,
+    backgroundColor: colors.darker,
     flexDirection: 'row',
     paddingTop: 30,
     paddingRight: 10,
@@ -169,7 +173,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   itemMenu: {
-    color: '#fff',
+    color: colors.darker,
     fontSize: 18,
     padding: 8,
   },
@@ -179,23 +183,24 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   mensagemInicial: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 20,
     paddingBottom: 10,
   },
   mensagemData: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 15,
   },
   buttonLogout: {
     alignItems: 'center',
-    backgroundColor: '#12455e',
+    backgroundColor: colors.light,
     borderRadius: 5,
     padding: 5,
     marginTop: 10,
   },
   textButton: {
     fontSize: 15,
-    color: '#fff',
+    color: colors.white,
+    color: colors.darker,
   },
 });
