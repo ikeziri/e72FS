@@ -24,6 +24,13 @@ export default class FirstTabScreen extends Component {
     navBarHidden: true,
   };
 
+  vincularMesa() {
+    this.props.navigator.push({
+      screen: 'example.LeitorQrCode',
+      title: 'QrCode'
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -45,7 +52,7 @@ export default class FirstTabScreen extends Component {
 
           <View style={styles.containerBtnVincularAgora}>
             <TouchableOpacity>
-              <Text style={styles.link} onPress={this.openDrawer.bind(this)} > Vincular Agora! </Text>
+              <Text style={styles.link} onPress={() => this.vincularMesa()} > Vincular Agora! </Text>
             </TouchableOpacity>
           </View>
 
