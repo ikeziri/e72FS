@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
+import colors        from '../styles/colors';
+import fonts         from '../styles/fonts';
 
 export default class CurrentDate extends Component {
     constructor(props){
@@ -63,11 +65,17 @@ export default class CurrentDate extends Component {
   }
 
 
-  render() {
+  render() { 
     return (
         <View>
-           <Text>{this.state.dataHora}</Text>  
+           <Text style={styles.mensagemData}>{this.state.dataHora}</Text>  
         </View>
     )
   }
-};
+}
+const styles = StyleSheet.create({
+    mensagemData: {
+        color: colors.white,
+        fontSize: fonts.small,
+      },
+  });

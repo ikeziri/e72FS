@@ -12,9 +12,11 @@ import {
   ScrollView ,
 } from 'react-native';
 
-import colors from '../styles/colors';
+import colors        from '../styles/colors';
+import fonts         from '../styles/fonts';
 import ButtonPrimary from '../components/ButtonPrimary';
-import CurrentDate from '../components/CurrentDate';
+import CurrentDate   from '../components/CurrentDate';
+import Icon          from 'react-native-vector-icons/FontAwesome';
 
 export default class Drawer extends Component {
   constructor(props) {
@@ -28,15 +30,15 @@ export default class Drawer extends Component {
 
   navegar(event) {
     this.props.navigator.toggleDrawer({
-      side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
-      animated: true, // does the toggle have transition animation or does it happen immediately (optional)
-      to: 'close' // optional, 'open' = open the drawer, 'closed' = close it, missing = the opposite of current state
+      side: 'left',
+      animated: true,
+      to: 'close',
     });
     switch (event) {
       case 1:
         this.props.navigator.showModal({
           screen: 'example.FirstTabScreen',
-          title: `Modal`
+          title: 'Modal',
         });
         break;
       case 2:
@@ -47,7 +49,7 @@ export default class Drawer extends Component {
       case 3:
         this.props.navigator.resetTo({
           screen: 'example.SecondTabScreen',
-          title: 'segunda'
+          title: 'segunda',
         });
         break;
       case 4:
@@ -121,13 +123,9 @@ export default class Drawer extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.containerHeader}>
-
           <View style={styles.textosHeader}>
             <Text style={styles.mensagemInicial}>Nome do usuário</Text>
             <CurrentDate style={styles.mensagemData} />
-            <TouchableOpacity style={styles.buttonLogout} >
-              <Text style={styles.textButton} onPress={() => this.navegar(4)} > Sair </Text>
-            </TouchableOpacity>
           </View>
           <Image style={styles.avatarInicio}
             source={require('../images/avatar.png')} />
@@ -146,6 +144,15 @@ export default class Drawer extends Component {
           <Text style={styles.itemMenu} onPress={() => this.navegar(7)}>Lorran1</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(8)}>Lorran1</Text>
         </ScrollView >
+
+
+        <View style={styles.containerFooter}>
+          <Icon name="power-off"
+                style={styles.iconLogout}
+                size={40}
+                backgroundColor={colors.darkest} />
+            <Text style={styles.logout} onPress={() => this.navegar(4)}>Sair</Text>
+        </View>        
       </View>
     );
   }
@@ -164,17 +171,24 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     justifyContent: 'space-between',
-    height: 150,
+    height: 140,
+  },
+  containerFooter: {
+    height: 90,
+    borderTopColor: colors.darker,
+    borderTopWidth: 1,
+    flexDirection: 'row',
   },
   textosHeader: {
     flexDirection: 'column',
   },
   contentMenu: {
     flexDirection: 'column',
+    height: 100,
   },
   itemMenu: {
     color: colors.darker,
-    fontSize: 18,
+    fontSize: fonts.big,
     padding: 8,
   },
   avatarInicio: {
@@ -184,23 +198,16 @@ const styles = StyleSheet.create({
   },
   mensagemInicial: {
     color: colors.white,
-    fontSize: 20,
+    fontSize: fonts.bigger,
     paddingBottom: 10,
   },
-  mensagemData: {
-    color: colors.white,
-    fontSize: 15,
+  logout:{
+    color: colors.dark,
+    fontSize: fonts.big,
+    padding: 8,
   },
-  buttonLogout: {
-    alignItems: 'center',
-    backgroundColor: colors.light,
-    borderRadius: 5,
-    padding: 5,
-    marginTop: 10,
-  },
-  textButton: {
-    fontSize: 15,
-    color: colors.white,
-    color: colors.darker,
+  iconLogout:{
+    padding:5,
+    color: colors.dark,
   },
 });

@@ -62506,7 +62506,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       return _RecuperarSenha2.default;
     });
   }
-},345,[334,346,518,519,520,521,523,543,549,550,553,554,555,556,570,571,572],"projetoPrevia/screens/index.js");
+},345,[334,346,518,519,520,521,525,544,550,551,555,556,557,558,572,573,574],"projetoPrevia/screens/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -62540,15 +62540,25 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var FirstTabScreen = function (_Component) {
     babelHelpers.inherits(FirstTabScreen, _Component);
     babelHelpers.createClass(FirstTabScreen, [{
+      key: "vincularMesa",
+      value: function vincularMesa() {
+        this.props.navigator.push({
+          screen: 'example.LeitorQrCode',
+          title: 'QrCode'
+        });
+      }
+    }, {
       key: "render",
       value: function render() {
+        var _this2 = this;
+
         return _react2.default.createElement(
           _reactNative.View,
           {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 28
+              lineNumber: 36
             }
           },
           _react2.default.createElement(
@@ -62557,7 +62567,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.iconMenu,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 29
+                lineNumber: 37
               }
             },
             _react2.default.createElement(_Ionicons2.default.Button, {
@@ -62565,10 +62575,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
               color: _colors2.default.darkest,
               size: 60,
               backgroundColor: _colors2.default.white,
-              onPress: this.openDrawer,
+              onPress: this.openDrawer.bind(this),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 30
+                lineNumber: 38
               }
             })
           ),
@@ -62578,7 +62588,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.containerBemVindo,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 37
+                lineNumber: 45
               }
             },
             _react2.default.createElement(
@@ -62587,7 +62597,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 style: styles.textoBemVindo,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 38
+                  lineNumber: 46
                 }
               },
               "Bem vindo ao Restaurante"
@@ -62599,16 +62609,60 @@ __d(function (global, require, module, exports, _dependencyMap) {
               },
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 39
+                lineNumber: 47
               }
-            })
+            }),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.textoVinuladoMesa,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 50
+                }
+              },
+              "Voc\xEA ainda n\xE3o est\xE1 vinculado a uma mesa."
+            )
+          ),
+          _react2.default.createElement(
+            _reactNative.View,
+            {
+              style: styles.containerBtnVincularAgora,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 53
+              }
+            },
+            _react2.default.createElement(
+              _reactNative.TouchableOpacity,
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 54
+                }
+              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  style: styles.link,
+                  onPress: function onPress() {
+                    return _this2.vincularMesa();
+                  },
+                  __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 55
+                  }
+                },
+                " Vincular Agora! "
+              )
+            )
           )
         );
       }
     }]);
 
     function FirstTabScreen(props) {
-      var _this2 = this;
+      var _this3 = this;
 
       babelHelpers.classCallCheck(this, FirstTabScreen);
 
@@ -62656,39 +62710,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 return _context.stop();
             }
           }
-        }, null, _this2, [[0, 7]]);
-      };
-
-      _this.salvar = function _callee2() {
-        var setCart;
-        return regeneratorRuntime.async(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.prev = 0;
-                setCart = JSON.stringify(_this.state.cart);
-
-                _reactNative.Alert.alert(setCart);
-
-                _context2.next = 5;
-                return regeneratorRuntime.awrap(_reactNative.AsyncStorage.setItem('Cart', setCart));
-
-              case 5:
-                _this._loadInitialState().done();
-
-                _context2.next = 10;
-                break;
-
-              case 8:
-                _context2.prev = 8;
-                _context2.t0 = _context2["catch"](0);
-
-              case 10:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, null, _this2, [[0, 8]]);
+        }, null, _this3, [[0, 7]]);
       };
 
       (0, _appFunctions.setDrawerOn)(_this);
@@ -62696,31 +62718,29 @@ __d(function (global, require, module, exports, _dependencyMap) {
         cart: [],
         texto: ''
       };
+
+      _this.props.navigator.toggleDrawer({
+        side: 'left',
+        animated: true,
+        to: 'closed'
+      });
+
       return _this;
     }
 
     babelHelpers.createClass(FirstTabScreen, [{
+      key: "openDrawer",
+      value: function openDrawer() {
+        this.props.navigator.toggleDrawer({
+          side: 'left',
+          animated: true,
+          to: 'open'
+        });
+      }
+    }, {
       key: "componentDidMount",
       value: function componentDidMount() {
         this._loadInitialState().done();
-      }
-    }, {
-      key: "adicionar",
-      value: function adicionar() {
-        var newCart = void 0;
-
-        try {
-          newCart = this.state.cart;
-        } catch (error) {
-          newCart = [];
-        }
-
-        _reactNative.Alert.alert(JSON.stringify(newCart));
-
-        newCart.push(this.state.texto);
-        this.setState({
-          cart: newCart
-        });
       }
     }]);
     return FirstTabScreen;
@@ -62735,18 +62755,33 @@ __d(function (global, require, module, exports, _dependencyMap) {
     container: {
       flex: 1,
       backgroundColor: _colors2.default.white,
-      flexDirection: 'column',
+      flexDirection: 'column'
+    },
+    iconMenu: {
+      flexDirection: 'row'
+    },
+    containerBemVindo: {
       alignItems: 'center'
     },
-    iconMenu: {},
-    containerBemVindo: {},
+    containerBtnVincularAgora: {
+      alignItems: 'center'
+    },
     textoBemVindo: {
-      fontSize: _fonts2.default.big
+      fontSize: _fonts2.default.bigger
+    },
+    textoVinuladoMesa: {
+      fontSize: _fonts2.default.normal
     },
     logoRestaurante: {
       width: 200,
       height: 200,
       marginTop: 20
+    },
+    link: {
+      marginLeft: _metrics2.default.marginLeft,
+      marginRight: _metrics2.default.marginRight,
+      fontSize: _fonts2.default.big,
+      marginTop: 25
     }
   });
 },346,[108,12,347,511,512,513,514],"projetoPrevia/screens/FirstTabScreen.js");
@@ -67094,6 +67129,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     });
     var fonts = {
         input: 16,
+        bigger: 25,
         big: 20,
         regular: 14,
         medium: 12,
@@ -68260,6 +68296,14 @@ __d(function (global, require, module, exports, _dependencyMap) {
 
   var _colors2 = babelHelpers.interopRequireDefault(_colors);
 
+  var _ButtonPrimary = require(_dependencyMap[3], "../components/ButtonPrimary");
+
+  var _ButtonPrimary2 = babelHelpers.interopRequireDefault(_ButtonPrimary);
+
+  var _CurrentDate = require(_dependencyMap[4], "../components/CurrentDate");
+
+  var _CurrentDate2 = babelHelpers.interopRequireDefault(_CurrentDate);
+
   var Drawer = function (_Component) {
     babelHelpers.inherits(Drawer, _Component);
 
@@ -68410,7 +68454,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 118
+              lineNumber: 122
             }
           },
           _react2.default.createElement(
@@ -68419,7 +68463,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.containerHeader,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 119
+                lineNumber: 123
               }
             },
             _react2.default.createElement(
@@ -68428,7 +68472,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 style: styles.textosHeader,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 121
+                  lineNumber: 125
                 }
               },
               _react2.default.createElement(
@@ -68437,29 +68481,25 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   style: styles.mensagemInicial,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 122
+                    lineNumber: 126
                   }
                 },
-                "Voc\xEA est\xE1 logado"
+                "Nome do usu\xE1rio"
               ),
-              _react2.default.createElement(
-                _reactNative.Text,
-                {
-                  style: styles.mensagemData,
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 123
-                  }
-                },
-                "13 de mar\xE7o de 2018"
-              ),
+              _react2.default.createElement(_CurrentDate2.default, {
+                style: styles.mensagemData,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 127
+                }
+              }),
               _react2.default.createElement(
                 _reactNative.TouchableOpacity,
                 {
                   style: styles.buttonLogout,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 124
+                    lineNumber: 128
                   }
                 },
                 _react2.default.createElement(
@@ -68471,7 +68511,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                     },
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 125
+                      lineNumber: 129
                     }
                   },
                   " Sair "
@@ -68480,10 +68520,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
             ),
             _react2.default.createElement(_reactNative.Image, {
               style: styles.avatarInicio,
-              source: require(_dependencyMap[3], '../images/avatar.png'),
+              source: require(_dependencyMap[5], '../images/avatar.png'),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 128
+                lineNumber: 132
               }
             })
           ),
@@ -68493,7 +68533,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.contentMenu,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 132
+                lineNumber: 136
               }
             },
             _react2.default.createElement(
@@ -68505,7 +68545,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 133
+                  lineNumber: 137
                 }
               },
               "Item 1"
@@ -68519,7 +68559,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 134
+                  lineNumber: 138
                 }
               },
               "Item 2"
@@ -68533,7 +68573,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 135
+                  lineNumber: 139
                 }
               },
               "Item 3"
@@ -68547,7 +68587,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 136
+                  lineNumber: 140
                 }
               },
               "Andre"
@@ -68561,7 +68601,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 137
+                  lineNumber: 141
                 }
               },
               "Andre2"
@@ -68575,7 +68615,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 138
+                  lineNumber: 142
                 }
               },
               "Andre3"
@@ -68589,7 +68629,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 139
+                  lineNumber: 143
                 }
               },
               "Camera"
@@ -68603,7 +68643,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 140
+                  lineNumber: 144
                 }
               },
               "LeitorQrCode"
@@ -68617,7 +68657,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 141
+                  lineNumber: 145
                 }
               },
               "PA"
@@ -68631,7 +68671,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 142
+                  lineNumber: 146
                 }
               },
               "Lorran1"
@@ -68645,7 +68685,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 143
+                  lineNumber: 147
                 }
               },
               "Lorran1"
@@ -68662,10 +68702,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var styles = _reactNative.StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: _colors2.default.darker
+      backgroundColor: _colors2.default.white
     },
     containerHeader: {
-      backgroundColor: _colors2.default.darkest,
+      backgroundColor: _colors2.default.darker,
       flexDirection: 'row',
       paddingTop: 30,
       paddingRight: 10,
@@ -68681,7 +68721,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       flexDirection: 'column'
     },
     itemMenu: {
-      color: '#fff',
+      color: _colors2.default.darker,
       fontSize: 18,
       padding: 8
     },
@@ -68691,27 +68731,240 @@ __d(function (global, require, module, exports, _dependencyMap) {
       padding: 20
     },
     mensagemInicial: {
-      color: '#fff',
+      color: _colors2.default.white,
       fontSize: 20,
       paddingBottom: 10
     },
     mensagemData: {
-      color: '#fff',
+      color: _colors2.default.white,
       fontSize: 15
     },
     buttonLogout: {
       alignItems: 'center',
-      backgroundColor: '#12455e',
+      backgroundColor: _colors2.default.light,
       borderRadius: 5,
       padding: 5,
       marginTop: 10
     },
     textButton: {
       fontSize: 15,
-      color: '#fff'
+      color: _colors2.default.white,
+      color: _colors2.default.darker
     }
   });
-},521,[108,12,513,522],"projetoPrevia/screens/Drawer.js");
+},521,[108,12,513,522,523,524],"projetoPrevia/screens/Drawer.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    var _jsxFileName = "C:\\Users\\Pandre\\e72FS\\projetoPrevia\\components\\ButtonPrimary.js";
+
+    var _react = require(_dependencyMap[0], "react");
+
+    var _react2 = babelHelpers.interopRequireDefault(_react);
+
+    var _reactNative = require(_dependencyMap[1], "react-native");
+
+    var _metrics = require(_dependencyMap[2], "../styles/metrics");
+
+    var _metrics2 = babelHelpers.interopRequireDefault(_metrics);
+
+    var _fonts = require(_dependencyMap[3], "../styles/fonts");
+
+    var _fonts2 = babelHelpers.interopRequireDefault(_fonts);
+
+    var _colors = require(_dependencyMap[4], "../styles/colors");
+
+    var _colors2 = babelHelpers.interopRequireDefault(_colors);
+
+    var ButtonPrimary = function (_Component) {
+        babelHelpers.inherits(ButtonPrimary, _Component);
+
+        function ButtonPrimary(props) {
+            babelHelpers.classCallCheck(this, ButtonPrimary);
+            return babelHelpers.possibleConstructorReturn(this, (ButtonPrimary.__proto__ || Object.getPrototypeOf(ButtonPrimary)).call(this, props));
+        }
+
+        babelHelpers.createClass(ButtonPrimary, [{
+            key: "render",
+            value: function render() {
+                return _react2.default.createElement(
+                    _reactNative.View,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 15
+                        }
+                    },
+                    _react2.default.createElement(
+                        _reactNative.TouchableOpacity,
+                        {
+                            style: styles.button,
+                            onPress: this.props.onPress,
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 16
+                            }
+                        },
+                        _react2.default.createElement(
+                            _reactNative.Text,
+                            {
+                                style: styles.textButton,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 17
+                                }
+                            },
+                            " ",
+                            this.props.children,
+                            " "
+                        )
+                    )
+                );
+            }
+        }]);
+        return ButtonPrimary;
+    }(_react.Component);
+
+    exports.default = ButtonPrimary;
+    ;
+
+    var styles = _reactNative.StyleSheet.create({
+        button: {
+            alignItems: 'center',
+            backgroundColor: _colors2.default.dark,
+            marginLeft: _metrics2.default.marginLeft,
+            marginRight: _metrics2.default.marginRight,
+            borderRadius: 25,
+            padding: 15,
+            marginTop: 35,
+            minWidth: 200
+        },
+        textButton: {
+            fontSize: _fonts2.default.big,
+            color: _colors2.default.white
+        }
+    });
+},522,[108,12,511,512,513],"projetoPrevia/components/ButtonPrimary.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    var _jsxFileName = "C:\\Users\\Pandre\\e72FS\\projetoPrevia\\components\\CurrentDate.js";
+
+    var _react = require(_dependencyMap[0], "react");
+
+    var _react2 = babelHelpers.interopRequireDefault(_react);
+
+    var _reactNative = require(_dependencyMap[1], "react-native");
+
+    var CurrentDate = function (_Component) {
+        babelHelpers.inherits(CurrentDate, _Component);
+
+        function CurrentDate(props) {
+            babelHelpers.classCallCheck(this, CurrentDate);
+
+            var _this = babelHelpers.possibleConstructorReturn(this, (CurrentDate.__proto__ || Object.getPrototypeOf(CurrentDate)).call(this, props));
+
+            _this.ShowCurrentDate = function () {
+                var date = new Date().getDate();
+
+                var month = _this.returnMonth();
+
+                var year = new Date().getFullYear();
+                return date + ' de ' + month + ' de ' + year;
+            };
+
+            _this.returnMonth = function () {
+                switch (new Date().getMonth()) {
+                    case 0:
+                        mon = "Janeiro";
+                        break;
+
+                    case 1:
+                        mon = "Fevereiro";
+                        break;
+
+                    case 2:
+                        mon = "Março";
+                        break;
+
+                    case 3:
+                        mon = "Abril";
+                        break;
+
+                    case 4:
+                        mon = "Maio";
+                        break;
+
+                    case 5:
+                        mon = "Junho";
+                        break;
+
+                    case 6:
+                        mon = "Julho";
+                        break;
+
+                    case 7:
+                        mon = "Agosto";
+                        break;
+
+                    case 8:
+                        mon = "Setembro";
+                        break;
+
+                    case 9:
+                        mon = "Outubro";
+                        break;
+
+                    case 10:
+                        mon = "Novembro";
+                        break;
+
+                    case 11:
+                        mon = "Dezembro";
+                        break;
+                }
+
+                return mon;
+            };
+
+            _this.state = {
+                dataHora: _this.ShowCurrentDate()
+            };
+            return _this;
+        }
+
+        babelHelpers.createClass(CurrentDate, [{
+            key: "render",
+            value: function render() {
+                return _react2.default.createElement(
+                    _reactNative.View,
+                    {
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 68
+                        }
+                    },
+                    _react2.default.createElement(
+                        _reactNative.Text,
+                        {
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 69
+                            }
+                        },
+                        this.state.dataHora
+                    )
+                );
+            }
+        }]);
+        return CurrentDate;
+    }(_react.Component);
+
+    exports.default = CurrentDate;
+    ;
+},523,[108,12],"projetoPrevia/components/CurrentDate.js");
 __d(function (global, require, module, exports, _dependencyMap) {
 	module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
 		"__packager_asset": true,
@@ -68723,7 +68976,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
 		"name": "avatar",
 		"type": "png"
 	});
-},522,[161],"images\\avatar.png");
+},524,[161],"images\\avatar.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -69086,7 +69339,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     },
     logoImg: {
       width: 200,
-      height: 102
+      height: 106
     },
     containerLinks: {
       flexDirection: 'row',
@@ -69104,7 +69357,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       marginTop: 15
     }
   });
-},523,[108,12,524,511,512,513,541,542],"projetoPrevia/screens/Login.js");
+},525,[108,12,526,511,512,513,522,543],"projetoPrevia/screens/Login.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -69115,7 +69368,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var _passwordInput2 = babelHelpers.interopRequireDefault(_passwordInput);
 
   exports.default = _passwordInput2.default;
-},524,[525],"react-native-hide-show-password-input/index.js");
+},526,[527],"react-native-hide-show-password-input/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -69217,7 +69470,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     PasswordInputText.defaultProps = {
         iconSize: 25
     };
-},525,[108,526,12,528],"react-native-hide-show-password-input/src/component/passwordInput.js");
+},527,[108,528,12,530],"react-native-hide-show-password-input/src/component/passwordInput.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -69239,7 +69492,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var TabBarItemIOS = exports.TabBarItemIOS = iconSet.TabBarItemIOS;
   var ToolbarAndroid = exports.ToolbarAndroid = iconSet.ToolbarAndroid;
   var getImageSource = exports.getImageSource = iconSet.getImageSource;
-},526,[348,527],"react-native-vector-icons/MaterialIcons.js");
+},528,[348,529],"react-native-vector-icons/MaterialIcons.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = {
     "3d-rotation": 59469,
@@ -70175,7 +70428,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "zoom-out": 59648,
     "zoom-out-map": 58731
   };
-},527,[],"react-native-vector-icons/glyphmaps/MaterialIcons.json");
+},529,[],"react-native-vector-icons/glyphmaps/MaterialIcons.json");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -70187,7 +70440,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var _field2 = babelHelpers.interopRequireDefault(_field);
 
   exports.TextField = _field2.default;
-},528,[529],"react-native-material-textfield/index.js");
+},530,[531],"react-native-material-textfield/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -70808,7 +71061,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     containerStyle: (_reactNative.ViewPropTypes || _reactNative.View.propTypes).style
   });
   exports.default = TextField;
-},529,[127,108,12,530,531,533,534,536,538,540],"react-native-material-textfield/src/components/field/index.js");
+},531,[127,108,12,532,533,535,536,538,540,542],"react-native-material-textfield/src/components/field/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = {
     "_args": [[{
@@ -71021,7 +71274,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     },
     "version": "0.53.3"
   };
-},530,[],"react-native/package.json");
+},532,[],"react-native/package.json");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71078,7 +71331,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     color: _propTypes2.default.string.isRequired
   };
   exports.default = Line;
-},531,[127,108,12,532],"react-native-material-textfield/src/components/line/index.js");
+},533,[127,108,12,534],"react-native-material-textfield/src/components/line/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71096,7 +71349,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       borderWidth: 1
     }
   });
-},532,[12],"react-native-material-textfield/src/components/line/styles.js");
+},534,[12],"react-native-material-textfield/src/components/line/styles.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71246,7 +71499,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node])
   };
   exports.default = Label;
-},533,[127,108,12],"react-native-material-textfield/src/components/label/index.js");
+},535,[127,108,12],"react-native-material-textfield/src/components/label/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71374,7 +71627,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node])
   };
   exports.default = Affix;
-},534,[127,108,12,535],"react-native-material-textfield/src/components/affix/index.js");
+},536,[127,108,12,537],"react-native-material-textfield/src/components/affix/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71389,7 +71642,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       justifyContent: 'center'
     }
   });
-},535,[12],"react-native-material-textfield/src/components/affix/styles.js");
+},537,[12],"react-native-material-textfield/src/components/affix/styles.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71460,7 +71713,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     children: _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node])
   };
   exports.default = Helper;
-},536,[127,108,12,537],"react-native-material-textfield/src/components/helper/index.js");
+},538,[127,108,12,539],"react-native-material-textfield/src/components/helper/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71476,7 +71729,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       backgroundColor: 'transparent'
     }
   });
-},537,[12],"react-native-material-textfield/src/components/helper/styles.js");
+},539,[12],"react-native-material-textfield/src/components/helper/styles.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71561,7 +71814,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     style: _reactNative.Text.propTypes.style
   };
   exports.default = Counter;
-},538,[127,108,12,539],"react-native-material-textfield/src/components/counter/index.js");
+},540,[127,108,12,541],"react-native-material-textfield/src/components/counter/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71579,7 +71832,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       backgroundColor: 'transparent'
     }
   });
-},539,[12],"react-native-material-textfield/src/components/counter/styles.js");
+},541,[12],"react-native-material-textfield/src/components/counter/styles.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71609,100 +71862,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       alignSelf: 'flex-start'
     }
   });
-},540,[12],"react-native-material-textfield/src/components/field/styles.js");
-__d(function (global, require, module, exports, _dependencyMap) {
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-    var _jsxFileName = "C:\\Users\\Pandre\\e72FS\\projetoPrevia\\components\\ButtonPrimary.js";
-
-    var _react = require(_dependencyMap[0], "react");
-
-    var _react2 = babelHelpers.interopRequireDefault(_react);
-
-    var _reactNative = require(_dependencyMap[1], "react-native");
-
-    var _metrics = require(_dependencyMap[2], "../styles/metrics");
-
-    var _metrics2 = babelHelpers.interopRequireDefault(_metrics);
-
-    var _fonts = require(_dependencyMap[3], "../styles/fonts");
-
-    var _fonts2 = babelHelpers.interopRequireDefault(_fonts);
-
-    var _colors = require(_dependencyMap[4], "../styles/colors");
-
-    var _colors2 = babelHelpers.interopRequireDefault(_colors);
-
-    var ButtonPrimary = function (_Component) {
-        babelHelpers.inherits(ButtonPrimary, _Component);
-
-        function ButtonPrimary(props) {
-            babelHelpers.classCallCheck(this, ButtonPrimary);
-            return babelHelpers.possibleConstructorReturn(this, (ButtonPrimary.__proto__ || Object.getPrototypeOf(ButtonPrimary)).call(this, props));
-        }
-
-        babelHelpers.createClass(ButtonPrimary, [{
-            key: "render",
-            value: function render() {
-                return _react2.default.createElement(
-                    _reactNative.View,
-                    {
-                        __source: {
-                            fileName: _jsxFileName,
-                            lineNumber: 15
-                        }
-                    },
-                    _react2.default.createElement(
-                        _reactNative.TouchableOpacity,
-                        {
-                            style: styles.button,
-                            onPress: this.props.onPress,
-                            __source: {
-                                fileName: _jsxFileName,
-                                lineNumber: 16
-                            }
-                        },
-                        _react2.default.createElement(
-                            _reactNative.Text,
-                            {
-                                style: styles.textButton,
-                                __source: {
-                                    fileName: _jsxFileName,
-                                    lineNumber: 17
-                                }
-                            },
-                            " ",
-                            this.props.children,
-                            " "
-                        )
-                    )
-                );
-            }
-        }]);
-        return ButtonPrimary;
-    }(_react.Component);
-
-    exports.default = ButtonPrimary;
-    ;
-
-    var styles = _reactNative.StyleSheet.create({
-        button: {
-            alignItems: 'center',
-            backgroundColor: _colors2.default.dark,
-            marginLeft: _metrics2.default.marginLeft,
-            marginRight: _metrics2.default.marginRight,
-            borderRadius: 25,
-            padding: 15,
-            marginTop: 35,
-            minWidth: 200
-        },
-        textButton: {
-            fontSize: _fonts2.default.big,
-            color: _colors2.default.white
-        }
-    });
-},541,[108,12,511,512,513],"projetoPrevia/components/ButtonPrimary.js");
+},542,[12],"react-native-material-textfield/src/components/field/styles.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -71714,7 +71874,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "logo-descomplica",
     "type": "png"
   });
-},542,[161],"images\\logo-descomplica.png");
+},543,[161],"images\\logo-descomplica.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71833,7 +71993,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},543,[108,12,514,544],"projetoPrevia/screens/Andre.js");
+},544,[108,12,514,545],"projetoPrevia/screens/Andre.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71859,7 +72019,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   exports.QrCode = _QrCode.QrCode;
   exports.MensagemTela = _MensagemTela.MensagemTela;
   exports.TipoMensagem = _MensagemTela.TipoMensagem;
-},544,[545,546,547,548],"projetoPrevia/objects/app-objects.js");
+},545,[546,547,548,549],"projetoPrevia/objects/app-objects.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -71902,7 +72062,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
         }]);
         return Cartao;
     }();
-},545,[],"projetoPrevia/objects/Cartao.js");
+},546,[],"projetoPrevia/objects/Cartao.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -71923,7 +72083,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     this.cep = cep;
     this.cartao = new _Cartao.Cartao();
   };
-},546,[545],"projetoPrevia/objects/Cadastro.js");
+},547,[546],"projetoPrevia/objects/Cadastro.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -71954,7 +72114,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
         }]);
         return QrCode;
     }();
-},547,[],"projetoPrevia/objects/QrCode.js");
+},548,[],"projetoPrevia/objects/QrCode.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -71984,7 +72144,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             valor: 'E'
         }
     };
-},548,[],"projetoPrevia/objects/MensagemTela.js");
+},549,[],"projetoPrevia/objects/MensagemTela.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -72098,7 +72258,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},549,[108,12,514,544],"projetoPrevia/screens/Andre2.js");
+},550,[108,12,514,545],"projetoPrevia/screens/Andre2.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -72116,6 +72276,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var _appObjects = require(_dependencyMap[3], "../objects/app-objects");
 
   var _appServices = require(_dependencyMap[4], "../services/app-services");
+
+  var _reactNativeEasyToast = require(_dependencyMap[5], "react-native-easy-toast");
+
+  var _reactNativeEasyToast2 = babelHelpers.interopRequireDefault(_reactNativeEasyToast);
 
   var Andre = function (_Component) {
     babelHelpers.inherits(Andre, _Component);
@@ -72159,7 +72323,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   id: id
                 });
 
-                _context.next = 18;
+                _context.next = 21;
                 break;
 
               case 15:
@@ -72170,14 +72334,24 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   msg: _context.t0
                 });
 
-              case 18:
+                console.log(_context.t0);
+
+                _this.setState({
+                  isLoading: false
+                });
+
+                _context.t0.forEach(function (element) {
+                  _this.refs.toast.show(element.texto);
+                });
+
+              case 21:
                 ;
 
                 _this.setState({
                   isLoading: false
                 });
 
-              case 20:
+              case 23:
               case "end":
                 return _context.stop();
             }
@@ -72323,7 +72497,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 35
+              lineNumber: 36
             }
           },
           _react2.default.createElement(
@@ -72332,7 +72506,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.welcome,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 36
+                lineNumber: 37
               }
             },
             "id: ",
@@ -72345,7 +72519,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             accessibilityLabel: "adicion",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 39
+              lineNumber: 40
             }
           }),
           _react2.default.createElement(_reactNative.Button, {
@@ -72355,7 +72529,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             accessibilityLabel: "adicion",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 45
+              lineNumber: 46
             }
           })
         );
@@ -72366,13 +72540,13 @@ __d(function (global, require, module, exports, _dependencyMap) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 55
+                lineNumber: 56
               }
             },
             _react2.default.createElement(_reactNative.ActivityIndicator, {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 56
+                lineNumber: 57
               }
             })
           );
@@ -72384,9 +72558,16 @@ __d(function (global, require, module, exports, _dependencyMap) {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 61
+              lineNumber: 62
             }
           },
+          _react2.default.createElement(_reactNativeEasyToast2.default, {
+            ref: "toast",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 64
+            }
+          }),
           this.state.msg.length > 0 && _react2.default.createElement(_reactNative.FlatList, {
             data: this.state.msg,
             renderItem: function renderItem(_ref) {
@@ -72396,7 +72577,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 65
+                    lineNumber: 68
                   }
                 },
                 item.texto,
@@ -72407,7 +72588,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 63
+              lineNumber: 66
             }
           }),
           this.state.id && cadastrado,
@@ -72417,7 +72598,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.welcome,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 71
+                lineNumber: 74
               }
             },
             "cpf: ",
@@ -72429,7 +72610,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.welcome,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 74
+                lineNumber: 77
               }
             },
             "Aciona um backEnd de cadastro"
@@ -72441,7 +72622,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             accessibilityLabel: "adicion",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 77
+              lineNumber: 80
             }
           }),
           _react2.default.createElement(_reactNative.Button, {
@@ -72451,7 +72632,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             accessibilityLabel: "adicion",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 83
+              lineNumber: 86
             }
           })
         );
@@ -72527,7 +72708,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},550,[108,12,514,544,551],"projetoPrevia/screens/Andre3.js");
+},551,[108,12,514,545,552,554],"projetoPrevia/screens/Andre3.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -72537,7 +72718,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     var _ApiDescomplica = require(_dependencyMap[0], "./ApiDescomplica");
 
     exports.ApiDescomplica = _ApiDescomplica.ApiDescomplica;
-},551,[552],"projetoPrevia/services/app-services.js");
+},552,[553],"projetoPrevia/services/app-services.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -72770,7 +72951,201 @@ __d(function (global, require, module, exports, _dependencyMap) {
             }
         }, null, _this, [[1, 7]]);
     };
-},552,[544],"projetoPrevia/services/ApiDescomplica.js");
+},553,[545],"projetoPrevia/services/ApiDescomplica.js");
+__d(function (global, require, module, exports, _dependencyMap) {
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.DURATION = undefined;
+    var _jsxFileName = "C:\\Users\\Pandre\\e72FS\\projetoPrevia\\node_modules\\react-native-easy-toast\\index.js";
+
+    var _react = require(_dependencyMap[0], "react");
+
+    var _react2 = babelHelpers.interopRequireDefault(_react);
+
+    var _reactNative = require(_dependencyMap[1], "react-native");
+
+    var _propTypes = require(_dependencyMap[2], "prop-types");
+
+    var _propTypes2 = babelHelpers.interopRequireDefault(_propTypes);
+
+    var ViewPropTypes = _reactNative.ViewPropTypes || _reactNative.View.propTypes;
+    var DURATION = exports.DURATION = {
+        LENGTH_SHORT: 500,
+        FOREVER: 0
+    };
+
+    var _Dimensions$get = _reactNative.Dimensions.get('window'),
+        height = _Dimensions$get.height,
+        width = _Dimensions$get.width;
+
+    var Toast = function (_Component) {
+        babelHelpers.inherits(Toast, _Component);
+
+        function Toast(props) {
+            babelHelpers.classCallCheck(this, Toast);
+
+            var _this = babelHelpers.possibleConstructorReturn(this, (Toast.__proto__ || Object.getPrototypeOf(Toast)).call(this, props));
+
+            _this.state = {
+                isShow: false,
+                text: '',
+                opacityValue: new _reactNative.Animated.Value(_this.props.opacity)
+            };
+            return _this;
+        }
+
+        babelHelpers.createClass(Toast, [{
+            key: "show",
+            value: function show(text, duration, callback) {
+                var _this2 = this;
+
+                this.duration = typeof duration === 'number' ? duration : DURATION.LENGTH_SHORT;
+                this.callback = callback;
+                this.setState({
+                    isShow: true,
+                    text: text
+                });
+
+                _reactNative.Animated.timing(this.state.opacityValue, {
+                    toValue: this.props.opacity,
+                    duration: this.props.fadeInDuration
+                }).start(function () {
+                    _this2.isShow = true;
+                    if (duration !== DURATION.FOREVER) _this2.close();
+                });
+            }
+        }, {
+            key: "close",
+            value: function close(duration) {
+                var _this3 = this;
+
+                var delay = typeof duration === 'undefined' ? this.duration : duration;
+                if (delay === DURATION.FOREVER) delay = this.props.defaultCloseDelay || 250;
+                if (!this.isShow && !this.state.isShow) return;
+                this.timer && clearTimeout(this.timer);
+                this.timer = setTimeout(function () {
+                    _reactNative.Animated.timing(_this3.state.opacityValue, {
+                        toValue: 0.0,
+                        duration: _this3.props.fadeOutDuration
+                    }).start(function () {
+                        _this3.setState({
+                            isShow: false
+                        });
+
+                        _this3.isShow = false;
+
+                        if (typeof _this3.callback === 'function') {
+                            _this3.callback();
+                        }
+                    });
+                }, delay);
+            }
+        }, {
+            key: "componentWillUnmount",
+            value: function componentWillUnmount() {
+                this.timer && clearTimeout(this.timer);
+            }
+        }, {
+            key: "render",
+            value: function render() {
+                var pos = void 0;
+
+                switch (this.props.position) {
+                    case 'top':
+                        pos = this.props.positionValue;
+                        break;
+
+                    case 'center':
+                        pos = height / 2;
+                        break;
+
+                    case 'bottom':
+                        pos = height - this.props.positionValue;
+                        break;
+                }
+
+                var view = this.state.isShow ? _react2.default.createElement(
+                    _reactNative.View,
+                    {
+                        style: [styles.container, {
+                            top: pos
+                        }],
+                        pointerEvents: "none",
+                        __source: {
+                            fileName: _jsxFileName,
+                            lineNumber: 104
+                        }
+                    },
+                    _react2.default.createElement(
+                        _reactNative.Animated.View,
+                        {
+                            style: [styles.content, {
+                                opacity: this.state.opacityValue
+                            }, this.props.style],
+                            __source: {
+                                fileName: _jsxFileName,
+                                lineNumber: 108
+                            }
+                        },
+                        _react2.default.isValidElement(this.state.text) ? this.state.text : _react2.default.createElement(
+                            _reactNative.Text,
+                            {
+                                style: this.props.textStyle,
+                                __source: {
+                                    fileName: _jsxFileName,
+                                    lineNumber: 111
+                                }
+                            },
+                            this.state.text
+                        )
+                    )
+                ) : null;
+                return view;
+            }
+        }]);
+        return Toast;
+    }(_react.Component);
+
+    exports.default = Toast;
+
+    var styles = _reactNative.StyleSheet.create({
+        container: {
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            elevation: 999,
+            alignItems: 'center',
+            zIndex: 10000
+        },
+        content: {
+            backgroundColor: 'black',
+            borderRadius: 5,
+            padding: 10
+        },
+        text: {
+            color: 'white'
+        }
+    });
+
+    Toast.propTypes = {
+        style: ViewPropTypes.style,
+        position: _propTypes2.default.oneOf(['top', 'center', 'bottom']),
+        textStyle: _reactNative.Text.propTypes.style,
+        positionValue: _propTypes2.default.number,
+        fadeInDuration: _propTypes2.default.number,
+        fadeOutDuration: _propTypes2.default.number,
+        opacity: _propTypes2.default.number
+    };
+    Toast.defaultProps = {
+        position: 'bottom',
+        textStyle: styles.text,
+        positionValue: 120,
+        fadeInDuration: 500,
+        fadeOutDuration: 500,
+        opacity: 1
+    };
+},554,[108,12,127],"react-native-easy-toast/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -72835,7 +73210,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},553,[108,12],"projetoPrevia/screens/PA.js");
+},555,[108,12],"projetoPrevia/screens/PA.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -73126,7 +73501,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       marginTop: 15
     }
   });
-},554,[108,12,511,512,513,541],"projetoPrevia/screens/Lorran1.js");
+},556,[108,12,511,512,513,522],"projetoPrevia/screens/Lorran1.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -73191,7 +73566,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       margin: 10
     }
   });
-},555,[108,12],"projetoPrevia/screens/Lorran2.js");
+},557,[108,12],"projetoPrevia/screens/Lorran2.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -73564,7 +73939,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       width: 10
     }
   });
-},556,[108,12,557,514,544,562,563,564,565,566,567,568,569],"projetoPrevia/screens/Camera.js");
+},558,[108,12,559,514,545,564,565,566,567,568,569,570,571],"projetoPrevia/screens/Camera.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -73586,7 +73961,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   exports.RNCamera = _RNCamera2.default;
   exports.FaceDetector = _FaceDetector2.default;
   exports.default = _Camera2.default;
-},557,[558,560,561],"react-native-camera/src/index.js");
+},559,[560,562,563],"react-native-camera/src/index.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -74072,7 +74447,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var styles = _reactNative.StyleSheet.create({
     base: {}
   });
-},558,[108,127,12,559],"react-native-camera/src/Camera.js");
+},560,[108,127,12,561],"react-native-camera/src/Camera.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -74140,7 +74515,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             }
         }, null, _this);
     };
-},559,[12],"react-native-camera/src/handlePermissions.js");
+},561,[12],"react-native-camera/src/handlePermissions.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -74538,7 +74913,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       testID: true
     }
   });
-},560,[108,127,338,12,559],"react-native-camera/src/RNCamera.js");
+},562,[108,127,338,12,561],"react-native-camera/src/RNCamera.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -74583,7 +74958,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
   };
   exports.default = FaceDetector;
   var Constants = exports.Constants = FaceDetector.Constants;
-},561,[12],"react-native-camera/src/FaceDetector.js");
+},563,[12],"react-native-camera/src/FaceDetector.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -74595,7 +74970,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_photo_camera_36pt",
     "type": "png"
   });
-},562,[161],"assets\\ic_photo_camera_36pt.png");
+},564,[161],"assets\\ic_photo_camera_36pt.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -74607,7 +74982,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_videocam_36pt",
     "type": "png"
   });
-},563,[161],"assets\\ic_videocam_36pt.png");
+},565,[161],"assets\\ic_videocam_36pt.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -74619,7 +74994,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_stop_36pt",
     "type": "png"
   });
-},564,[161],"assets\\ic_stop_36pt.png");
+},566,[161],"assets\\ic_stop_36pt.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -74631,7 +75006,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_camera_rear_white",
     "type": "png"
   });
-},565,[161],"assets\\ic_camera_rear_white.png");
+},567,[161],"assets\\ic_camera_rear_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -74643,7 +75018,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_camera_front_white",
     "type": "png"
   });
-},566,[161],"assets\\ic_camera_front_white.png");
+},568,[161],"assets\\ic_camera_front_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -74655,7 +75030,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_flash_auto_white",
     "type": "png"
   });
-},567,[161],"assets\\ic_flash_auto_white.png");
+},569,[161],"assets\\ic_flash_auto_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -74667,7 +75042,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_flash_on_white",
     "type": "png"
   });
-},568,[161],"assets\\ic_flash_on_white.png");
+},570,[161],"assets\\ic_flash_on_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
@@ -74679,7 +75054,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
     "name": "ic_flash_off_white",
     "type": "png"
   });
-},569,[161],"assets\\ic_flash_off_white.png");
+},571,[161],"assets\\ic_flash_off_white.png");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -74868,7 +75243,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       width: 10
     }
   });
-},570,[108,12,557,514,544,562],"projetoPrevia/screens/LeitorQrCode.js");
+},572,[108,12,559,514,545,564],"projetoPrevia/screens/LeitorQrCode.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -74929,7 +75304,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 37
+              lineNumber: 36
             }
           },
           _react2.default.createElement(
@@ -74937,7 +75312,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 38
+                lineNumber: 37
               }
             },
             _react2.default.createElement(
@@ -74946,7 +75321,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 style: styles.containerFields,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 39
+                  lineNumber: 38
                 }
               },
               _react2.default.createElement(
@@ -74954,7 +75329,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 40
+                    lineNumber: 39
                   }
                 },
                 "Nome Completo:  "
@@ -74963,7 +75338,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 placeholder: "Ex: Andr\xE9 Ikeziri",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 41
+                  lineNumber: 40
                 }
               }),
               _react2.default.createElement(
@@ -74971,7 +75346,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 42
+                    lineNumber: 41
                   }
                 },
                 "E-mail: "
@@ -74980,7 +75355,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 placeholder: "Ex: paulo@vinnyvinny.com.br",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 43
+                  lineNumber: 42
                 }
               }),
               _react2.default.createElement(
@@ -74988,7 +75363,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 44
+                    lineNumber: 43
                   }
                 },
                 "CPF: "
@@ -74996,7 +75371,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               _react2.default.createElement(_reactNative.TextInput, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 45
+                  lineNumber: 44
                 }
               }),
               _react2.default.createElement(
@@ -75004,7 +75379,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 46
+                    lineNumber: 45
                   }
                 },
                 "Senha: "
@@ -75012,7 +75387,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               _react2.default.createElement(_reactNative.TextInput, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 47
+                  lineNumber: 46
                 }
               }),
               _react2.default.createElement(
@@ -75020,7 +75395,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 48
+                    lineNumber: 47
                   }
                 },
                 "Confirme sua senha: "
@@ -75028,7 +75403,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               _react2.default.createElement(_reactNative.TextInput, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 49
+                  lineNumber: 48
                 }
               }),
               _react2.default.createElement(
@@ -75036,7 +75411,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 50
+                    lineNumber: 49
                   }
                 },
                 "Telefone: "
@@ -75044,7 +75419,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               _react2.default.createElement(_reactNative.TextInput, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 51
+                  lineNumber: 50
                 }
               }),
               _react2.default.createElement(
@@ -75052,7 +75427,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 {
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 52
+                    lineNumber: 51
                   }
                 },
                 " Operadora: "
@@ -75068,7 +75443,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   },
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 53
+                    lineNumber: 52
                   }
                 },
                 _react2.default.createElement(_reactNative.Picker.Item, {
@@ -75076,7 +75451,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   value: "tim",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 56
+                    lineNumber: 55
                   }
                 }),
                 _react2.default.createElement(_reactNative.Picker.Item, {
@@ -75084,7 +75459,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   value: "claro",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 57
+                    lineNumber: 56
                   }
                 }),
                 _react2.default.createElement(_reactNative.Picker.Item, {
@@ -75092,7 +75467,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   value: "oi",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 58
+                    lineNumber: 57
                   }
                 }),
                 _react2.default.createElement(_reactNative.Picker.Item, {
@@ -75100,7 +75475,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   value: "vivo",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 59
+                    lineNumber: 58
                   }
                 })
               ),
@@ -75110,10 +75485,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   onPress: this.onPressRecuperarSenha,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 62
+                    lineNumber: 61
                   }
                 },
-                " Gravar "
+                " Salvar "
               )
             )
           )
@@ -75168,7 +75543,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
       marginTop: 15
     }
   });
-},571,[108,12,511,512,513,541],"projetoPrevia/screens/NovoCadastro.js");
+},573,[108,12,511,512,513,522],"projetoPrevia/screens/NovoCadastro.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -75318,18 +75693,18 @@ __d(function (global, require, module, exports, _dependencyMap) {
       height: 70
     }
   });
-},572,[108,12,511,512,513,541,573],"projetoPrevia/screens/RecuperarSenha.js");
+},574,[108,12,511,512,513,522,575],"projetoPrevia/screens/RecuperarSenha.js");
 __d(function (global, require, module, exports, _dependencyMap) {
   module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
     "__packager_asset": true,
     "httpServerLocation": "/assets/images",
     "width": 373,
-    "height": 257,
+    "height": 255,
     "scales": [1],
-    "hash": "3b5632e125dd95dd1c93d25d3dcb05ea",
+    "hash": "ec381b9b512592d729a22a54df6c39b2",
     "name": "logo-descomplica-simple",
     "type": "png"
   });
-},573,[161],"images\\logo-descomplica-simple.png");
+},575,[161],"images\\logo-descomplica-simple.png");
 require(23);
 require(11);

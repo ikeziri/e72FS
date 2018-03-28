@@ -21,8 +21,6 @@ const styles = StyleSheet.create({
     },
     linha:{
         flexDirection: 'row',
-        paddingTop: 50,
-        paddingBottom: 30,
         justifyContent: 'center',
         alignItems: 'center',
       },
