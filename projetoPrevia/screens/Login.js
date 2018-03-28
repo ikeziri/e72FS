@@ -150,8 +150,10 @@ const styles = StyleSheet.create({
     marginRight: metrics.marginRight,
   },
   containerButton: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
+    marginTop: 30,
+    minWidth: 100,
   },
   logoImg:{
     width: 200,

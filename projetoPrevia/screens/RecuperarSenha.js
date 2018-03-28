@@ -37,10 +37,6 @@ export default class RecuperarSenha extends Component {
     return (
       <View style={styles.container}>
 
-        <View style={styles.containerLogo}>
-          <Image style={styles.logo} source={require('../images/logo-descomplica-simple.png')} />
-        </View>
-
          <View style={styles.containerFields}>
           <Text>Digite seu Email: </Text>
             <TextInput
@@ -52,7 +48,9 @@ export default class RecuperarSenha extends Component {
               value={this.state.email}/>
          </View>
 
-         <ButtonPrimary onPress={ this.onPressRecuperarSenha }> Recuperar </ButtonPrimary>
+         <View style={styles.containerBtnSenha}>
+            <ButtonPrimary onPress={ this.onPressRecuperarSenha }> Recuperar </ButtonPrimary>
+         </View>
       </View>
     );
   }
@@ -62,13 +60,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    flexDirection: 'column',
-    justifyContent: 'center',
   },
   containerFields: {
-    marginTop: 20,
     marginLeft: metrics.marginLeft,
     marginRight: metrics.marginRight,
+    marginTop: 20,
+  },
+  containerBtnSenha: {
+    marginTop: 40,
   },
   containerLogo:{
     alignItems: 'center',

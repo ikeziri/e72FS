@@ -37,7 +37,7 @@ export default class FirstTabScreen extends Component {
           <View style={styles.iconMenu}>
             <Icon.Button name="ios-menu"
               color={colors.darkest}
-              size={60}
+              size={40}
               backgroundColor={colors.white}
               onPress={this.openDrawer.bind(this)} />
           </View>

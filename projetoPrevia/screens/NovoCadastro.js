@@ -57,9 +57,12 @@ export default class Lorran1 extends Component {
               <Picker.Item label='Oi' value='oi' />
               <Picker.Item label='Vivo' value='vivo' />
             </Picker>
-
-            <ButtonPrimary onPress={ this.onPressRecuperarSenha }> Salvar </ButtonPrimary>
           </View>
+
+            <View style={styles.containerBtnSalvar}>
+                <ButtonPrimary onPress={ this.onPressSalvar }> Salvar </ButtonPrimary>
+            </View>
+            
         </ScrollView>
       </View>
     );
@@ -79,23 +82,14 @@ const styles = StyleSheet.create({
   containerFields: {
     marginLeft: metrics.marginLeft,
     marginRight: metrics.marginRight,
+    marginTop: 20,
   },
   containerLinks: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  buttonLogin: {
-    alignItems: 'center',
-    backgroundColor: colors.dark,
-    marginLeft: metrics.marginLeft,
-    marginRight: metrics.marginRight,
-    borderRadius: 5,
-    padding: 15,
-    marginTop: 35,
-  },
-  textButton: {
-    fontSize: fonts.big,
-    color: colors.white,
+  containerBtnSalvar: {
+    marginTop: 15,
   },
   inputText:{
     fontSize: fonts.input,

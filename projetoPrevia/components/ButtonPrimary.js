@@ -28,10 +28,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.dark,
         marginLeft: metrics.marginLeft,
         marginRight: metrics.marginRight,
-        borderRadius: 25,
-        padding: 15,
-        marginTop: 35,
-        minWidth: 200,
+        borderRadius: 15,
+        padding: 12,
       },
       textButton: {
         fontSize: fonts.big,

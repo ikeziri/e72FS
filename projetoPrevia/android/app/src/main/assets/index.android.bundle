@@ -62573,7 +62573,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             _react2.default.createElement(_Ionicons2.default.Button, {
               name: "ios-menu",
               color: _colors2.default.darkest,
-              size: 60,
+              size: 40,
               backgroundColor: _colors2.default.white,
               onPress: this.openDrawer.bind(this),
               __source: {
@@ -67131,7 +67131,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
         input: 16,
         bigger: 25,
         big: 20,
-        regular: 14,
+        regular: 15,
         medium: 12,
         small: 11,
         tiny: 10
@@ -68296,13 +68296,21 @@ __d(function (global, require, module, exports, _dependencyMap) {
 
   var _colors2 = babelHelpers.interopRequireDefault(_colors);
 
-  var _ButtonPrimary = require(_dependencyMap[3], "../components/ButtonPrimary");
+  var _fonts = require(_dependencyMap[3], "../styles/fonts");
+
+  var _fonts2 = babelHelpers.interopRequireDefault(_fonts);
+
+  var _ButtonPrimary = require(_dependencyMap[4], "../components/ButtonPrimary");
 
   var _ButtonPrimary2 = babelHelpers.interopRequireDefault(_ButtonPrimary);
 
-  var _CurrentDate = require(_dependencyMap[4], "../components/CurrentDate");
+  var _CurrentDate = require(_dependencyMap[5], "../components/CurrentDate");
 
   var _CurrentDate2 = babelHelpers.interopRequireDefault(_CurrentDate);
+
+  var _FontAwesome = require(_dependencyMap[6], "react-native-vector-icons/FontAwesome");
+
+  var _FontAwesome2 = babelHelpers.interopRequireDefault(_FontAwesome);
 
   var Drawer = function (_Component) {
     babelHelpers.inherits(Drawer, _Component);
@@ -68365,7 +68373,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
           case 1:
             this.props.navigator.showModal({
               screen: 'example.FirstTabScreen',
-              title: "Modal"
+              title: 'Modal'
             });
             break;
 
@@ -68454,7 +68462,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
             style: styles.container,
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 122
+              lineNumber: 124
             }
           },
           _react2.default.createElement(
@@ -68463,7 +68471,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.containerHeader,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 123
+                lineNumber: 125
               }
             },
             _react2.default.createElement(
@@ -68472,7 +68480,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 style: styles.textosHeader,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 125
+                  lineNumber: 126
                 }
               },
               _react2.default.createElement(
@@ -68481,7 +68489,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                   style: styles.mensagemInicial,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 126
+                    lineNumber: 127
                   }
                 },
                 "Nome do usu\xE1rio"
@@ -68490,40 +68498,16 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 style: styles.mensagemData,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 127
+                  lineNumber: 128
                 }
-              }),
-              _react2.default.createElement(
-                _reactNative.TouchableOpacity,
-                {
-                  style: styles.buttonLogout,
-                  __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 128
-                  }
-                },
-                _react2.default.createElement(
-                  _reactNative.Text,
-                  {
-                    style: styles.textButton,
-                    onPress: function onPress() {
-                      return _this3.navegar(4);
-                    },
-                    __source: {
-                      fileName: _jsxFileName,
-                      lineNumber: 129
-                    }
-                  },
-                  " Sair "
-                )
-              )
+              })
             ),
             _react2.default.createElement(_reactNative.Image, {
               style: styles.avatarInicio,
-              source: require(_dependencyMap[5], '../images/avatar.png'),
+              source: require(_dependencyMap[7], '../images/avatar.png'),
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 132
+                lineNumber: 130
               }
             })
           ),
@@ -68533,7 +68517,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               style: styles.contentMenu,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 136
+                lineNumber: 134
               }
             },
             _react2.default.createElement(
@@ -68545,7 +68529,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 137
+                  lineNumber: 135
                 }
               },
               "Item 1"
@@ -68559,7 +68543,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 138
+                  lineNumber: 136
                 }
               },
               "Item 2"
@@ -68573,7 +68557,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 139
+                  lineNumber: 137
                 }
               },
               "Item 3"
@@ -68587,7 +68571,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 140
+                  lineNumber: 138
                 }
               },
               "Andre"
@@ -68601,7 +68585,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 141
+                  lineNumber: 139
                 }
               },
               "Andre2"
@@ -68615,7 +68599,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 142
+                  lineNumber: 140
                 }
               },
               "Andre3"
@@ -68629,7 +68613,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 143
+                  lineNumber: 141
                 }
               },
               "Camera"
@@ -68643,7 +68627,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 144
+                  lineNumber: 142
                 }
               },
               "LeitorQrCode"
@@ -68657,7 +68641,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 145
+                  lineNumber: 143
                 }
               },
               "PA"
@@ -68671,7 +68655,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 146
+                  lineNumber: 144
                 }
               },
               "Lorran1"
@@ -68685,10 +68669,44 @@ __d(function (global, require, module, exports, _dependencyMap) {
                 },
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 147
+                  lineNumber: 145
                 }
               },
               "Lorran1"
+            )
+          ),
+          _react2.default.createElement(
+            _reactNative.View,
+            {
+              style: styles.containerFooter,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 149
+              }
+            },
+            _react2.default.createElement(_FontAwesome2.default, {
+              name: "power-off",
+              style: styles.iconLogout,
+              size: 33,
+              backgroundColor: _colors2.default.darkest,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 150
+              }
+            }),
+            _react2.default.createElement(
+              _reactNative.Text,
+              {
+                style: styles.logout,
+                onPress: function onPress() {
+                  return _this3.navegar(4);
+                },
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 154
+                }
+              },
+              "Sair"
             )
           )
         );
@@ -68712,17 +68730,24 @@ __d(function (global, require, module, exports, _dependencyMap) {
       paddingBottom: 10,
       paddingLeft: 10,
       justifyContent: 'space-between',
-      height: 150
+      height: 140
+    },
+    containerFooter: {
+      height: 90,
+      borderTopColor: _colors2.default.darker,
+      borderTopWidth: 1,
+      flexDirection: 'row'
     },
     textosHeader: {
       flexDirection: 'column'
     },
     contentMenu: {
-      flexDirection: 'column'
+      flexDirection: 'column',
+      height: 100
     },
     itemMenu: {
       color: _colors2.default.darker,
-      fontSize: 18,
+      fontSize: _fonts2.default.regular,
       padding: 8
     },
     avatarInicio: {
@@ -68732,27 +68757,21 @@ __d(function (global, require, module, exports, _dependencyMap) {
     },
     mensagemInicial: {
       color: _colors2.default.white,
-      fontSize: 20,
+      fontSize: _fonts2.default.big,
       paddingBottom: 10
     },
-    mensagemData: {
-      color: _colors2.default.white,
-      fontSize: 15
-    },
-    buttonLogout: {
-      alignItems: 'center',
-      backgroundColor: _colors2.default.light,
-      borderRadius: 5,
+    logout: {
+      color: _colors2.default.dark,
+      fontSize: _fonts2.default.regular,
       padding: 5,
-      marginTop: 10
+      marginTop: 5
     },
-    textButton: {
-      fontSize: 15,
-      color: _colors2.default.white,
-      color: _colors2.default.darker
+    iconLogout: {
+      padding: 5,
+      color: _colors2.default.dark
     }
   });
-},521,[108,12,513,522,523,524],"projetoPrevia/screens/Drawer.js");
+},521,[108,12,513,512,522,523,516,524],"projetoPrevia/screens/Drawer.js");
 __d(function (global, require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -68835,10 +68854,8 @@ __d(function (global, require, module, exports, _dependencyMap) {
             backgroundColor: _colors2.default.dark,
             marginLeft: _metrics2.default.marginLeft,
             marginRight: _metrics2.default.marginRight,
-            borderRadius: 25,
-            padding: 15,
-            marginTop: 35,
-            minWidth: 200
+            borderRadius: 15,
+            padding: 12
         },
         textButton: {
             fontSize: _fonts2.default.big,
@@ -68857,6 +68874,14 @@ __d(function (global, require, module, exports, _dependencyMap) {
     var _react2 = babelHelpers.interopRequireDefault(_react);
 
     var _reactNative = require(_dependencyMap[1], "react-native");
+
+    var _colors = require(_dependencyMap[2], "../styles/colors");
+
+    var _colors2 = babelHelpers.interopRequireDefault(_colors);
+
+    var _fonts = require(_dependencyMap[3], "../styles/fonts");
+
+    var _fonts2 = babelHelpers.interopRequireDefault(_fonts);
 
     var CurrentDate = function (_Component) {
         babelHelpers.inherits(CurrentDate, _Component);
@@ -68943,15 +68968,16 @@ __d(function (global, require, module, exports, _dependencyMap) {
                     {
                         __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 68
+                            lineNumber: 70
                         }
                     },
                     _react2.default.createElement(
                         _reactNative.Text,
                         {
+                            style: styles.mensagemData,
                             __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 69
+                                lineNumber: 71
                             }
                         },
                         this.state.dataHora
@@ -68963,8 +68989,14 @@ __d(function (global, require, module, exports, _dependencyMap) {
     }(_react.Component);
 
     exports.default = CurrentDate;
-    ;
-},523,[108,12],"projetoPrevia/components/CurrentDate.js");
+
+    var styles = _reactNative.StyleSheet.create({
+        mensagemData: {
+            color: _colors2.default.white,
+            fontSize: _fonts2.default.small
+        }
+    });
+},523,[108,12,513,512],"projetoPrevia/components/CurrentDate.js");
 __d(function (global, require, module, exports, _dependencyMap) {
 	module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
 		"__packager_asset": true,
@@ -69334,8 +69366,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
       marginRight: _metrics2.default.marginRight
     },
     containerButton: {
-      flexDirection: 'row',
-      justifyContent: 'center'
+      flexDirection: 'column',
+      justifyContent: 'center',
+      marginTop: 30,
+      minWidth: 100
     },
     logoImg: {
       width: 200,
@@ -75478,14 +75512,24 @@ __d(function (global, require, module, exports, _dependencyMap) {
                     lineNumber: 58
                   }
                 })
-              ),
+              )
+            ),
+            _react2.default.createElement(
+              _reactNative.View,
+              {
+                style: styles.containerBtnSalvar,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 62
+                }
+              },
               _react2.default.createElement(
                 _ButtonPrimary2.default,
                 {
-                  onPress: this.onPressRecuperarSenha,
+                  onPress: this.onPressSalvar,
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 61
+                    lineNumber: 63
                   }
                 },
                 " Salvar "
@@ -75512,24 +75556,15 @@ __d(function (global, require, module, exports, _dependencyMap) {
     },
     containerFields: {
       marginLeft: _metrics2.default.marginLeft,
-      marginRight: _metrics2.default.marginRight
+      marginRight: _metrics2.default.marginRight,
+      marginTop: 20
     },
     containerLinks: {
       flexDirection: 'row',
       justifyContent: 'space-between'
     },
-    buttonLogin: {
-      alignItems: 'center',
-      backgroundColor: _colors2.default.dark,
-      marginLeft: _metrics2.default.marginLeft,
-      marginRight: _metrics2.default.marginRight,
-      borderRadius: 5,
-      padding: 15,
-      marginTop: 35
-    },
-    textButton: {
-      fontSize: _fonts2.default.big,
-      color: _colors2.default.white
+    containerBtnSalvar: {
+      marginTop: 15
     },
     inputText: {
       fontSize: _fonts2.default.input
@@ -75606,28 +75641,10 @@ __d(function (global, require, module, exports, _dependencyMap) {
           _react2.default.createElement(
             _reactNative.View,
             {
-              style: styles.containerLogo,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 40
-              }
-            },
-            _react2.default.createElement(_reactNative.Image, {
-              style: styles.logo,
-              source: require(_dependencyMap[6], '../images/logo-descomplica-simple.png'),
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 41
-              }
-            })
-          ),
-          _react2.default.createElement(
-            _reactNative.View,
-            {
               style: styles.containerFields,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 44
+                lineNumber: 40
               }
             },
             _react2.default.createElement(
@@ -75635,7 +75652,7 @@ __d(function (global, require, module, exports, _dependencyMap) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 45
+                  lineNumber: 41
                 }
               },
               "Digite seu Email: "
@@ -75649,20 +75666,30 @@ __d(function (global, require, module, exports, _dependencyMap) {
               value: this.state.email,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 46
+                lineNumber: 42
               }
             })
           ),
           _react2.default.createElement(
-            _ButtonPrimary2.default,
+            _reactNative.View,
             {
-              onPress: this.onPressRecuperarSenha,
+              style: styles.containerBtnSenha,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 55
+                lineNumber: 51
               }
             },
-            " Recuperar "
+            _react2.default.createElement(
+              _ButtonPrimary2.default,
+              {
+                onPress: this.onPressRecuperarSenha,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 52
+                }
+              },
+              " Recuperar "
+            )
           )
         );
       }
@@ -75675,14 +75702,15 @@ __d(function (global, require, module, exports, _dependencyMap) {
   var styles = _reactNative.StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: _colors2.default.white,
-      flexDirection: 'column',
-      justifyContent: 'center'
+      backgroundColor: _colors2.default.white
     },
     containerFields: {
-      marginTop: 20,
       marginLeft: _metrics2.default.marginLeft,
-      marginRight: _metrics2.default.marginRight
+      marginRight: _metrics2.default.marginRight,
+      marginTop: 20
+    },
+    containerBtnSenha: {
+      marginTop: 40
     },
     containerLogo: {
       alignItems: 'center',
@@ -75693,18 +75721,6 @@ __d(function (global, require, module, exports, _dependencyMap) {
       height: 70
     }
   });
-},574,[108,12,511,512,513,522,575],"projetoPrevia/screens/RecuperarSenha.js");
-__d(function (global, require, module, exports, _dependencyMap) {
-  module.exports = require(_dependencyMap[0], "react-native/Libraries/Image/AssetRegistry").registerAsset({
-    "__packager_asset": true,
-    "httpServerLocation": "/assets/images",
-    "width": 373,
-    "height": 255,
-    "scales": [1],
-    "hash": "ec381b9b512592d729a22a54df6c39b2",
-    "name": "logo-descomplica-simple",
-    "type": "png"
-  });
-},575,[161],"images\\logo-descomplica-simple.png");
+},574,[108,12,511,512,513,522],"projetoPrevia/screens/RecuperarSenha.js");
 require(23);
 require(11);

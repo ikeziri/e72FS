@@ -149,7 +149,7 @@ export default class Drawer extends Component {
         <View style={styles.containerFooter}>
           <Icon name="power-off"
                 style={styles.iconLogout}
-                size={40}
+                size={33}
                 backgroundColor={colors.darkest} />
             <Text style={styles.logout} onPress={() => this.navegar(4)}>Sair</Text>
         </View>        
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   },
   itemMenu: {
     color: colors.darker,
-    fontSize: fonts.big,
+    fontSize: fonts.regular,
     padding: 8,
   },
   avatarInicio: {
@@ -198,13 +198,14 @@ const styles = StyleSheet.create({
   },
   mensagemInicial: {
     color: colors.white,
-    fontSize: fonts.bigger,
+    fontSize: fonts.big,
     paddingBottom: 10,
   },
   logout:{
     color: colors.dark,
-    fontSize: fonts.big,
-    padding: 8,
+    fontSize: fonts.regular,
+    padding: 5,
+    marginTop: 5,
   },
   iconLogout:{
     padding:5,
