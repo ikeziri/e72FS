@@ -229,6 +229,5 @@ const styles = StyleSheet.create({
   },
   textoVersao: {
     color: colors.darkest,
-    size: fonts.small,
   },
 });
