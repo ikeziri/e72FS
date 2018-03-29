@@ -14,7 +14,8 @@ import Lorran1 from './Lorran1';
 import Lorran2 from './Lorran2';
 import Camera from './Camera';
 import LeitorQrCode from './LeitorQrCode';
-import NovoCadastro from './NovoCadastro';
+import CadastroBasico from './CadastroBasico';
+import CadastroPagamento from './CadastroPagamento';
 import RecuperarSenha from './RecuperarSenha';
 
 // register all screens of the app (including internal ones)
@@ -33,6 +34,7 @@ export function registerScreens() {
   Navigation.registerComponent('example.Lorran2', () => Lorran2);
   Navigation.registerComponent('example.Camera', () => Camera);
   Navigation.registerComponent('example.LeitorQrCode', () => LeitorQrCode);
-  Navigation.registerComponent('example.NovoCadastro', () => NovoCadastro);
+  Navigation.registerComponent('example.CadastroBasico', () => CadastroBasico);
+  Navigation.registerComponent('example.CadastroPagamento', () => CadastroPagamento);
   Navigation.registerComponent('example.RecuperarSenha', () => RecuperarSenha);
 }

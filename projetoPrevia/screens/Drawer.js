@@ -228,5 +228,6 @@ const styles = StyleSheet.create({
   textoVersao: {
     color: colors.darkest,
     padding: 5,
+    fontSize: fonts.small,
   },
 });

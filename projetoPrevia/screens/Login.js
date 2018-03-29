@@ -72,8 +72,8 @@ export default class Login extends Component {
 
   onPressNovoCadastro(){
     this.props.navigator.push({
-      screen: 'example.NovoCadastro',
-      title: 'Novo cadastro',
+      screen: 'example.CadastroBasico',
+      title: 'Dados Básicos',
     });
   }
 
