@@ -180,20 +180,18 @@ const styles = StyleSheet.create({
     height: 140,
   },
   containerFooter: {
-    height: 90,
+    height: 60,
     borderTopColor: colors.darker,
     borderTopWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: metrics.marginLeft,
-    marginRight: metrics.marginRight,
   },
   containerLogoff: {
     flexDirection: 'row',
-    paddingTop: 20,
+    paddingTop: 10,
   },
   containerVersao:{
-    paddingTop: 30,
+    paddingTop: 15,
   },
   textosHeader: {
     flexDirection: 'column',
@@ -229,5 +227,6 @@ const styles = StyleSheet.create({
   },
   textoVersao: {
     color: colors.darkest,
+    padding: 5,
   },
 });
