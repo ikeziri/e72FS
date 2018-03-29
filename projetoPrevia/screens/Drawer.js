@@ -156,7 +156,7 @@ export default class Drawer extends Component {
                 <Text style={styles.logout} onPress={() => this.navegar(4)}>Sair</Text>
           </View>
           <View style={styles.containerVersao}>
-            <Text>Versão 1.0</Text>
+            <Text style={styles.textoVersao}>Versão 1.0</Text>
           </View>
         </View>  
       </View>
@@ -226,5 +226,9 @@ const styles = StyleSheet.create({
   iconLogout:{
     padding:5,
     color: colors.dark,
+  },
+  textoVersao: {
+    color: colors.darkest,
+    size: fonts.small,
   },
 });

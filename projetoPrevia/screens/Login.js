@@ -127,7 +127,7 @@ export default class Login extends Component {
           </TouchableOpacity>
           <TouchableOpacity style={styles.link}>
             <Text onPress={this.onPressNovoCadastro.bind(this)} > Novo Cadastro </Text>
-          </TouchableOpacity>        
+          </TouchableOpacity>
         </View>
       </View>
     );
