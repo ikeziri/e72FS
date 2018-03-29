@@ -17,6 +17,7 @@ import fonts         from '../styles/fonts';
 import ButtonPrimary from '../components/ButtonPrimary';
 import CurrentDate   from '../components/CurrentDate';
 import Icon          from 'react-native-vector-icons/FontAwesome';
+import metrics from '../styles/metrics';
 
 export default class Drawer extends Component {
   constructor(props) {
@@ -147,12 +148,17 @@ export default class Drawer extends Component {
 
 
         <View style={styles.containerFooter}>
-          <Icon name="power-off"
-                style={styles.iconLogout}
-                size={33}
-                backgroundColor={colors.darkest} />
-            <Text style={styles.logout} onPress={() => this.navegar(4)}>Sair</Text>
-        </View>        
+          <View style={styles.containerLogoff}>
+              <Icon name="power-off"
+                    style={styles.iconLogout}
+                    size={33}
+                    backgroundColor={colors.darkest} />
+                <Text style={styles.logout} onPress={() => this.navegar(4)}>Sair</Text>
+          </View>
+          <View style={styles.containerVersao}>
+            <Text>Versão 1.0</Text>
+          </View>
+        </View>  
       </View>
     );
   }
@@ -178,6 +184,16 @@ const styles = StyleSheet.create({
     borderTopColor: colors.darker,
     borderTopWidth: 1,
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: metrics.marginLeft,
+    marginRight: metrics.marginRight,
+  },
+  containerLogoff: {
+    flexDirection: 'row',
+    paddingTop: 20,
+  },
+  containerVersao:{
+    paddingTop: 30,
   },
   textosHeader: {
     flexDirection: 'column',
