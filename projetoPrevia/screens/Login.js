@@ -15,7 +15,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import PasswordInputText from 'react-native-hide-show-password-input';
+import PasswordInputText from '../components/PasswordInputText';
 import metrics from '../styles/metrics';
 import fonts   from '../styles/fonts';
 import colors  from '../styles/colors';
