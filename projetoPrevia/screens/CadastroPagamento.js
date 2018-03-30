@@ -48,21 +48,27 @@ export default class CadastroBasico extends Component {
               type={'credit-card'} />
             
             <View style={styles.containerDadosCartao}>
-              <TextInputMask
+            
+              <View style={styles.containerValidadeCvv}>
+                <Text>Validade:</Text>
+                <TextInputMask
                 ref={'campoMesAnoCreditCard'}
                 style={styles.inputText}
                 type={'datetime'}
                 options={{
-                  format: 'MM/YY'
+                format: 'MM/YY'
                 }} />
-
-              <TextInputMask
-                ref={'campoMesAnoCreditCard'}
-                style={styles.inputText}
-                type={'only-numbers'}
-                options={{
+              </View>
+              <View style={styles.containerValidadeCvv}>
+                <Text>CVV:</Text>
+                <TextInputMask
+                  ref={'campoMesAnoCreditCard'}
+                  style={styles.inputText}
+                  type={'datetime'}
+                  options={{
                   format: '999'
-                }} />                              
+                  }} /> 
+              </View>                             
             </View>
 
             <Text>Celular: </Text>
@@ -72,10 +78,9 @@ export default class CadastroBasico extends Component {
               type={'cel-phone'} /> 
         </View>
 
-
-            <View style={styles.containerBtnSalvar}>
-                <ButtonPrimary onPress={ this.onPressSalvar }> Gravar </ButtonPrimary>
-            </View>
+          <View style={styles.containerBtnSalvar}>
+              <ButtonPrimary onPress={ this.onPressSalvar }> Gravar </ButtonPrimary>
+          </View>
             
       </View>
     );
@@ -95,6 +100,11 @@ const styles = StyleSheet.create({
   },
   containerDadosCartao: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  containerValidadeCvv: {
+    flexDirection: 'column',
+    flex: 1,
   },
   containerBtnSalvar: {
     marginTop: 15,
