@@ -20,6 +20,7 @@ import metrics from '../styles/metrics';
 import fonts   from '../styles/fonts';
 import colors  from '../styles/colors';
 import ButtonPrimary from '../components/ButtonPrimary';
+import SplashScreen from 'react-native-smart-splash-screen';
 
 export default class Login extends Component {
   static navigatorStyle = {
@@ -40,6 +41,11 @@ export default class Login extends Component {
 
   componentDidMount() {
     this._loadInitialState().done();
+    SplashScreen.close({
+      animationType: SplashScreen.animationType.scale,
+      duration: 1000,
+      delay: 500,
+    });
   }
 
   _loadInitialState = async () => {
