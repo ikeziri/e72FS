@@ -30,8 +30,13 @@ export default class RecuperarSenha extends Component {
   }
 
   onPressRecuperarSenha(){
-    ToastAndroid.show('Recuperar senha', ToastAndroid.SHORT);
+    if(this.state.email == ''){
+      ToastAndroid.show('Digite algo!!', ToastAndroid.SHORT);
+    }else{
+      ToastAndroid.show(this.state.email, ToastAndroid.SHORT);
+    }
   }
+
 
   render() {
     return (
@@ -40,16 +45,18 @@ export default class RecuperarSenha extends Component {
          <View style={styles.containerFields}>
           <Text>Digite seu Email: </Text>
             <TextInput
+              ref={(input) => { this.email = input; }}
               style={styles.inputText}
+              autoFocus = {true}
               keyboardType='email-address'
               maxLength={30}
               underlineColorAndroid={colors.dark}
               clearButtonMode='always'
-              value={this.state.email}/>
+              onChangeText={(texto) => this.setState({ email: texto })} />
          </View>
 
           <View style={styles.containerBtnSalvar}>
-            <ButtonSquare onPress={ this.onPressSalvar} name="check"  />
+            <ButtonSquare onPress={ this.onPressRecuperarSenha.bind(this) } name="check"  />
           </View>
       </View>
     );

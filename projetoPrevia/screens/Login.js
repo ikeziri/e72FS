@@ -111,6 +111,7 @@ export default class Login extends Component {
               style={styles.inputText}
               keyboardType='email-address'
               maxLength={30}
+              autoFocus = {true}
               underlineColorAndroid={colors.dark}
               clearButtonMode='always' />
 

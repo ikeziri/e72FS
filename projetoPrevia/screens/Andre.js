@@ -29,7 +29,7 @@ export default class Andre extends Component {
           com Drawer
         </Text>
         <TextInput
-          style={{ height: 40, width: 120 }}
+          style={{ height: 40, width: 300 }}
           placeholder="Type here to translate!"
           value={this.state.nome}
           onChangeText={(texto) => this.setState({ nome: texto })}
