@@ -18,7 +18,7 @@ import metrics from '../styles/metrics';
 import fonts   from '../styles/fonts';
 import colors  from '../styles/colors';
 
-import ButtonPrimary from '../components/ButtonPrimary';
+import ButtonSquare from '../components/ButtonSquare';
 
 export default class RecuperarSenha extends Component {
   constructor(props){
@@ -48,9 +48,9 @@ export default class RecuperarSenha extends Component {
               value={this.state.email}/>
          </View>
 
-         <View style={styles.containerBtnSenha}>
-            <ButtonPrimary onPress={ this.onPressRecuperarSenha }> Recuperar </ButtonPrimary>
-         </View>
+          <View style={styles.containerBtnSalvar}>
+            <ButtonSquare onPress={ this.onPressSalvar} name="check"  />
+          </View>
       </View>
     );
   }
@@ -60,8 +60,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
+    flexDirection: 'column',
   },
   containerFields: {
+    flex: 1,
     marginLeft: metrics.marginLeft,
     marginRight: metrics.marginRight,
     marginTop: 20,
@@ -69,12 +71,9 @@ const styles = StyleSheet.create({
   containerBtnSenha: {
     marginTop: 40,
   },
-  containerLogo:{
-    alignItems: 'center',
-    padding: metrics.marginTop,
-  },
-  logo: {
-    width: 100,
-    height: 70,
+  containerBtnSalvar: {
+    marginRight: metrics.marginRight,
+    marginBottom: metrics.marginBottom,
+    alignSelf: 'flex-end',
   },
 });
