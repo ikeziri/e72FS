@@ -81,7 +81,7 @@ export default class CadastroBasico extends Component {
           </ScrollView>
 
           <View style={styles.containerBtnSalvar}>
-            <ButtonSquare onPress={ this.onPressSalvar} name="thumb-up"  />
+            <ButtonSquare onPress={ this.onPressSalvar} name="check"  />
           </View>
       </View>
     );
