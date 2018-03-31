@@ -14,7 +14,7 @@ import { TextInputMask } from 'react-native-masked-text';
 import metrics       from '../styles/metrics';
 import fonts         from '../styles/fonts';
 import colors        from '../styles/colors';
-import ButtonPrimary from '../components/ButtonPrimary';
+import ButtonSquare from '../components/ButtonSquare';
 
 export default class CadastroBasico extends Component {
   constructor(props){
@@ -54,13 +54,11 @@ export default class CadastroBasico extends Component {
               options={{
                 format: '999.999.999-99'
               }} />
-          </View>
-
-            <View style={styles.containerBtnSalvar}>
-                <ButtonPrimary onPress={ this.onPressSalvar }> Gravar </ButtonPrimary>
-            </View>
-            
+          </View>            
         </ScrollView>
+        <View style={styles.containerBtnSalvar}>
+          <ButtonSquare onPress={ this.onPressSalvar} name="navigate-next"  />
+        </View>
       </View>
     );
   } 
@@ -71,7 +69,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
-    justifyContent: 'center',
+    flexDirection: 'column',
   },
   containerFields: {
     marginLeft: metrics.marginLeft,
@@ -79,7 +77,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   containerBtnSalvar: {
-    marginTop: 15,
+    marginRight: metrics.marginRight,
+    marginBottom: metrics.marginBottom,
+    alignSelf: 'flex-end',
   },
   inputText:{
     fontSize: fonts.input,

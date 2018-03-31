@@ -14,7 +14,7 @@ import { TextInputMask } from 'react-native-masked-text';
 import metrics       from '../styles/metrics';
 import fonts         from '../styles/fonts';
 import colors        from '../styles/colors';
-import ButtonPrimary from '../components/ButtonPrimary';
+import ButtonSquare from '../components/ButtonSquare';
 
 export default class CadastroBasico extends Component {
   constructor(props){
@@ -40,48 +40,49 @@ export default class CadastroBasico extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <View style={styles.containerFields}>
-            <Text>Cartão de crédito:  </Text>
-            <TextInputMask
-              ref={'campoCreditCard'}
-              style={styles.inputText}
-              type={'credit-card'} />
-            
-            <View style={styles.containerDadosCartao}>
-            
-              <View style={styles.containerValidadeCvv}>
-                <Text>Validade:</Text>
-                <TextInputMask
-                ref={'campoMesAnoCreditCard'}
+        <ScrollView>
+            <View style={styles.containerFields}>
+              <Text>Cartão de crédito:  </Text>
+              <TextInputMask
+                ref={'campoCreditCard'}
                 style={styles.inputText}
-                type={'datetime'}
-                options={{
-                format: 'MM/YY'
-                }} />
-              </View>
-              <View style={styles.containerValidadeCvv}>
-                <Text>CVV:</Text>
-                <TextInputMask
+                type={'credit-card'} />
+              
+              <View style={styles.containerDadosCartao}>
+              
+                <View style={styles.containerValidadeCvv}>
+                  <Text>Validade:</Text>
+                  <TextInputMask
                   ref={'campoMesAnoCreditCard'}
                   style={styles.inputText}
                   type={'datetime'}
                   options={{
-                  format: '999'
-                  }} /> 
-              </View>                             
-            </View>
+                  format: 'MM/YY'
+                  }} />
+                </View>
+                <View style={styles.containerValidadeCvv}>
+                  <Text>CVV:</Text>
+                  <TextInputMask
+                    ref={'campoMesAnoCreditCard'}
+                    style={styles.inputText}
+                    type={'datetime'}
+                    options={{
+                    format: '999'
+                    }} /> 
+                </View>                             
+              </View>
 
-            <Text>Celular: </Text>
-            <TextInputMask
-              ref={'campoCelular'}
-              style={styles.inputText}
-              type={'cel-phone'} /> 
-        </View>
+              <Text>Celular: </Text>
+              <TextInputMask
+                ref={'campoCelular'}
+                style={styles.inputText}
+                type={'cel-phone'} /> 
+          </View>
+          </ScrollView>
 
           <View style={styles.containerBtnSalvar}>
-              <ButtonPrimary onPress={ this.onPressSalvar }> Gravar </ButtonPrimary>
+            <ButtonSquare onPress={ this.onPressSalvar} name="thumb-up"  />
           </View>
-            
       </View>
     );
   } 
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,
+    flexDirection: 'column',
   },
   containerFields: {
     marginLeft: metrics.marginLeft,
@@ -107,7 +109,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerBtnSalvar: {
-    marginTop: 15,
+    marginRight: metrics.marginRight,
+    marginBottom: metrics.marginBottom,
+    alignSelf: 'flex-end',
   },
   inputText:{
     fontSize: fonts.input,
