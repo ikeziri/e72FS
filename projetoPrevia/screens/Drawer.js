@@ -104,6 +104,12 @@ export default class Drawer extends Component {
           title: 'teste 3'
         });
         break;
+      case 13:
+      this.props.navigator.push({
+        screen: 'example.Cardapio',
+        title: 'Cardápio'
+      });
+      break;        
     }
   }
 
@@ -133,7 +139,7 @@ export default class Drawer extends Component {
         </View>
 
         <ScrollView  style={styles.contentMenu}>
-          <Text style={styles.itemMenu} onPress={() => this.navegar(1)}>Item 1</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(13)}>Cardápio</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(2)}>Item 2</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(3)}>Item 3</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(5)}>Andre</Text>
@@ -144,6 +150,7 @@ export default class Drawer extends Component {
           <Text style={styles.itemMenu} onPress={() => this.navegar(6)}>PA</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(7)}>Lorran1</Text>
           <Text style={styles.itemMenu} onPress={() => this.navegar(8)}>Lorran1</Text>
+          <Text style={styles.itemMenu} onPress={() => this.navegar(1)}>Item 1</Text>
         </ScrollView >
 
 

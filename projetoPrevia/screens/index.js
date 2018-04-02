@@ -1,25 +1,27 @@
 import { Navigation } from 'react-native-navigation';
 
-import FirstTabScreen from './FirstTabScreen';
-import SecondTabScreen from './SecondTabScreen';
-import ThirdTabScreen from './ThirdTabScreen';
-import PushedScreen from './PushedScreen';
-import Drawer from './Drawer';
-import Login from './Login';
-import Andre from './Andre';
-import Andre2 from './Andre2';
-import Andre3 from './Andre3';
-import PA from './PA';
-import Lorran1 from './Lorran1';
-import Lorran2 from './Lorran2';
-import Camera from './Camera';
-import LeitorQrCode from './LeitorQrCode';
-import CadastroBasico from './CadastroBasico';
+import FirstTabScreen          from './FirstTabScreen';
+import Cardapio          from './Cardapio';
+import SecondTabScreen   from './SecondTabScreen';
+import ThirdTabScreen    from './ThirdTabScreen';
+import PushedScreen      from './PushedScreen';
+import Drawer            from './Drawer';
+import Login             from './Login';
+import Andre             from './Andre';
+import Andre2            from './Andre2';
+import Andre3            from './Andre3';
+import PA                from './PA';
+import Lorran1           from './Lorran1';
+import Lorran2           from './Lorran2';
+import Camera            from './Camera';
+import LeitorQrCode      from './LeitorQrCode';
+import CadastroBasico    from './CadastroBasico';
 import CadastroPagamento from './CadastroPagamento';
-import RecuperarSenha from './RecuperarSenha';
+import RecuperarSenha    from './RecuperarSenha';
 
 // register all screens of the app (including internal ones)
 export function registerScreens() {
+  Navigation.registerComponent('example.Cardapio', () => Cardapio);
   Navigation.registerComponent('example.FirstTabScreen', () => FirstTabScreen);
   Navigation.registerComponent('example.SecondTabScreen', () => SecondTabScreen);
   Navigation.registerComponent('example.ThirdTabScreen', () => ThirdTabScreen);
