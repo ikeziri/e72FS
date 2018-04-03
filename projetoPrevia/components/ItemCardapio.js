@@ -11,7 +11,7 @@ import metrics       from '../styles/metrics';
 import fonts         from '../styles/fonts';
 import colors        from '../styles/colors';
 
-export default class ItemProduto extends Component {
+export default class ItemCardapio extends Component {
     render() {
         return(
             <View>
@@ -29,16 +29,16 @@ export default class ItemProduto extends Component {
 const styles = StyleSheet.create({
     item: {
         padding: 10,
-        backgroundColor: colors.white,
+        backgroundColor: colors.dark,
         marginBottom: 10,
         borderRadius: 10,
         flexDirection: 'row',
       },
 
       itemImage:{
-        width: 40,
-        height: 40,
-        borderRadius: 25,
+        width: 60,
+        height: 60,
+        borderRadius: 30,
       },
 
       itemInfo: {
@@ -46,8 +46,9 @@ const styles = StyleSheet.create({
       },
 
       itemTitle: {
-          color: colors.darker,
-          fontSize: fonts.regular,
+          fontWeight: 'bold',
+          color: colors.white,
+          fontSize: fonts.biggest,
           marginTop: 9,
       },
 });

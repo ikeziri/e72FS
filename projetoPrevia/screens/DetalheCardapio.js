@@ -11,10 +11,10 @@ import {
 import metrics       from '../styles/metrics';
 import fonts         from '../styles/fonts';
 import colors        from '../styles/colors';
-import ItemCardapio   from '../components/ItemCardapio';
+import ItemProduto   from '../components/ItemProduto';
 
 
-export default class Cardapio extends Component { 
+export default class DetalheCardapio extends Component { 
   state = {
     itensCardapio: [
       {
@@ -39,18 +39,13 @@ export default class Cardapio extends Component {
 
 listarProdutos(){
       ToastAndroid.show("Cliquei no produto: " + this.state.data, ToastAndroid.SHORT);
-      this.props.navigator.push({
-        screen: 'example.DetalheCardapio',
-        title: 'Cardapio Detalhe'
-      });
-    }
-
+}
   render() {
     return (
       <View style={styles.container}>
         <ScrollView contentContainerStyle={styles.itemList}>
           {this.state.itensCardapio.map( item =>
-            <ItemCardapio onPress={this.listarProdutos.bind(this)} key={item.id} data={item} />
+            <ItemProduto onPress={this.listarProdutos.bind(this)} key={item.id} data={item} />
           )}
         </ScrollView>
       </View>
