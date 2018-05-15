@@ -21,6 +21,9 @@ import fonts   from '../styles/fonts';
 import colors  from '../styles/colors';
 import ButtonPrimary from '../components/ButtonPrimary';
 import SplashScreen from 'react-native-smart-splash-screen';
+import { ApiDescomplica } from '../services/app-services';
+import { setDrawerOff } from '../functions/app-functions';
+import Toast, {DURATION} from 'react-native-easy-toast'
 
 export default class Login extends Component {
   static navigatorStyle = {
@@ -28,15 +31,14 @@ export default class Login extends Component {
   };
   constructor(props) {
     super(props);
+    setDrawerOff(this);
     this.state = {
       isLoading: true,
       value: 0,
+      email: '' ,
       password: '',
+      msg: [],
     }
-    this.props.navigator.setDrawerEnabled({
-      side: 'left',
-      enabled: false,
-    });
   }
 
   componentDidMount() {
@@ -67,12 +69,21 @@ export default class Login extends Component {
     }
   };
 
-  _onPressButton = async () => {   
+  onPressAutenticar = async () => {   
     try {
+      this.setState({ msg: [] });
+      this.setState({isLoading: true,});
+      await ApiDescomplica.autenticarUsuario(this.state.email, this.state.password);
       await AsyncStorage.setItem('Login', 'logado');
       this._loadInitialState().done();
-    } catch (error) {
-      // Error saving data
+    } catch (msg) {
+      this.setState({ msg: msg });
+      console.log(msg);
+      this.setState({isLoading: false,});
+      msg.forEach(element => {
+        console.log('texto toast: ' + element.texto);
+        this.refs.toast.show(element.texto); 
+      });
     }
   }
 
@@ -100,10 +111,20 @@ export default class Login extends Component {
     }
     return (
       <View style={styles.container}>
-
         <View style={styles.containerLogo}>
           <Image style={styles.logoImg} source={require('../images/logo-descomplica.png')} />
         </View>
+        {/* https://github.com/crazycodeboy/react-native-easy-toast */}
+        <Toast
+                    ref="toast"
+                    style={{backgroundColor:'white'}}
+                    position='top'
+                    positionValue={200}
+                    fadeInDuration={750}
+                    fadeOutDuration={1000}
+                    opacity={0.8}
+                    textStyle={{color:'red'}}
+                />
 
          <View style={styles.containerFields}>
           <Text>Email: </Text>
@@ -111,8 +132,10 @@ export default class Login extends Component {
               style={styles.inputText}
               keyboardType='email-address'
               maxLength={30}
+              value={this.state.email}
               autoFocus = {true}
               underlineColorAndroid={colors.dark}
+              onChangeText={ (email) => this.setState({ email }) } 
               clearButtonMode='always' />
 
             <Text style={styles.labelSenha}>Senha: </Text>
@@ -125,7 +148,7 @@ export default class Login extends Component {
          </View>
 
         <View style={styles.containerButton}>
-          <ButtonPrimary onPress={ this._onPressButton }> Entrar </ButtonPrimary>
+          <ButtonPrimary onPress={ this.onPressAutenticar }> Entrar </ButtonPrimary>
         </View>
 
         <View style={styles.containerLinks}>

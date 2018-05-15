@@ -1,5 +1,62 @@
-import { MensagemTela, TipoMensagem } from '../objects/app-objects';
+import { MensagemTela, TipoMensagem, usuario} from '../objects/app-objects';
 export class ApiDescomplica {
+    /**
+     * @author Ikeziri
+     * @param {email, senha}
+     * @see Cadastro
+     */
+    static autenticarUsuario = async (email, senha) => {
+        // console.log('autenticar usuario');
+        // console.log('email: ' + usuario.email);
+        // console.log('senha: ' + usuario.senha);
+        // console.log('crypt: ' + usuario.getSenhaCriptografada());
+        usuario.id = 0;
+        usuario.email = email;
+        usuario.senha = senha;
+        // console.log('email: ' + usuario.email);
+        // console.log('senha: ' + usuario.senha);
+        // console.log('crypt: ' + usuario.getSenhaCriptografada());
+        try {
+            var response = await fetch(
+                'https://descomplica-restaurante.gladiumti.net.br/api/auth',
+                {
+                    method: 'GET',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                        'usuLogin':  usuario.email,
+                        'senhamd5':  usuario.getSenhaCriptografada(),
+                    },
+                }
+            );
+        } catch (error) {
+            console.error('Erro ao autenticar usuario: ' + error);
+            usuario.email = '';
+            usuario.senha = '';
+        }
+        let mensagens = [];
+        if (response.ok) {
+            let responseJson = await response.json();
+            if (responseJson.message === "Validation Failed") {
+                let objeto = responseJson.errors;
+                for (propriedade in objeto) {
+                    mensagens.push(new MensagemTela(propriedade, objeto[propriedade][0], TipoMensagem.ERRO));
+                };
+                usuario.email = '';
+                usuario.senha = '';
+                throw (mensagens);
+            }
+            if(responseJson.success){
+                usuario.id = responseJson.usuario[0].idUsuario;
+            }
+            // console.log(usuario.id);
+            return  usuario.id;
+        }
+        usuario.email = '';
+        usuario.senha = '';
+        mensagens.push(new MensagemTela('login', 'texto de falha autenticacao', TipoMensagem.ERRO));
+        throw (mensagens);
+    }
     /**
      * @author Ikeziri
      * @param {Cadastro}
@@ -23,10 +80,10 @@ export class ApiDescomplica {
         } catch (error) {
             console.error('Erro ao cadastrar usuario: ' + error);
         }
+        let mensagens = [];
         if (response.ok) {
             let responseJson = await response.json();
             if (responseJson.message === "Validation Failed") {
-                let mensagens = [];
                 let objeto = responseJson.errors;
                 for (propriedade in objeto) {
                     mensagens.push(new MensagemTela(propriedade, objeto[propriedade][0], TipoMensagem.ERRO));
@@ -37,7 +94,8 @@ export class ApiDescomplica {
         }
         console.log('??');
         console.log(JSON.stringify(response));
-
+        mensagens.push(new MensagemTela('login', 'texto de cadastar usuario com falha', TipoMensagem.ERRO));
+        throw (mensagens);
     }
     /**
      * @author Ikeziri
