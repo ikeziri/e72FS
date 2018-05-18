@@ -15,11 +15,12 @@ import metrics       from '../styles/metrics';
 import fonts         from '../styles/fonts';
 import colors        from '../styles/colors';
 import ButtonSquare from '../components/ButtonSquare';
+import { CreditCardInput, LiteCreditCardInput } from "react-native-credit-card-input";
 
 export default class CadastroBasico extends Component {
   constructor(props){
     super(props);
-
+    _onChange => form => console.log(form);
     this.state = {
       name: '' ,
       email: '' ,
@@ -41,43 +42,13 @@ export default class CadastroBasico extends Component {
     return (
       <View style={styles.container}>
         <ScrollView>
-            <View style={styles.containerFields}>
-              <Text>Cartão de crédito:  </Text>
-              <TextInputMask
-                ref={'campoCreditCard'}
-                style={styles.inputText}
-                type={'credit-card'} />
-              
-              <View style={styles.containerDadosCartao}>
-              
-                <View style={styles.containerValidadeCvv}>
-                  <Text>Validade:</Text>
-                  <TextInputMask
-                  ref={'campoMesAnoCreditCard'}
-                  style={styles.inputText}
-                  type={'datetime'}
-                  options={{
-                  format: 'MM/YY'
-                  }} />
-                </View>
-                <View style={styles.containerValidadeCvv}>
-                  <Text>CVV:</Text>
-                  <TextInputMask
-                    ref={'campoMesAnoCreditCard'}
-                    style={styles.inputText}
-                    type={'datetime'}
-                    options={{
-                    format: '999'
-                    }} /> 
-                </View>                             
-              </View>
 
-              <Text>Celular: </Text>
-              <TextInputMask
-                ref={'campoCelular'}
-                style={styles.inputText}
-                type={'cel-phone'} /> 
-          </View>
+            <CreditCardInput onChange={this._onChange}
+                             style={styles.containerFields}
+                             labels={{ number: "NÚMERO DO CARTÃO", expiry: "VALIDADE", cvc: "CCV" }}
+                             placeholders={{ number: "1234 5678 1234 5678", expiry: "MM/AA", cvc: "CVC" }}
+             />
+            
           </ScrollView>
 
           <View style={styles.containerBtnSalvar}>

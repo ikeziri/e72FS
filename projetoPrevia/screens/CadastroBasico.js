@@ -54,7 +54,13 @@ export default class CadastroBasico extends Component {
               options={{
                 format: '999.999.999-99'
               }} />
-          </View>            
+            <Text>Celular: </Text>
+              <TextInputMask
+                ref={'campoCelular'}
+                style={styles.inputText}
+                type={'cel-phone'} />               
+          </View>
+
         </ScrollView>
         <View style={styles.containerBtnSalvar}>
           <ButtonSquare onPress={ this.onPressSalvar} name="navigate-next"  />
