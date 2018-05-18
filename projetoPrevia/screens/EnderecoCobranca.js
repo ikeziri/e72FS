@@ -16,7 +16,7 @@ import fonts         from '../styles/fonts';
 import colors        from '../styles/colors';
 import ButtonSquare from '../components/ButtonSquare';
 
-export default class CadastroBasico extends Component {
+export default class EnderecoCobranca extends Component {
   constructor(props){
     super(props);
 
@@ -31,8 +31,8 @@ export default class CadastroBasico extends Component {
 
   onPressSalvar = () => {
     this.props.navigator.push({
-      screen: 'example.EnderecoCobranca',
-      title: 'Endereço de Cobrança',
+      screen: 'example.CadastroPagamento',
+      title: 'Dados de Pagamento',
     });
   }
 
@@ -42,18 +42,45 @@ export default class CadastroBasico extends Component {
       <View style={styles.container}>
         <ScrollView>
           <View style={styles.containerFields}>
-            <Text>Nome Completo:  </Text>
-            <TextInput style={styles.inputText} placeholder="Ex: André Ikeziri" />
-            <Text>E-mail: </Text>
-            <TextInput style={styles.inputText} placeholder="Ex: paulo@vinnyvinny.com.br" />
-            <Text>CPF: </Text>
+            <Text>CEP:  </Text>
             <TextInputMask
-              ref={'campoCpf'}
+              ref={'campoCep'}
               style={styles.inputText}
-              type={'cpf'}
+              type={'zip-code'}
               options={{
-                format: '999.999.999-99'
+                format: '99999-999'
               }} />
+
+            <View style={styles.containerFieldsHoriz}>
+              <View>
+                <Text>Logradouro: </Text>
+                <TextInput style={styles.inputText300} />
+              </View>
+              <View>
+                <Text>Nº: </Text>
+                <TextInputMask
+                ref={'campoCep'}
+                style={styles.inputText100}
+                type={'only-numbers'} />
+              </View>
+            </View>
+
+            <Text>Complemento: </Text>
+            <TextInput style={styles.inputText} />
+            <Text>Bairro: </Text>
+            <TextInput style={styles.inputText} />
+
+            <View style={styles.containerFieldsHoriz}>
+              <View>
+                <Text>Cidade: </Text>
+                <TextInput style={styles.inputText300} />
+              </View>
+              <View>
+                <Text>UF: </Text>
+                <TextInput style={styles.inputText100} />
+              </View>
+
+            </View>
           </View>            
         </ScrollView>
         <View style={styles.containerBtnSalvar}>
@@ -84,4 +111,14 @@ const styles = StyleSheet.create({
   inputText:{
     fontSize: fonts.input,
   },
+  inputText300:{
+    width: 300
+  },
+  inputText100:{
+    width: 100
+  },
+  containerFieldsHoriz:{
+    flex: 1,
+    flexDirection: 'row'
+  }
 });

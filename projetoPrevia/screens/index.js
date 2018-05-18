@@ -18,6 +18,7 @@ import Camera            from './Camera';
 import LeitorQrCode      from './LeitorQrCode';
 import CadastroBasico    from './CadastroBasico';
 import CadastroPagamento from './CadastroPagamento';
+import EnderecoCobranca from './EnderecoCobranca';
 import RecuperarSenha    from './RecuperarSenha';
 
 // register all screens of the app (including internal ones)
@@ -40,5 +41,6 @@ export function registerScreens() {
   Navigation.registerComponent('example.LeitorQrCode', () => LeitorQrCode);
   Navigation.registerComponent('example.CadastroBasico', () => CadastroBasico);
   Navigation.registerComponent('example.CadastroPagamento', () => CadastroPagamento);
+  Navigation.registerComponent('example.EnderecoCobranca', () => EnderecoCobranca);
   Navigation.registerComponent('example.RecuperarSenha', () => RecuperarSenha);
 }
