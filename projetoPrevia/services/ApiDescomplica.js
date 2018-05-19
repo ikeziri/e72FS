@@ -1,9 +1,10 @@
-import { MensagemTela, TipoMensagem, usuario} from '../objects/app-objects';
+import { MensagemTela, TipoMensagem, usuario, endereco, Endereco} from '../objects/app-objects';
 export class ApiDescomplica {
     /**
      * @author Ikeziri
      * @param {email, senha}
      * @see Cadastro
+     * @tested 18-05-18
      */
     static autenticarUsuario = async (email, senha) => {
         // console.log('autenticar usuario');
@@ -55,6 +56,41 @@ export class ApiDescomplica {
         usuario.email = '';
         usuario.senha = '';
         mensagens.push(new MensagemTela('login', 'texto de falha autenticacao', TipoMensagem.ERRO));
+        throw (mensagens);
+    }
+    /**
+     * @author Ikeziri
+     * @param {cep}
+     * @see Cadastro
+     * @tested 18-05-18
+     */
+    static consultarCep = async (cep) => {
+        console.log('cep: ' + cep);
+        endereco.reset();
+        try {
+            var response = await fetch(
+                'https://descomplica-restaurante.gladiumti.net.br/api/endereco/'+cep,
+                {
+                    method: 'GET',
+                    headers: {
+                        Accept: 'application/json',
+                    },
+                }
+            );
+        } catch (error) {
+            console.error('Erro ao consultar CEP: ' + error);
+        }
+        let mensagens = [];
+        if (response.ok) {
+            let responseJson = await response.json();
+            console.log(responseJson);
+            if(responseJson.cep !== ""){
+                endereco.preencher(responseJson);
+                console.log(endereco.toString());
+                return  true;
+            }
+        }
+        mensagens.push(new MensagemTela('cep', 'texto de falha consultar cep', TipoMensagem.ERRO));
         throw (mensagens);
     }
     /**

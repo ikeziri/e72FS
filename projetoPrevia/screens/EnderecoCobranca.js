@@ -10,6 +10,7 @@ import {
   ScrollView,
   AppRegistry,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -18,17 +19,22 @@ import metrics       from '../styles/metrics';
 import fonts         from '../styles/fonts';
 import colors        from '../styles/colors';
 import ButtonSquare from '../components/ButtonSquare';
-
+import Toast, {DURATION} from 'react-native-easy-toast'
+import { ApiDescomplica } from '../services/app-services';
+import { endereco } from '../objects/app-objects';
 
 export default class EnderecoCobranca extends Component {
   constructor(props){
     super(props);
    
     this.state = {
-      name: '' ,
-      email: '' ,
-      cpf: '' ,
-      uf: 'DF',
+      cep: '',
+      logradouro: '' ,
+      numero: '' ,
+      complemento: '' ,
+      bairro: '' ,
+      cidade: '' ,
+      uf: '',
       msg: [] ,
       isLoading: false ,
     };
@@ -43,11 +49,50 @@ export default class EnderecoCobranca extends Component {
     });
   }
 
+  onPressConsultarCep = async () => {   
+    try {
+      this.setState({ msg: [] });
+      this.setState({isLoading: true,});
+      await ApiDescomplica.consultarCep(this.state.cep);
+      this.setState({logradouro:endereco.logradouro});
+      this.setState({complemento:endereco.complemento});
+      this.setState({bairro:endereco.bairro});
+      this.setState({cidade:endereco.municipio});
+      this.setState({uf:endereco.uf});
+      this.setState({isLoading: false});
+    } catch (msg) {
+      this.setState({ msg: msg });
+      console.log(msg);
+      this.setState({isLoading: false,});
+      msg.forEach(element => {
+        console.log('texto toast: ' + element.texto);
+        this.refs.toast.show(element.texto); 
+      });
+    }
+  }
 
   render() {
+    if (this.state.isLoading) {
+      return (
+        <View >
+          <ActivityIndicator />
+        </View>
+      );
+    }
     return (
       <View style={styles.container}>
         <ScrollView>          
+          {/* https://github.com/crazycodeboy/react-native-easy-toast */}
+          <Toast
+                    ref="toast"
+                    style={{backgroundColor:'white'}}
+                    position='top'
+                    positionValue={200}
+                    fadeInDuration={750}
+                    fadeOutDuration={1000}
+                    opacity={0.8}
+                    textStyle={{color:'red'}}
+          />
           <View style={styles.containerFields}>
 
             <View style={styles.containerFieldsHoriz}>
@@ -57,13 +102,15 @@ export default class EnderecoCobranca extends Component {
                 ref={'campoCep'}
                 style={styles.inputText}
                 type={'zip-code'}
+                value={this.state.cep}
+                onChangeText={ (cep) => this.setState({ cep }) } 
                 options={{
                   format: '99999-999'
                 }} />
               </View>
               <View style={styles.tamanhoFlex1}>
 
-              <TouchableOpacity onPress={this.props.onPress} >
+              <TouchableOpacity onPress={this.onPressConsultarCep} >
                 <Icon name='search' size={30} />
               </TouchableOpacity>
               </View>
@@ -72,29 +119,42 @@ export default class EnderecoCobranca extends Component {
             <View style={styles.containerFieldsHoriz}>
               <View style={styles.tamanhoFlex3}>
                 <Text>Logradouro: </Text>
-                <TextInput  />
+                <TextInput 
+                  value={this.state.logradouro}
+                  onChangeText={ (logradouro) => this.setState({ logradouro }) } 
+                />
               </View>
               <View style={styles.tamanhoFlex1}>
                 <Text>Nº: </Text>
                 <TextInputMask
-                ref={'campoCep'}
-                type={'only-numbers'} />
+                  value={this.state.numero}
+                  onChangeText={ (numero) => this.setState({ numero }) } 
+                  ref={'campoCep'}    
+                  type={'only-numbers'} />
               </View>
             </View>
 
             <Text>Complemento: </Text>
-            <TextInput style={styles.inputText} />
+            <TextInput style={styles.inputText}
+             value={this.state.complemento}
+             onChangeText={ (complemento) => this.setState({ complemento }) }  />
             <Text>Bairro: </Text>
-            <TextInput style={styles.inputText} />
+            <TextInput style={styles.inputText} 
+             value={this.state.bairro}
+             onChangeText={ (bairro) => this.setState({ bairro }) } />
 
             <View style={styles.containerFieldsHoriz}>
               <View style={styles.tamanhoFlex3}>
                 <Text>Cidade: </Text>
-                <TextInput />
+                <TextInput
+                 value={this.state.cidade}
+                 onChangeText={ (cidade) => this.setState({ cidade }) }  />
               </View>
               <View style={styles.tamanhoFlex1}>
                 <Text>UF: </Text>
-                <TextInput />
+                <TextInput 
+                 value={this.state.uf}
+                 onChangeText={ (uf) => this.setState({ uf }) } />
               </View>
 
             </View>

@@ -7,11 +7,11 @@ export class Usuario {
   /**
    * 
    * @param {string} id
-   * @param {string} senha 
+   * @param {string} nome 
    * @param {string} email 
    * @param {string} senha 
    */
-  constructor(id, nome, email, cpf, senha) {
+  constructor(id, nome, email, senha) {
     this.id = id;
     this.nome = nome;
     this.email = email;
@@ -24,5 +24,14 @@ export class Usuario {
     }catch (error){
       return '';
     }
+  }
+
+  toString() {
+    return 'Usuario (' +
+        'id: ' + this.id + ', ' +
+        'nome: ' + this.nome + ', ' +
+        'email: ' + this.email + ', ' +
+        'senha: ' + this.senha + ', ' +
+        'senhaCriptografada: ' + this.getSenhaCriptografada() +')';
   }
 }
