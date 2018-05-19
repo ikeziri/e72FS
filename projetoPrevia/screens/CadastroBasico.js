@@ -45,12 +45,13 @@ export default class CadastroBasico extends Component {
             <Text>Nome Completo:  </Text>
             <TextInput style={styles.inputText} placeholder="Ex: André Ikeziri" />
             <Text>E-mail: </Text>
-            <TextInput style={styles.inputText} placeholder="Ex: paulo@vinnyvinny.com.br" />
+            <TextInput style={styles.inputText} placeholder="Ex: alexandre@grupogladium.com.br" />
             <Text>CPF: </Text>
             <TextInputMask
               ref={'campoCpf'}
               style={styles.inputText}
               type={'cpf'}
+              placeholder="123.456.789-00"
               options={{
                 format: '999.999.999-99'
               }} />
@@ -58,7 +59,10 @@ export default class CadastroBasico extends Component {
               <TextInputMask
                 ref={'campoCelular'}
                 style={styles.inputText}
-                type={'cel-phone'} />               
+                type={'cel-phone'}
+                placeholder="(61) 99999-9999" />
+            <Text>Senha:  </Text>
+            <TextInput style={styles.inputText} />                                      
           </View>
 
         </ScrollView>

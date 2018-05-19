@@ -15,7 +15,7 @@ import metrics       from '../styles/metrics';
 import fonts         from '../styles/fonts';
 import colors        from '../styles/colors';
 import ButtonSquare from '../components/ButtonSquare';
-import { CreditCardInput, LiteCreditCardInput } from "react-native-credit-card-input";
+import { CreditCardInput } from "react-native-credit-card-input";
 
 export default class CadastroBasico extends Component {
   constructor(props){
@@ -44,11 +44,14 @@ export default class CadastroBasico extends Component {
         <ScrollView>
 
             <CreditCardInput onChange={this._onChange}
-                             style={styles.containerFields}
-                             labels={{ number: "NÚMERO DO CARTÃO", expiry: "VALIDADE", cvc: "CCV" }}
+                             labels={{ number: "Número do Cartão", expiry: "Validade", cvc: "CCV" }}
                              placeholders={{ number: "1234 5678 1234 5678", expiry: "MM/AA", cvc: "CVC" }}
+                             labelStyle={styles.labelCard}
              />
-            
+            <View style={styles.containerFields}>
+              <Text>Nome:  </Text>
+              <TextInput style={styles.inputText} placeholder="Conforme consta no cartão" />
+            </View>
           </ScrollView>
 
           <View style={styles.containerBtnSalvar}>
@@ -87,4 +90,7 @@ const styles = StyleSheet.create({
   inputText:{
     fontSize: fonts.input,
   },
+  labelCard:{
+    fontWeight: 'normal',
+  }
 });

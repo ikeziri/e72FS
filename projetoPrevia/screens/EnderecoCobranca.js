@@ -9,8 +9,10 @@ import {
   StyleSheet,
   ScrollView,
   AppRegistry,
+  TouchableOpacity,
 } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import metrics       from '../styles/metrics';
 import fonts         from '../styles/fonts';
@@ -47,14 +49,25 @@ export default class EnderecoCobranca extends Component {
       <View style={styles.container}>
         <ScrollView>          
           <View style={styles.containerFields}>
-            <Text>CEP:  </Text>
-            <TextInputMask
-              ref={'campoCep'}
-              style={styles.inputText}
-              type={'zip-code'}
-              options={{
-                format: '99999-999'
-              }} />
+
+            <View style={styles.containerFieldsHoriz}>
+              <View style={styles.tamanhoFlex3}>
+              <Text>CEP:  </Text>
+              <TextInputMask
+                ref={'campoCep'}
+                style={styles.inputText}
+                type={'zip-code'}
+                options={{
+                  format: '99999-999'
+                }} />
+              </View>
+              <View style={styles.tamanhoFlex1}>
+
+              <TouchableOpacity onPress={this.props.onPress} >
+                <Icon name='search' size={30} />
+              </TouchableOpacity>
+              </View>
+            </View>              
 
             <View style={styles.containerFieldsHoriz}>
               <View style={styles.tamanhoFlex3}>
@@ -81,37 +94,7 @@ export default class EnderecoCobranca extends Component {
               </View>
               <View style={styles.tamanhoFlex1}>
                 <Text>UF: </Text>
-                <Picker
-                  selectedValue={this.state.language}
-                  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-                  <Picker.Item label="AC" value="AC" />
-                  <Picker.Item label="AL" value="AL" />
-                  <Picker.Item label="AP" value="AP" />
-                  <Picker.Item label="AM" value="AM" />
-                  <Picker.Item label="BA" value="BA" />
-                  <Picker.Item label="CE" value="CE" />
-                  <Picker.Item label="DF" value="DF" selectedValue />
-                  <Picker.Item label="ES" value="ES" />
-                  <Picker.Item label="GO" value="GO" />
-                  <Picker.Item label="MA" value="MA" />
-                  <Picker.Item label="MT" value="MT" />
-                  <Picker.Item label="MS" value="MS" />
-                  <Picker.Item label="MG" value="MG" />
-                  <Picker.Item label="PA" value="PA" />
-                  <Picker.Item label="PB" value="PB" />
-                  <Picker.Item label="PR" value="PR" />
-                  <Picker.Item label="PE" value="PE" />
-                  <Picker.Item label="PI" value="PI" />
-                  <Picker.Item label="RJ" value="RJ" />
-                  <Picker.Item label="RN" value="RN" />
-                  <Picker.Item label="RS" value="RS" />
-                  <Picker.Item label="RO" value="RO" />
-                  <Picker.Item label="RR" value="RR" />
-                  <Picker.Item label="SC" value="SC" />
-                  <Picker.Item label="SP" value="SP" />
-                  <Picker.Item label="SE" value="SE" />
-                  <Picker.Item label="TO" value="TO" />
-                </Picker>
+                <TextInput />
               </View>
 
             </View>
