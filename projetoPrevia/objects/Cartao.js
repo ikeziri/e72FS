@@ -1,28 +1,28 @@
 export class Cartao {
-    constructor(nome, numero, vencimentoCartao, cvv) {
-        this.nome = nome;
-        this.numero = numero;
-        this.vencimentoCartao = vencimentoCartao;
-        this.cvv = cvv;
-    }
-    setNome(nome) {
-        this.nome = nome;
-    }
-    setNumero(numero) {
-        this.numero = numero;
-    }
-    setVencimentoCartao(vencimentoCartao) {
-        this.vencimentoCartao = vencimentoCartao;
-    }
-    setCvv(cvv) {
-        this.cvv = cvv;
+    /**
+     * 
+     * @param {Number} number 
+     * @param {Number} verification_value 
+     * @param {String} first_name 
+     * @param {String} last_name 
+     * @param {Number} month 
+     * @param {Number} year 
+     */
+    constructor(number, verification_value, first_name, last_name, month, year) {
+        this.number = number;
+        this.verification_value = verification_value;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.month = month;
+        this.year = year;
     }
     toString() {
         return 'Cartao (' +
-            'nome: ' + this.nome + ', ' +
-            'numero: ' + this.numero + ', ' +
-            'vencimentoCartao: ' + this.vencimentoCartao + ', ' +
-            'cvv: ' + this.cvv + ')';
-
+            'number: ' + this.number + ', ' +
+            'verification_value: ' + this.verification_value + ', ' +
+            'first_name: ' + this.first_name + ', ' +
+            'last_name: ' + this.last_name + ', ' +
+            'month: ' + this.month + ', ' +
+            'year: ' + this.year + ')';
     }
 }

@@ -50,6 +50,7 @@ export default class EnderecoCobranca extends Component {
       endereco.numero = this.state.numero;
       endereco.complemento = this.state.complemento;
       await ApiDescomplica.cadastrarUsuario(cadastro , endereco);
+      await ApiDescomplica.autenticarUsuario(cadastro.email, cadastro.senha);
       this.props.navigator.push({
         screen: 'example.CadastroPagamento',
         title: 'Dados de Pagamento',

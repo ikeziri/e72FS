@@ -7,7 +7,7 @@ export class ApiDescomplica {
      * @tested 18-05-18
      */
     static autenticarUsuario = async (email, senha) => {
-        // console.log('autenticar usuario');
+        console.log('autenticar usuario');
         // console.log('email: ' + usuario.email);
         // console.log('senha: ' + usuario.senha);
         // console.log('crypt: ' + usuario.getSenhaCriptografada());
@@ -95,8 +95,8 @@ export class ApiDescomplica {
     }
     /**
      * @author Ikeziri
-     * @param {Cadastro}
-     * @see Cadastro
+     * @param {Cadastro , Endereco}
+     * @see Cadastro , Endereco
      */
     static cadastrarUsuario = async (cadastro , endereco) => {
         console.log('cadastrar usuario');
@@ -142,11 +142,53 @@ export class ApiDescomplica {
                 };
                 throw (mensagens);
             }
-            return responseJson.id;
+            return true;
         }
         console.log('??');
         console.log(JSON.stringify(response));
         mensagens.push(new MensagemTela('login', 'texto de cadastar usuario com falha', TipoMensagem.ERRO));
+        throw (mensagens);
+    }
+    /**
+     * @author Ikeziri
+     * @param {Cartao}
+     * @see Cartao
+     */
+    static cadastrarFormaPagamento = async (cartao) => {
+        console.log('cadastrar forma de pagamento');
+        try {
+            var response = await fetch(
+                'https://descomplica-restaurante.gladiumti.net.br/api/payment',
+                {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                        'usuLogin':  usuario.email,
+                        'senhamd5':  usuario.getSenhaCriptografada(),
+                    },
+                    body: JSON.stringify(cartao) ,
+                }
+            );
+        } catch (error) {
+            console.error('Erro ao adicionar forma de pagamento usuario: ' + error);
+        }
+        let mensagens = [];
+        if (response.ok) {
+            let responseJson = await response.json();
+            console.log(JSON.stringify(responseJson));
+            if (responseJson.message === "Validation Failed") {
+                let objeto = responseJson.errors;
+                for (propriedade in objeto) {
+                    mensagens.push(new MensagemTela(propriedade, objeto[propriedade][0], TipoMensagem.ERRO));
+                };
+                throw (mensagens);
+            }
+            return true;
+        }
+        console.log('??');
+        console.log(JSON.stringify(response));
+        mensagens.push(new MensagemTela('login', 'texto de adicionar forma de pagamento usuario com falha', TipoMensagem.ERRO));
         throw (mensagens);
     }
     /**
