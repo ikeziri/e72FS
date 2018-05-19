@@ -98,8 +98,23 @@ export class ApiDescomplica {
      * @param {Cadastro}
      * @see Cadastro
      */
-    static cadastrarUsuario = async (cadastro) => {
+    static cadastrarUsuario = async (cadastro , endereco) => {
         console.log('cadastrar usuario');
+        let apiData = {
+            nome: cadastro.nome ,
+            cpf: cadastro.cpf,
+            usuLogin: cadastro.email,
+            senha: cadastro.senha,
+            senha_confirma: cadastro.senha,
+            telefone: cadastro.telefone,
+            cep: endereco.cep ,
+            numero: endereco.numero,
+            logradouro: endereco.logradouro,
+            complemento: endereco.complemento,
+            bairro: endereco.bairro,
+            idMunicipio: endereco.idMunicipio,
+        }
+        console.log(JSON.stringify(apiData));
         try {
             var response = await fetch(
                 'https://descomplica-restaurante.gladiumti.net.br/api/user',
@@ -108,9 +123,9 @@ export class ApiDescomplica {
                     headers: {
                         Accept: 'application/json',
                         'Content-Type': 'application/json',
-                        'token-api': 'h8SYAKVXqI0jOgJ7iJTnQhByyQJijmuE',
+                        'token-api': 'c95b16697f2cccca220d4f06e1c922ac',
                     },
-                    body: JSON.stringify(cadastro),
+                    body: JSON.stringify(apiData) ,
                 }
             );
         } catch (error) {
@@ -119,6 +134,7 @@ export class ApiDescomplica {
         let mensagens = [];
         if (response.ok) {
             let responseJson = await response.json();
+            console.log(JSON.stringify(responseJson));
             if (responseJson.message === "Validation Failed") {
                 let objeto = responseJson.errors;
                 for (propriedade in objeto) {

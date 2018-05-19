@@ -21,7 +21,7 @@ import colors        from '../styles/colors';
 import ButtonSquare from '../components/ButtonSquare';
 import Toast, {DURATION} from 'react-native-easy-toast'
 import { ApiDescomplica } from '../services/app-services';
-import { endereco } from '../objects/app-objects';
+import {cadastro, endereco } from '../objects/app-objects';
 
 export default class EnderecoCobranca extends Component {
   constructor(props){
@@ -42,11 +42,27 @@ export default class EnderecoCobranca extends Component {
     
   }
 
-  onPressSalvar = () => {
-    this.props.navigator.push({
-      screen: 'example.CadastroPagamento',
-      title: 'Dados de Pagamento',
-    });
+  onPressSalvar = async () => {
+    try{
+      this.setState({ msg: [] });
+      this.setState({isLoading: true,});
+      endereco.logradouro = this.state.logradouro;
+      endereco.numero = this.state.numero;
+      endereco.complemento = this.state.complemento;
+      await ApiDescomplica.cadastrarUsuario(cadastro , endereco);
+      this.props.navigator.push({
+        screen: 'example.CadastroPagamento',
+        title: 'Dados de Pagamento',
+      }); 
+    } catch (msg) {
+      this.setState({ msg: msg });
+      console.log(msg);
+      this.setState({isLoading: false,});
+      msg.forEach(element => {
+        console.log('texto toast: ' + element.texto);
+        this.refs.toast.show(element.texto); 
+      });
+    }
   }
 
   onPressConsultarCep = async () => {   
